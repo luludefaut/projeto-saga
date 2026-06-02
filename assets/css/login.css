@@ -1,0 +1,193 @@
+:root {
+    --cor-azul-ciano: #BFCAD9;
+    --cor-azul-escuro: #2585D9;
+    --direcao-gradiente: to bottom;
+    --cor-azul-escuro2: #040446;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+input, textarea, select {
+  appearance: none; /* Remove estilos padrão do sistema operacional */
+  -webkit-appearance: none;
+  width: 100%; /* Facilita o controle via Grid/Flex */
+  border: 1px solid transparent; /* Base para bordas */
+  background-color: transparent;
+  outline: none;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background: linear-gradient(var(--direcao-gradiente), var(--cor-azul-ciano), var(--cor-azul-escuro));
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    font-family: sans-serif;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.logo-container {
+    height: 100px;
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.logo-img {
+    width: 350px;
+    height: auto;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.1));
+}
+
+.container {
+    display: flex;
+    background: rgba(255, 255, 255, 0.4);
+    width: 90vw;
+    max-width: 900px;
+    aspect-ratio: 16 / 10;
+    border-radius: 40px;
+    border: 1px solid white;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.lado-esquerdo {
+    flex: 1.2;
+    padding: 60px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    color: white;
+}
+
+.lado-esquerdo h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.lado-direito {
+    flex: 1;
+    background: white;
+    color: var(--cor-azul-escuro2);
+    border-radius: 40px 0 0 40px;
+    margin-left: -20px;
+    padding: 38px;
+    display: flex;
+    flex-direction: column;
+    z-index: 2;
+}
+
+.header-interno {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 30px;
+    gap: 20px;
+}
+
+.abas {
+    display: flex;
+    gap: 10px;
+}
+
+.aba-item {
+    font-weight: bold;
+    font-size: 0.85rem;
+    cursor: pointer;
+}
+
+#troca {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+#troca img {
+    width: 25px;
+    height: auto;
+}
+
+.formulario {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.campoInput {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.campoInput input {
+    padding: 2px;
+    border-bottom: 2px solid var(--cor-azul-escuro2);
+    font-size: 1rem;
+}
+
+.labelInput {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.lembreMe {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: 10px;
+    margin-right: 200px;
+}
+
+#lembreMe {
+    border: 2px solid var(--cor-azul-escuro2);
+    border-radius: 4px;
+    height: 20px;
+    width: 20px;
+    margin-right: 5px;
+    cursor: pointer;
+    transition: 300ms ease;
+}
+
+#lembreMe:checked {
+    background-color: var(--cor-azul-escuro2);
+}
+
+.btnLogin {
+    margin-top: 20px;
+    width: 70%;
+    padding: 10px;
+    background-color: var(--cor-azul-escuro2);
+    color: white;
+    border: none;
+    border-radius: 40px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: 300ms ease;
+}
