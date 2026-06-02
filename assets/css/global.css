@@ -1,0 +1,117 @@
+/* Configurações Iniciais do Ambiente */
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+root {
+    --cor-gradient1: #BFCAD9;
+    --cor-gradient2: #2585D9;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+body {
+    font-family: "Poppins", Arial, Helvetica, sans-serif;
+    background: linear-gradient(180deg, #BFCAD9, #2585D9);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+/* Configuração do Header Principal */
+
+header {
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    height: 100px;
+    box-shadow: 4px 8px 12px rgba(0, 0, 0, 0.2);;
+}
+#logo-principal{
+    width: 200px;
+}
+
+.icone-perfil {
+    position: absolute;
+    top: 16px;
+    right: 50px;
+    transition: transform 200ms linear;
+}
+
+#icone-usuario{
+    width: 70px;
+}
+
+/* Configurações do Side bar (Início) */
+
+nav {
+    background-color: #1F3A5F;
+    flex: 1;
+    width: 210px;
+    height: 100%;
+}
+
+#nav-container-section {
+    margin: 65px 25px 0 0;
+}
+
+#nav-container-section section {
+    margin-bottom: 36px;
+    transition: transform 200ms linear;
+}
+
+#nav-container-section section:hover, .icone-perfil:hover {
+    transform: scale(1.05);
+}
+
+#nav-container-section section a {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 11px;
+
+    font-weight: bold;
+    margin-left: 12px;
+}
+
+#nav-container-section section a h2 {
+    font-size: 12px;
+}
+
+#nav-container-section .active {
+    background-color: #396297;
+    border-radius: 0 10px 10px 0;
+    padding: 7px 0;
+
+    animation: activeFlow 1s cubic-bezier(0.1, 0.8, 0.3, 1);
+}
+
+/* Configurações do Side bar (Final) */
+
+@keyframes activeFlow { /* animação dos actives flows*/
+   
+    from {
+        opacity: 0;
+        transform: translateX(-15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+}
