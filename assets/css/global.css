@@ -1,12 +1,14 @@
 /* Configurações Iniciais do Ambiente */
 
+/* O B S E R V A Ç Õ E S */
+/* N Ã O   A L T E R A R   E S S A S   C O N F I G U R A Ç Õ E S */
+
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 root {
     --cor-gradient1: #BFCAD9;
     --cor-gradient2: #2585D9;
 }
-
 
 * {
     margin: 0;
@@ -25,22 +27,28 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
 
-    display: flex;
-    flex-direction: column;
     height: 100vh;
+
+    display: grid; /* Define o display grid */
+    grid-template-columns: 210px 1fr; /* define as colunas do site */
+    grid-template-rows: 100px 1fr; /* define as linhas do site */
+
+    grid-template-areas: "header header" "sidebar main"; /* cria as "peças do quebra-cabeça" e monta elas depois */
 }
 
 /* Configuração do Header Principal */
 
 header {
+    grid-area: header; /* montamos o header no seu lugar, ocupando as 2 colunas */
+
     display:flex;
-    flex-direction: row;
     align-items: center;
     justify-content: center;
+    
     background-color: white;
-    height: 100px;
     box-shadow: 4px 8px 12px rgba(0, 0, 0, 0.2);;
 }
+
 #logo-principal{
     width: 200px;
 }
@@ -59,10 +67,8 @@ header {
 /* Configurações do Side bar (Início) */
 
 nav {
+    grid-area: sidebar; /* montamos o sidebar no seu lugar */
     background-color: #1F3A5F;
-    flex: 1;
-    width: 210px;
-    height: 100%;
 }
 
 #nav-container-section {
@@ -114,4 +120,9 @@ nav {
         transform: translateX(0);
     }
 
+}
+
+main {
+    grid-area: main; /* montamos a main no seu lugar */
+    overflow-y: auto; /* permitimos a rolagem se o conteúdo crescer */
 }
