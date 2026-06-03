@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -20,18 +20,6 @@
 
       <section class="full-container">
         <!---Área contendo a caixa inteira de login-->
-        <h1 class="logintitle">Login</h1>
-
-        <button id="troca">
-          <!-- Botão para trocar de tema entre modo claro e modo escuro -->
-          <img src="assets/icons/darkmode-moon-icon.svg" alt="Trocar Tema" />
-        </button>
-
-        <img
-          src="assets/icons/usuario-icon.svg"
-          alt="ícone de perfil"
-          class="perfil"
-        />
 
         <div class="glass-esquerda">
           <!--lado esquerdo da caixa, contendo uma breve introdução do site (puramente estético)-->
@@ -42,36 +30,61 @@
           </p>
         </div>
 
-        <div class="login-direito">
+        <form class="login-direito">
           <!-- lado direito da caixa com os dados a serem inseridos -->
 
+          <div class="logintop">
+            <h1 class="logintitle">Login</h1>
+
+            <button id="troca">
+              <!-- Botão para trocar de tema entre modo claro e modo escuro -->
+              <img
+                src="assets/icons/darkmode-moon-icon.svg"
+                alt="Trocar Tema"
+              />
+            </button>
+          </div>
+          <!--fim da div logintop-->
+
           <img
-            src="assets/icons/login-email-icon.svg"
-            alt="Ícone de email"
-            class="input-icon"
+            src="assets/icons/usuario-icon.svg"
+            alt="ícone de perfil"
+            class="perfil"
           />
 
-          <input type="email" id="email" placeholder="E-mail" />
-          <!--Área do e-mail-->
-          <img
-            src="assets/icons/login-padlock-icon.svg"
-            alt="Ícone de senha"
-            class="input-icon"
-          />
+          <div class="areaemail">
+            <!--Área do e-mail-->
+            <img
+              src="assets/icons/login-email-icon.svg"
+              alt="Ícone de email"
+              class="input-icon"
+            />
 
-          <input type="password" id="senha" placeholder="Senha" />
-          <!--Área da senha, com opção de invisibilidade-->
-        </div>
-        <!--Fim da div-->
+            <input type="email" id="email" placeholder="E-mail" />
+          </div>
 
-        <div class="lembrarsenha">
-          <!--Checkbox para lembrar a senha do usuário para evitar a reinserção da mesma -->
-          <input type="checkbox" id="lembreMe" />
-          <label for="lembreMe">Lembre-me</label>
-        </div>
-        <!--fim da div-->
+          <div class="areasenha">
+            <img
+              src="assets/icons/login-padlock-icon.svg"
+              alt="Ícone de senha"
+              class="input-icon"
+            />
 
-        <button class="loginbtn">Login</button>
+            <input type="password" id="senha" placeholder="Senha" />
+            <!--Área da senha, com opção de invisibilidade-->
+          </div>
+          <!--fim da div areasenha-->
+
+          <div class="lembrarsenha">
+            <!--Checkbox para lembrar a senha do usuário para evitar a reinserção da mesma -->
+            <input type="checkbox" id="lembreMe" />
+            <label for="lembreMe">Lembre-me</label>
+          </div>
+          <!--fim da div lembrarsenha-->
+
+          <button class="loginbtn">Login</button>
+        </form>
+        <!--Fim da form logindireito -->
       </section>
     </main>
   </body>
