@@ -154,7 +154,7 @@
     margin-bottom: 10px;
   }
   
-  /* Coluna 2: Caixa branca */
+  /* Coluna 2: caixa branca */
   .cadastro-direito {
     grid-column: 2;
     background: white;
