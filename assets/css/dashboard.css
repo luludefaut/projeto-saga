@@ -1,0 +1,12 @@
+.headerDashboard {
+    width: 100%;
+    height: 160px;
+    flex-direction: column;
+    background-color: transparent;
+    box-shadow: 0px 0px 0px transparent;
+    gap: 5px;
+}
+
+.headerDashboard img {
+    filter: invert(1);
+}
