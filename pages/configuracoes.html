@@ -67,103 +67,109 @@
 
     <main>
         <header class="header-main-configuracoes">
-            <img src="../assets/icons/global-configuracoes-icon.svg" alt="configurações">
-            <h2>Configurações</h2>
+            <section class="header-section-configuracoes">
+                <img src="../assets/icons/global-configuracoes-black-icon.svg" alt="ícone de configurações">
+                <h2>Configurações</h2>
+            </section>
         </header>
 
         <article class="secao-main-configuracoes">
+    
+                <section class="secao-seuPerfil">
+    
+                    <h2>Seu Perfil</h2>
+    
+                    <section class="secao-container-seuPerfil">
 
-            <section class="secao-seuPerfil">
+                        <div class="group-seuPerfil">
+                            <h3>NOME COMPLETO</h3>
+                            <span id="infoPerfil-nome">nome teste</span>
+                        </div>
 
-                <h2>Seu Perfil</h2>
+                        <div class="group-seuPerfil">
+                            <h3>E-MAIL INSTITUCIONAL</h3>
+                            <span id="infoPerfil-email">nome teste</span>
+                        </div>
 
-                <section class="secao-container-seuPerfil">
-                    <div class="group-seuPerfil">
-                        <h3>NOME COMPLETO</h3>
-                        <span>nome teste</span>
-                    </div>
-                    <div class="group-seuPerfil">
-                        <h3>E-MAIL INSTITUCIONAL</h3>
-                        <span>nome teste</span>
-                    </div>
-                    <div class="group-seuPerfil">
-                        <h3>CARGO/FUNÇÃO</h3>
-                        <span>nome teste</span>
-                    </div>
+                        <div class="group-seuPerfil">
+                            <h3>CARGO/FUNÇÃO</h3>
+                            <span id="infoPerfil-funcao">nome teste</span>
+                        </div>
+
+                    </section>
+    
                 </section>
-
-            </section>
-
-            <section class="secao-acessibilidade">
-
-                <h2>Acessibilidade</h2>
-
-                <section class="secao-container-acessibilidade">
-                    <div class="group-onOFF">
-                        <h3>Audiodescrição</h3>
-                        <span>nome teste</span>
-                    </div>
-                    <div class="group-onOFF">
-                        <h3>Contraste de cores</h3>
-                        <span>nome teste</span>
-                    </div>
-                    <div class="group-onOFF">
-                        <h3>Modo claro e escuro</h3>
-                        <span>nome teste</span>
-                    </div>
-
-                    <div class="group-fontePlus">
-                        <h3>Aumentar Fonte</h3>
-
-                        <div class="btn-plus">
-                            <button type="button" id="btn-mais">
-                                <img src="#" alt="botão de aumentar a fonte">
-                            </button>
-
-                            <button type="button" id="btn-menos">
-                                <img src="#" alt="botão de diminuir a fonte">
+    
+                <section class="secao-acessibilidade">
+    
+                    <h2>Acessibilidade</h2>
+    
+                    <section class="secao-container-acessibilidade">
+                        <div class="group-onOFF">
+                            <h3>Audiodescrição</h3>
+                            <span>nome teste</span>
+                        </div>
+                        <div class="group-onOFF">
+                            <h3>Contraste de cores</h3>
+                            <span>nome teste</span>
+                        </div>
+                        <div class="group-onOFF">
+                            <h3>Modo claro e escuro</h3>
+                            <span>nome teste</span>
+                        </div>
+    
+                        <div class="group-fontePlus">
+                            <h3>Aumentar Fonte</h3>
+    
+                            <div class="btn-plus">
+                                <button type="button" id="btn-mais">
+                                    <img src="#" alt="botão de aumentar a fonte">
+                                </button>
+    
+                                <button type="button" id="btn-menos">
+                                    <img src="#" alt="botão de diminuir a fonte">
+                                </button>
+                            </div>
+                        </div>
+                    </section>
+    
+                </section>
+    
+                <section class="secao-faleConosco">
+    
+                    <h2>Fale Conosco</h2>
+    
+                    <section class="secao-container-faleConosco">
+                        <p>Fale com a equipe SAGA através deste e-mail. Copie o endereço e cole na caixa de entrada.</p>
+    
+                        <div class="group-faleConosco">
+                            <p id="emailSAGA">email teste</p>
+                            <div class="img-ajuste-copy">
+                                <img src="../assets/icons/btn-copy.svg" alt="botão de copiar e-mail" id="btn-copy">
+                            </div>
+                        </div>
+                        <p id="msgSucesso"></p>
+                    </section>
+    
+                </section>
+    
+                <section class="secao-cadastroUsuario">
+    
+                    <h2>Cadastrar Usuário</h2>
+    
+                    <section class="secao-container-cadastroUsuario">
+                        <div class="group-cadastro">
+                            <p>Cadastrar Novo Usuário</p>
+                            <button type="button">
+                                <a href="#">
+                                    <img src="#" alt="botão de copiar e-mail">
+                                </a>
                             </button>
                         </div>
-                    </div>
+                    </section>
+    
                 </section>
-
-            </section>
-
-            <section class="secao-faleConosco">
-
-                <h2>Fale Conosco</h2>
-
-                <section class="secao-container-faleConosco">
-                    <p>Fale com a equipe SAGA através deste e-mail. Copie o endereço e cole na caixa de entrada.</p>
-
-                    <div class="group-faleConosco">
-                        <p id="emailSAGA">email teste</p>
-                        <button type="button">
-                            <img src="#" alt="botão de copiar e-mail">
-                        </button>
-                        <p id="msgSucesso"></p>
-                    </div>
-                </section>
-
-            </section>
-
-            <section class="secao-cadastroUsuario">
-
-                <h2>Cadastrar Usuário</h2>
-
-                <section class="secao-container-cadastroUsuario">
-                    <div class="group-cadastro">
-                        <p>Cadastrar Novo Usuário</p>
-                        <button type="button">
-                            <a href="#">
-                                <img src="#" alt="botão de copiar e-mail">
-                            </a>
-                        </button>
-                    </div>
-                </section>
-
-            </section>
-
+    
         </article>
         
     </main>
