@@ -1,0 +1,229 @@
+:root {
+  --cor-azul-ciano: #bfcad9;
+  --cor-azul-escuro: #2585d9;
+  --direcao-gradiente: to bottom;
+  --cor-azul-escuro2: #040446;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+input,
+textarea,
+select {
+  appearance: none;
+  /* Remove estilos padrão do sistema operacional */
+  -webkit-appearance: none;
+  width: 100%;
+  /* Facilita o controle via Grid/Flex */
+  border: 1px solid transparent;
+  /* Base para bordas */
+  background-color: transparent;
+  outline: none;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(180deg, var(--cor-azul-ciano), var(--cor-azul-escuro));
+  box-sizing: border-box;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  font-family: sans-serif;
+}
+
+:root {
+  --cor-azul-ciano: #bfcad9;
+  --cor-azul-escuro: #2585d9;
+  --direcao-gradiente: to bottom;
+  --cor-azul-escuro2: #040446;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+input,
+textarea,
+select {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 100%;
+  border: 1px solid transparent;
+  background-color: transparent;
+  outline: none;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  font-family: sans-serif;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.logo-saga {
+  height: 100px;
+  margin-bottom: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo-img {
+  width: 350px;
+  height: auto;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.1));
+}
+
+.logo-saga,
+#troca img {
+  display: flex;
+}
+
+/* Transformado em Grid para controlar os elementos soltos na coluna direita */
+.full-container {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  /* Coluna esquerda e Coluna direita */
+  background: rgba(255, 255, 255, 0.4);
+  width: 90vw;
+  max-width: 900px;
+  aspect-ratio: 16 / 10;
+  border-radius: 40px;
+  border: 1px solid white;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  overflow: visible;
+  margin-top: 40px;
+}
+
+/* Coluna 1: Vidro na esquerda */
+.glass-esquerda {
+  grid-column: 1;
+  padding: 60px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  color: white;
+}
+
+.glass-esquerda h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.cadastrotop {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+/* Coluna 2: caixa branca */
+.cadastro-direito {
+  grid-column: 2;
+  background: white;
+  color: var(--cor-azul-escuro2);
+  border-radius: 40px;
+  padding: 40px;
+  padding-top: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  z-index: 2;
+  position: relative;
+}
+
+#troca {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: grid;
+}
+
+#troca img {
+  width: 22px;
+  height: auto;
+}
+
+
+.cadastro-direito input {
+  padding: 6px 2px;
+  font-size: 1rem;
+  width: 100%;
+}
+
+/*Deixando o ícone e o texto lado a lado*/
+.input-icon,
+.areaemail,
+.areasenha,
+.areanome,
+.areafuncao {
+  display: flex;
+  flex-direction: row;
+}
+
+
+.areaemail,
+.areasenha,
+.areanome,
+.areafuncao {
+  border-bottom: 2px solid var(--cor-azul-escuro2);
+  padding-bottom: 20px;
+}
+
+.areanome img {
+  width: 20px;
+}
+
+.areafuncao img {
+  width: 27px;
+}
+
+.cadastrobtn {
+  grid-column: 2;
+  justify-self: center;
+  margin-top: 15px;
+  width: 70%;
+  padding: 12px;
+  background-color: var(--cor-azul-escuro2);
+  color: white;
+  border: none;
+  border-radius: 40px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: 300ms ease;
+  z-index: 3;
+}

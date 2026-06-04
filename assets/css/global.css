@@ -38,7 +38,7 @@ body {
 
 /* Configuração do Header Principal */
 
-header {
+.header-global-configuration {
     grid-area: header; /* montamos o header no seu lugar, ocupando as 2 colunas */
 
     display:flex;
