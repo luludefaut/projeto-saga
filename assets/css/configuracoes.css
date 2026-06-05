@@ -78,6 +78,76 @@
     height: 100%;
 }
 
+.secao-container-acessibilidade {
+    display: flex;
+    gap: 40px;
+}
+
+.group-onOFF, .group-fontePlus {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.group-onOFF h3, .group-fontePlus h3 {
+    color: #00378E;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+#btn-mais img, #btn-menos img, #btn-mais, #btn-menos {
+    background-color: transparent;
+    border: none;
+    height: 40px;
+    cursor: pointer;
+}
+
+/* Esconde o checkbox padrão */
+.switch input {
+  display: none;
+}
+
+/* Define o tamanho e o formato do botão (trilho) */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 30px;
+}
+
+/* Estiliza o fundo do botão */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: gray;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+
+/* Cria o botão circular (bolinha) */
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 22px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+/* Muda a cor de fundo quando o botão é ativado */
+input:checked + .slider {
+  background-color: #0088FF;
+}
+
+/* Move a bolinha para a direita quando ativado */
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
 .secao-faleConosco {
     width: 350px;
     height: 100%;
@@ -119,6 +189,20 @@
 }
 
 .secao-cadastroUsuario {
-    width: 350px;
+    width: 400px;
     height: 100%;
+}
+
+.secao-container-cadastroUsuario {
+    padding: 20px !important;
+}
+
+.group-cadastro {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    color: #00378E;
+    font-size: 20px;
+    font-weight: bold;
 }
