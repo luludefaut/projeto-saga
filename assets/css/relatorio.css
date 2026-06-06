@@ -1,0 +1,224 @@
+/* ====================================================
+   ESTILIZAÇÃO GERAL DOS MODAIS (DIALOG)
+   ==================================================== */
+dialog.modal-saga {
+    border: none;
+    border-radius: 24px;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3);
+    padding: 0;
+    background-color: #f0f4f9; /* Fundo cinza claro dos modais */
+    font-family: sans-serif;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+}
+
+/* Escurecimento e desfoque do fundo da página */
+dialog.modal-saga::backdrop {
+    background: rgba(24, 43, 73, 0.5);
+    backdrop-filter: blur(4px);
+}
+
+/* Tamanho específico de cada tipo de modal */
+.modal-selecao {
+    width: 400px;
+}
+
+.modal-formulario {
+    width: 85%;
+    max-width: 900px;
+    background-color: #d1dfef; /* Cor interna azul-acinzentada do protótipo */
+}
+
+/* Headers dos Modais */
+.modal-header, .modal-header-form {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 24px;
+    border-bottom: 1px solid #b4c7dc;
+    color: #1e3a60;
+}
+
+.modal-header h2, .modal-header-form h2 {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    flex-grow: 1;
+    text-align: center;
+}
+
+/* Botões de Ação do Header (Fechar e Voltar) */
+.btn-close, .btn-back {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #1e3a60;
+    cursor: pointer;
+    padding: 5px;
+    transition: opacity 0.2s;
+}
+
+.btn-close:hover, .btn-back:hover {
+    opacity: 0.7;
+}
+
+/* ====================================================
+   MODAL 1: BOTÕES DE SELEÇÃO
+   ==================================================== */
+.modal-body-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 32px 40px;
+}
+
+.btn-modal-option {
+    border: none;
+    border-radius: 20px;
+    padding: 14px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    transition: transform 0.1s, filter 0.2s;
+}
+
+.btn-modal-option:hover {
+    filter: brightness(1.1);
+}
+
+.btn-modal-option:active {
+    transform: scale(0.98);
+}
+
+.btn-blue-dark {
+    background-color: #1a499c;
+}
+
+.btn-blue-light {
+    background-color: #2196f3;
+}
+
+/* ====================================================
+   ESTILIZAÇÃO DOS FORMULÁRIOS (MODAIS 2 E 3)
+   ==================================================== */
+.form-grid {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* Linhas de filtros */
+.form-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    row-gap: 16px;
+}
+
+/* Divisores horizontais sutis entre blocos */
+.form-divider {
+    border: none;
+    border-top: 1px solid #b4c7dc;
+    margin: 8px 0;
+    width: 100%;
+}
+
+/* Estilo padrão de Inputs e Selects (Azul claro arredondado) */
+.form-grid select, 
+.form-grid input[type="text"] {
+    background-color: #92bce9;
+    border: 1px solid #7ea7d3;
+    border-radius: 18px;
+    color: #1a4275;
+    font-weight: bold;
+    font-size: 0.85rem;
+    padding: 10px 16px;
+    text-align: center;
+    min-width: 130px;
+    outline: none;
+    box-sizing: border-box;
+}
+
+/* Customização do visual interno do Select */
+.form-grid select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml;utf8,<svg fill='%231a4275' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    padding-right: 32px;
+    text-align-last: center; /* Centraliza o texto no Chrome/Safari */
+}
+
+.form-grid input::placeholder {
+    color: #1a4275;
+    opacity: 0.8;
+}
+
+/* Campos de texto menores para textos muito grandes (ex: data do encerramento) */
+.placeholder-small {
+    font-size: 0.75rem !important;
+}
+
+/* Textareas (Tratativa NEP e Descrição) */
+.form-textareas {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.input-container {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.input-container label {
+    font-size: 0.85rem;
+    font-weight: bold;
+    color: #1a4275;
+    padding-left: 8px;
+}
+
+.form-grid textarea {
+    background-color: #92bce9;
+    border: 1px solid #7ea7d3;
+    border-radius: 18px;
+    padding: 12px;
+    min-height: 100px;
+    resize: none;
+    outline: none;
+    color: #1a4275;
+    font-family: sans-serif;
+    font-size: 0.9rem;
+}
+
+/* Botão Salvar Atendimento */
+.btn-submit-atendimento {
+    background-color: #1a499c;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 14px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    align-self: center;
+    width: 100%;
+    max-width: 400px;
+    margin-top: 12px;
+    transition: background-color 0.2s;
+}
+
+.btn-submit-atendimento:hover {
+    background-color: #133775;
+}
