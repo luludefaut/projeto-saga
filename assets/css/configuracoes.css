@@ -83,23 +83,16 @@
     gap: 40px;
 }
 
-.group-onOFF, .group-fontePlus {
+.group-onOFF {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-.group-onOFF h3, .group-fontePlus h3 {
+.group-onOFF h3 {
     color: #00378E;
     font-size: 20px;
     font-weight: 600;
-}
-
-#btn-mais img, #btn-menos img, #btn-mais, #btn-menos {
-    background-color: transparent;
-    border: none;
-    height: 40px;
-    cursor: pointer;
 }
 
 /* Esconde o checkbox padrão */
