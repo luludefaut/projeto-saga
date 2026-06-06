@@ -1,0 +1,95 @@
+    .chat {
+        flex: 1;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        grid-area: main; 
+        box-sizing: border-box;
+    }
+    
+    #frontalmenuelemchat {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        max-width: 650px;
+        width: 100%;
+    }
+    
+    .titulo-historico {
+        font-size: 15px;
+        color: #1F3A5F;
+        font-weight: 500;
+        line-height: 1.4;
+        text-align: right;
+    }
+    
+    #icone-centro-chat {
+        filter: invert(100%);
+    }
+    
+    #bodychat {
+        font-family: "Poppins", Arial, Helvetica, sans-serif;
+        background: linear-gradient(180deg, #BFCAD9, #2585D9);
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        height: 100vh;
+        display: grid;
+        /* Define o display grid */
+        grid-template-columns: 210px 1fr;
+        /* define as colunas do site */
+        grid-template-rows: 100px 1fr;
+        /* define as linhas do site */
+        grid-template-areas: "header header" "sidebar main";
+        /* cria as "peças do quebra-cabeça" e monta elas depois */
+    }
+    /* --- Nova Tela de Erro--- */
+    
+    .erro-basico-container {
+        background-color: black;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        width: 100%;
+        height: 100%;
+        font-family: "Poppins", Arial, sans-serif;
+    }
+    /* Tamanho e cor do emoji triste */
+    
+    .erro-basico-container .erro-emoji {
+        font-size: 80px;
+        color: #ffffff;
+        margin-bottom: 20px;
+        line-height: 1;
+    }
+    /* Texto principal branco e em negrito */
+    
+    .erro-basico-container h2 {
+        color: #ffffff;
+        font-size: 22px;
+        font-weight: 600;
+        margin-bottom: 15px;
+        max-width: 500px;
+    }
+    /* Link para o Premium */
+    
+    .erro-basico-container .btn-premium {
+        color: #ffffff;
+        font-size: 18px;
+        font-weight: 500;
+        text-decoration: underline;
+        /* Deixa grifado */
+        background: none;
+        border: none;
+        cursor: pointer;
+        transition: opacity 0.2s;
+    }
+    
+    .erro-basico-container .btn-premium:hover {
+        opacity: 0.8;
+        /* Efeito simples */
+    }
