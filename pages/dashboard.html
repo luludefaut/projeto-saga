@@ -7,6 +7,7 @@
     <link rel="shortcut icon" type="image/png" href="assets/icons/logo-saga-blue.svg">
     <link rel="stylesheet" href="../assets/css/global.css">
     <link rel="stylesheet" href="../assets/css/dashboard.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <!--header para a organização da tela inicial globa-->
@@ -127,17 +128,21 @@
                 </div>
             </section>
             <section class="graficos">
-                <div class="grafico">
-                    <h4>js AOHDOQIFHWE</h4>
-                    <p>Aadsahfiuswgfewr</p>
+            <div class="grafico">
+                <h4>Relatórios Elaborados</h4>
+                <div class="canvas-container">
+                    <canvas id="graficoRelatorios"></canvas>
                 </div>
-                <div class="grafico">
-                    <h4>javascript uhuulll!!</h4>
-                    <p>Aasdadasda</p>
+            </div>
+            <div class="grafico">
+                <h4>Cursos com Mais Relatórios</h4>
+                <div class="canvas-container">
+                     <canvas id="graficoCursos"></canvas>
                 </div>
+            </div>
             </section>
         </section>
     </main>
-
 </body>
+<script src="../assets/javascript/dashboard.js"></script>
 </html>
