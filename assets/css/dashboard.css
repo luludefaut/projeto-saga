@@ -1,12 +1,127 @@
-.headerDashboard {
-    width: 100%;
-    height: 160px;
+header {
+    grid-area: header; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    box-shadow: 4px 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+main {
+    grid-area: main;
+    display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.headerDashboard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 25px 50px;
     background-color: transparent;
-    box-shadow: 0px 0px 0px transparent;
-    gap: 5px;
+    box-shadow: 4px 8px 12px TRANSPARENT;
+}
+
+.headerContainer {
+    box-shadow: none;
+    font-size: 24px;
 }
 
 .headerDashboard img {
-    filter: invert(1);
+    width: 70px;
+    filter: invert(100%)
+}
+
+.separador {
+    width: 100%;
+    height: 2px;
+    background-color: #ffffffa6;
+}
+
+.separadorContainer {
+    width: 100%;
+    height: 2px;
+    background-color: #50505093;
+    margin: 15px 0;
+}
+
+.dashboardContainer {
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    width: 97%;
+    height: 600px;
+    padding: 25px 0;
+    border-radius: 25px;
+}
+
+.filtros {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 100px;
+    background-color: transparent;
+    margin-bottom: 15px;
+}
+
+.filtro {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-size: 16px;
+}
+
+.dadosDashboard {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: row;
+    width: 760px;
+    height: 80px;
+    border-radius: 10px;
+    border: 2px solid #000000;
+    margin-bottom: 15px;
+}
+
+.dado {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    border-right: 2px solid #000000;
+}
+
+#concluido {
+    border-right: 0px solid transparent;
+}
+
+.graficos {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 90%;
+    height: 250px;
+    gap: 30px;
+}
+
+.grafico {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    height: 250px;
+    border-radius: 10px;
+    border: 2px solid #000000;
 }
