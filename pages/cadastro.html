@@ -1,104 +1,93 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SAGA | Cadastro</title>
-    <link rel="stylesheet" href="../assets/css/cadastro.css" />
-  </head>
 
-  <body>
-    <main>
-      <header class="logo-saga">
-        <img
-          src="../assets/icons/logo-saga-blue.svg"
-          alt="Logo SAGA"
-          class="logo-img"
-        />
-      </header>
-      <!--fim fo cabeçalho-->
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SAGA | Cadastro</title>
+  <link rel="stylesheet" href="../assets/css/cadastro.css" />
+</head>
 
-      <section class="full-container">
-        <!---Área contendo a caixa inteira de login-->
+<body>
 
-        <div class="glass-esquerda">
-          <!--lado esquerdo da caixa, contendo uma breve introdução do site (puramente estético)-->
-          <h2>BEM VINDO AO SAGA</h2>
-          <p>
-            Abaca ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor.
-          </p>
+  <main>
+
+    <header class="logo-saga">
+      <img src="../assets/icons/logo-saga-login-blue.png" alt="Logo SAGA" class="logo-img">
+    </header>
+    <!--fim fo cabeçalho-->
+
+    <section class="full-container">
+      <!---Área contendo a caixa inteira de login-->
+
+      <div class="glass-esquerda">
+        <!--lado esquerdo da caixa, contendo uma breve introdução do site (puramente estético)-->
+        <h2>BEM VINDO AO SAGA</h2>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deleniti laboriosam labore, delectus eveniet id non. Minus incidunt quibusdam itaque, nulla consequuntur officiis totam a libero praesentium maiores quia maxime ducimus.</p>
+      </div>
+
+      <section class="cadastro-direito">
+
+        <div class="cadastrotop">
+          <h1 class="cadastrotitle">Cadastre-se</h1>
+          <button id="troca">
+            <!-- Botão para trocar de tema entre modo claro e modo escuro -->
+            <img src="../assets/icons/darkmode-moon-icon.svg" alt="Trocar Tema">
+          </button>
         </div>
 
-        <form class="cadastro-direito">
+        <form id="areaform">
           <!-- lado direito da caixa com os dados a serem inseridos -->
-
-          <div class="cadastrotop">
-            <h1 class="cadastrotitle">Cadastre-se</h1>
-
-            <button id="troca">
-              <!-- Botão para trocar de tema entre modo claro e modo escuro -->
-              <img
-                src="../assets/icons/darkmode-moon-icon.svg"
-                alt="Trocar Tema"
-              />
-            </button>
-          </div>
           <!--fim da div logintop-->
+          <section class="areaemail">
+            <div class="groupGeral">
+              <!--Área do e-mail-->
+              <img src="../assets/icons/login-email-icon.svg" alt="Ícone de email" class="input-icon">
+              <input type="email" id="email" placeholder="E-mail">
+            </div>
+            <p id="alertaEmail"></p>
+          </section>
 
-          <div class="areaemail">
-            <!--Área do e-mail-->
-            <img
-              src="../assets/icons/login-email-icon.svg"
-              alt="Ícone de email"
-              class="input-icon"
-            />
-
-            <input type="email" id="email" placeholder="E-mail" />
-          </div>
           <!--fim da div areaemail-->
-
-          <div class="areasenha">
-            <img
-              src="../assets/icons/login-padlock-icon.svg"
-              alt="Ícone de senha"
-              class="input-icon"
-            />
-
-            <input type="password" id="senha" placeholder="Senha" />
-            <!--Área da senha, com opção de invisibilidade-->
-          </div>
+          <section class="areasenha">
+            <div class="groupGeral">
+              <img src="../assets/icons/login-padlock-icon.svg" alt="Ícone de senha" class="input-icon">
+              <input type="password" id="senha" placeholder="Senha">
+              <!--Área da senha, com opção de invisibilidade-->
+            </div>
+            <p id="alertaSenha"></p>
+          </section>
           <!--fim da div areasenha-->
 
-          <div class="areanome">
-            <img
-              src="../assets/icons/usuariosemfundo-icon.svg"
-              alt="Ícone de perfil"
-              class="input-icon"
-            />
-
-            <input type="text" id="nome" placeholder="Nome Completo" />
-            <!--Input do tipo texto-->
-          </div>
+          <section class="areanome">
+            <div class="groupGeral">
+              <img src="../assets/icons/usuariosemfundo2-icon.svg" alt="Ícone de perfil" class="input-icon">
+              <input type="text" id="nome" placeholder="Nome Completo">
+              <!--Input do tipo texto-->
+            </div>
+            <p id="alertaNome"></p>
+          </section>
           <!--fim da div areanome-->
 
-          <div class="areafuncao">
-            <img
-              src="../assets/icons/icon-maleta.svg"
-              alt="Ícone de maleta"
-              class="input-icon"
-            />
+          <section class="areafuncao">
+            <div class="groupGeral">
+              <img src="../assets/icons/icon-maleta.svg" alt="Ícone de maleta" class="input-icon">
+              <input type="text" id="funcao" placeholder="Função">
+              <!--Input do tipo texto-->
+            </div>
+            <p id="alertaFuncao"></p>
+          </section>
 
-            <input type="text" id="funcao" placeholder="Função" />
-            <!--Input do tipo texto-->
-          </div>
           <!--fim da div areafuncao-->
-
-          <button class="cadastrobtn">Cadastro</button>
+          <button id="cadastrobtn">Cadastro</button>
         </form>
         <!--Fim da form logindireito -->
       </section>
-    </main>
-  </body>
-</html>
 
+    </section>
+
+  </main>
+
+  <script src="../assets/javascript/cadastro.js"></script>
+</body>
+</html>

@@ -66,7 +66,148 @@
     </nav>
 
     <main>
-        <h1>teste main</h1>
+        
+
+    <!--------------------------------------- Á R E A     M A I N -------------------------------------------------------------------------->
+    
+    
+    <main><!--Onde vai conter os botões e os modais-->
+    <div class="main-header">
+        <button id="btnNovoRelatorio" class="editar-icon">
+            <img src="../assets/icons/editar-icon.svg" alt="Ícone de editar">
+            <span>Novo Relatório</span>
+        </button>
+    </div>
+
+    <div class="empty-state-container">
+        <div class="empty-state-content">
+            <img src="../assets/icons/relatorio-icon.svg" alt="Ícone de Relatório" class="relatorio-icon">
+            <h1>Relatório</h1>
+        </div>
+        <div class="alert-box">
+            <img src="../assets/icons/alert-icon.svg" alt="Aviso">
+            <p>Sem relatórios por enquanto</p>
+        </div>
+    </div>
+
+    <dialog id="modalTipoRelatorio" class="modal-form">
+        <div class="modal-header">
+            <h2>Tipo de Relatório</h2>
+            <button class="btn-fechar" onclick="this.closest('dialog').close()">&times;</button>
+        </div>
+        <div class="modal-buttons">
+            <button id="btnAtendGeral" class="modal-btndarkblue">Atend. Geral</button>
+            <button id="btnAcompPsic" class="modal-btnlightblue">Acomp. Psicológico</button>
+        </div>
+    </dialog>
+ <!-----------------------------------2°MODAL: ATENDIMENTO GERAL----------------------------------------------------------->
+    <dialog id="modalAtendGeral" class="modal-form">
+        <div class="modal-header-form">
+            <button class="btn-back" id="btnVoltarAtend">&larr;</button>
+            <h2>ATENDIMENTO GERAL</h2>
+            <button class="btn-close" onclick="this.closest('dialog').close()">&times;</button>
+        </div>
+        <form method="dialog" class="form-grid"><!---avisa ao navegador que o formulário pertence a um modal.-->
+            <div class="fieldgroup-top"> <!--grupo de campos do topo-->
+                <select name="turno"><option value="">TURNO</option></select>
+                <select name="modalidade"><option value="">MODALIDADE</option></select>
+                <input type="text" placeholder="DATA">
+                <input type="text" placeholder="TURMA">
+            </div>
+            
+            <div class="fieldgroup-below"><!--Ficam abaixo do grupo acima-->
+                <select name="tipoCurso"><option value="">TIPO DE CURSO</option></select>
+                <select name="curso"><option value="">CURSO</option></select>
+                <input type="text" placeholder="DATA DO ENCERRAMENTO">
+            </div>
+
+            <hr class="line-divider"><!---Linha divisora-->
+
+            <div class="fieldgroup-top">
+                <select name="tipoAtendimento"><option value="">TIPO DE ATENDIMENTO</option></select>
+                <select name="status"><option value="">STATUS</option></select>
+                <input type="text" placeholder="PEDAGOGO">
+            </div>
+
+            <div class="fieldgroup-below">
+                <input type="text" placeholder="INSTRUTOR/ALUNO">
+                <input type="text" placeholder="COORDENAÇÃO">
+            </div>
+
+            <hr class="line-divider">
+
+            <div class="form-textareas">
+                <div class="input-container">
+                    <label>TRATATIVA NEP</label>
+                    <textarea name="tratativaNep"></textarea>
+                </div>
+                <div class="input-container">
+                    <label>DESCRIÇÃO</label>
+                    <textarea name="descricao"></textarea>
+                </div>
+            </div>
+
+            <button type="submit" class="btn-salvarAtendimento">Salvar atendimento</button>
+        </form>
+    </dialog>
+<!---------------------------------3° MODAL: ACOMPANHAMENTO PSICOLÓGICO------------------------------------------------------------------>
+    
+<dialog id="modalAcompPsic" class="modal-form">
+    
+        <div class="modal-header-form">
+            <button class="btn-voltar" id="btnVoltarPsic">&larr;</button>
+            <h2>ACOMPANHAMENTO PSICOLÓGICO</h2>
+            <button class="btn-fechar" onclick="this.closest('dialog').close()">&times;</button>
+        </div>
+
+        <form method="dialog" class="form-grid"> <!---avisa ao navegador que o formulário pertence a um modal.-->
+
+            <div class="fieldgroup-top">
+                <select name="turno"><option value="">TURNO</option></select>
+                <select name="modalidade"><option value="">MODALIDADE</option></select>
+                <input type="text" placeholder="DATA">
+                <input type="text" placeholder="TURMA">
+            </div>
+            
+            <div class="fieldgroup-below">
+                <select name="tipoCurso"><option value="">TIPO DE CURSO</option></select>
+                <select name="curso"><option value="">CURSO</option></select>
+                <select name="tipoAcao"><option value="">TIPO DE AÇÃO</option></select>
+                <input type="text" placeholder="DATA DO ENCERRAMENTO">
+            </div>
+
+            <hr class="line-divider">
+
+            <div class="fieldgroup-top">
+                <select name="tipoAtendimento"><option value="">TIPO DE ATENDIMENTO</option></select>
+                <select name="tipoContratacao"><option value="">TIPO DE CONTRATAÇÃO</option></select>
+                <select name="status"><option value="">STATUS</option></select>
+                <select name="relatorio"><option value="">RELATÓRIO</option></select>
+            </div>
+
+            <div class="fieldgroup-below">
+                <input type="text" placeholder="INSTRUTOR/ALUNO">
+                <input type="text" placeholder="COORDENAÇÃO">
+                <input type="text" placeholder="PEDAGOGO">
+                <input type="text" placeholder="DOCENTE">
+            </div>
+
+            <hr class="line-divider">
+
+            <div class="form-textareas">
+                <div class="input-container">
+                    <label>TRATATIVA NEP</label>
+                    <textarea name="tratativaNep"></textarea>
+                </div>
+                <div class="input-container">
+                    <label>DESCRIÇÃO</label>
+                    <textarea name="descricao"></textarea>
+                </div>
+            </div>
+
+            <button type="submit" class="btn-submit-atendimento">Salvar Atendimento</button>
+        </form>
+    </dialog>
     </main>
 
 </body>
