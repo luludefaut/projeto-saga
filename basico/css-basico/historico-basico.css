@@ -5,7 +5,8 @@
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    padding-top: 60px;
+    grid-area: main; 
+        box-sizing: border-box;
 }
 
 #frontalmenuelem {
@@ -43,4 +44,71 @@
     color: #1F3A5F;
     text-decoration: underline;
     font-weight: 600;
+}
+/* SEÇÃO DE CODIGO CONTENDO A TELA DE ERRO*/
+
+/* Possui quase a mesma estrutura do codigo do chatbot em css */
+.erro-basico-container {
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    font-family: "Poppins", Arial, sans-serif;
+}
+
+.erro-basico-container .erro-emoji {
+    font-size: 80px;
+    color: #ffffff;
+    margin-bottom: 20px;
+    line-height: 1;
+}
+
+.erro-basico-container h2 {
+    color: #ffffff;
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    max-width: 500px;
+}
+
+.erro-basico-container .btn-premium {
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 500;
+    text-decoration: underline;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.erro-basico-container .btn-premium:hover {
+    opacity: 0.8;
+}
+
+
+.conteudo-principal {
+    flex: 1;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    box-sizing: border-box;
+}
+
+.erro-basico-container {
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    font-family: "Poppins", Arial, sans-serif;
 }
