@@ -1,91 +1,76 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SAGA | Login</title>
-    <link rel="stylesheet" href="assets/css/login.css" />
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SAGA | Login</title>
+  <link rel="stylesheet" href="assets/css/login.css" />
+</head>
+<body>
 
-  <body>
-    <main>
-      <header class="logo-saga">
-        <img
-          src="assets/icons/logo-saga-blue.svg"
-          alt="Logo SAGA"
-          class="logo-img"
-        />
-      </header>
-      <!--fim fo cabeçalho-->
+  <main>
 
-      <section class="full-container">
-        <!---Área contendo a caixa inteira de login-->
+    <header class="logo-saga">
+      <img src="../assets/icons/logo-saga-login-blue.png" alt="Logo SAGA" class="logo-img">
+    </header>
+    <!--fim do cabeçalho-->
 
-        <div class="glass-esquerda">
-          <!--lado esquerdo da caixa, contendo uma breve introdução do site (puramente estético)-->
-          <h2>BEM VINDO AO SAGA</h2>
-          <p>
-            Abaca ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor.
-          </p>
+    <section class="full-container">
+
+      <div class="glass-esquerda">
+        <h2>BEM VINDO AO SAGA</h2>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deleniti laboriosam labore, delectus eveniet id non. Minus incidunt quibusdam itaque, nulla consequuntur officiis totam a libero praesentium maiores quia maxime ducimus.</p>
+      </div>
+
+      <section class="login-direito">
+
+        <div class="logintop">
+          <h1 class="logintitle">Login</h1>
+
+          <button id="troca">
+            <img src="assets/icons/darkmode-moon-icon.svg" alt="Trocar Tema">
+          </button>
         </div>
 
-        <form class="login-direito">
-          <!-- lado direito da caixa com os dados a serem inseridos -->
+        <img src="assets/icons/usuario-icon.svg" alt="Ícone de perfil" class="perfil">
 
-          <div class="logintop">
-            <h1 class="logintitle">Login</h1>
+        <form id="areaform">
 
-            <button id="troca">
-              <!-- Botão para trocar de tema entre modo claro e modo escuro -->
-              <img
-                src="assets/icons/darkmode-moon-icon.svg"
-                alt="Trocar Tema"
-              />
-            </button>
-          </div>
-          <!--fim da div logintop-->
+          <section class="areaemail">
+            <div class="groupGeral">
+              <img src="assets/icons/login-email-icon.svg" alt="Ícone de email" class="input-icon">
 
-          <img
-            src="assets/icons/usuario-icon.svg"
-            alt="ícone de perfil"
-            class="perfil"
-          />
+              <input type="email" id="email" placeholder="E-mail">
+            </div>
 
-          <div class="areaemail">
-            <!--Área do e-mail-->
-            <img
-              src="assets/icons/login-email-icon.svg"
-              alt="Ícone de email"
-              class="input-icon"
-            />
+            <p id="alertaEmail"></p>
+          </section>
 
-            <input type="email" id="email" placeholder="E-mail" />
-          </div>
+          <section class="areasenha">
+            <div class="groupGeral">
+              <img src="assets/icons/login-padlock-icon.svg" alt="Ícone de senha" class="input-icon">
 
-          <div class="areasenha">
-            <img
-              src="assets/icons/login-padlock-icon.svg"
-              alt="Ícone de senha"
-              class="input-icon"
-            />
+              <input type="password" id="senha" placeholder="Senha">
+            </div>
 
-            <input type="password" id="senha" placeholder="Senha" />
-            <!--Área da senha, com opção de invisibilidade-->
-          </div>
-          <!--fim da div areasenha-->
+            <p id="alertaSenha"></p>
+          </section>
 
-          <div class="lembrarsenha">
-            <!--Checkbox para lembrar a senha do usuário para evitar a reinserção da mesma -->
-            <input type="checkbox" id="lembreMe" />
+          <section class="lembrarsenha">
+            <input type="checkbox" id="lembreMe">
             <label for="lembreMe">Lembre-me</label>
-          </div>
-          <!--fim da div lembrarsenha-->
+          </section>
 
           <button class="loginbtn">Login</button>
+
         </form>
-        <!--Fim da form logindireito -->
+
       </section>
-    </main>
-  </body>
+
+    </section>
+
+  </main>
+
+  <script src="assets/javascript/login.js"></script>
+</body>
 </html>
