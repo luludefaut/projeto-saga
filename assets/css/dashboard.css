@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+input, textarea, select {
+  appearance: none; /* Remove estilos padrão do sistema operacional */
+  -webkit-appearance: none;
+  width: 100%; /* Facilita o controle via Grid/Flex */
+  border: 1px solid transparent; /* Base para bordas */
+  background-color: transparent;
+  outline: none;
+  color: #040446;
+  font-family: 'Poppins', sans-serif;
+}
+
+input::placeholder {
+    color:#040446
+}
+
+.headerContainer {
+    box-shadow: none;
+    font-size: 24px;
+}
+
+.headerDashboard img {
+    width: 70px;
+    filter: invert(100%)
+}
+
+.separadorContainer {
+    width: 100%;
+    height: 2px;
+    background-color: #50505093;
+    margin: 5px 0;
+}
+
+.dashboardContainer {
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    color: #040446;
+    width: 97%;
+    height: 610px;
+    padding: 25px 0;
+    gap: 10px;
+    border-radius: 25px;
+}
+
+.filtros {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 100px;
+    background-color: transparent;
+    margin-bottom: 10px;
+}
+
+.filtro {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-size: 16px;
+}
+
+.containerInput {
+    display: flex;
+    align-content: center;
+    padding: 10px 15px;
+    width: 160%;
+    height: 50px;
+    border-radius: 20px;
+    border: 1px solid black;
+}
+
+.containerInput img {
+    margin-left: 10px;
+}
+
+.dadosDashboard {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: row;
+    width: 760px;
+    height: 80px;
+    border-radius: 10px;
+    border: 2px solid #000000;
+    margin-bottom: 15px;
+}
+
+.dado {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    border-right: 2px solid #000000;
+}
+
+#concluido {
+    border-right: 0px solid transparent;
+}
+
+.graficos {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 90%;
+    height: 250px;
+    gap: 30px;
+}
+
+.grafico {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    height: 250px;
+    border-radius: 10px;
+    border: 2px solid #000000;
+}
+
+.canvas-container {
+    position: relative;
+    height: 200px; /* Controla a altura ideal para o gráfico de pizza não distorcer */
+    width: 100%;
+    margin-top: 15px;
+}

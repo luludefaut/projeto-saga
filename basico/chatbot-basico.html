@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,25 +9,28 @@
     <link rel="stylesheet" href="../assets/css/global.css">
     <link rel="stylesheet" href="../basico/css-basico/chatbot-basico.css">
 </head>
-<body>
+
+<body id='bodychat'>
     <!--header para a organização da tela inicial globa-->
-    <header class="header-global-configuration">
-       
+    <header>
+
         <div class="logo-inicial">
             <img src="../assets/icons/logo-saga-blue.svg" alt="logo-inicial" id="logo-principal">
-        </div> <!--logo do site-->
-        
+        </div>
+        <!--logo do site-->
+
         <div class="icone-perfil">
             <a href="../pages/configuracoes.html"><img src="../assets/icons/usuario-icon.svg" alt="icone-usuario" id="icone-usuario"></a>
         </div>
         <!--Icone de usuário-->
-        
+
     </header>
 
-    <nav> <!-- Side Bar principal de todo site -->
+    <nav>
+        <!-- Side Bar principal de todo site -->
 
         <article id="nav-container-section">
-            
+
             <section>
                 <a href="../pages/relatorio.html">
                     <img src="../assets/icons/global-relatorio-icon.svg" alt="icone de relatório" id="rel">
@@ -47,14 +51,14 @@
                     <h2>Histórico</h2>
                 </a>
             </section>
-            
+
             <section class="active">
                 <a href="../basico/chatbot-basico.html">
                     <img src="../assets/icons/global-chatbot-icon.svg" alt="icone de ChatBot" id="chat">
                     <h2>ChatBot</h2>
                 </a>
             </section>
-            
+
             <section>
                 <a href="../pages/configuracoes.html">
                     <img src="../assets/icons/global-configuracoes-icon.svg" alt="icone de configurações" id="config">
@@ -65,9 +69,14 @@
 
     </nav>
 
-    <main>
-        <h1>teste main</h1>
+    <main class="chat">
+        <div id="frontalmenuelemchat">
+            <img src=" ../assets/icons/global-chatbot-icon.svg " alt="ilustra-chat " id="icone-centro-chat ">
+            <h1 class="titulo-historico ">Chat Bot</h1>
+        </div>
     </main>
 
 </body>
+<script src="../basico/javascript-basico/chatbot-basico.js"></script>
+
 </html>

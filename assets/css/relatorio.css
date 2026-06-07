@@ -1,224 +1,413 @@
-/* ====================================================
-   ESTILIZAÇÃO GERAL DOS MODAIS (DIALOG)
-   ==================================================== */
-dialog.modal-saga {
-    border: none;
-    border-radius: 24px;
-    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3);
-    padding: 0;
-    background-color: #f0f4f9; /* Fundo cinza claro dos modais */
-    font-family: sans-serif;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    margin: 0;
+:root {
+  --cor-azul-claro-botao: #2298ff;
+  --cor-azul-claro-inputs: #94bdf2;
+  --cor-azul-escuro: #040446;
+  --cor-azul-escuro-botao: #164194;
+  --azul-modal-box: #c3d2e5;
+  --linha-divisora: #b0a7a7;
 }
 
-/* Escurecimento e desfoque do fundo da página */
-dialog.modal-saga::backdrop {
-    background: rgba(24, 43, 73, 0.5);
-    backdrop-filter: blur(4px);
+/* =========================================
+ HEADER MAIN
+========================================= */
+
+.main-header {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
 }
 
-/* Tamanho específico de cada tipo de modal */
-.modal-selecao {
-    width: 400px;
+/* =========================================
+ BOTÃO NOVO RELATÓRIO
+========================================= */
+
+#btnNovoRelatorio {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 22px;
+  margin: 40px 20px;
+  border: none;
+  border-radius: 30px;
+  background: var(--cor-azul-escuro);
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
 }
 
-.modal-formulario {
-    width: 85%;
-    max-width: 900px;
-    background-color: #d1dfef; /* Cor interna azul-acinzentada do protótipo */
+#btnNovoRelatorio:hover {
+  transform: scale(1.03);
 }
 
-/* Headers dos Modais */
-.modal-header, .modal-header-form {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 16px 24px;
-    border-bottom: 1px solid #b4c7dc;
-    color: #1e3a60;
+#btnNovoRelatorio img {
+  width: 16px;
 }
 
-.modal-header h2, .modal-header-form h2 {
-    font-size: 1.25rem;
-    font-weight: bold;
-    margin: 0;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    flex-grow: 1;
-    text-align: center;
+/* =========================================
+ EMPTY STATE
+========================================= */
+
+.empty-state-container {
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+  align-items: center;
+
+  gap: 40px;
 }
 
-/* Botões de Ação do Header (Fechar e Voltar) */
-.btn-close, .btn-back {
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    color: #1e3a60;
-    cursor: pointer;
-    padding: 5px;
-    transition: opacity 0.2s;
+.empty-state-content {
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+
+  gap: 10px;
 }
 
-.btn-close:hover, .btn-back:hover {
-    opacity: 0.7;
+.empty-state-content h1 {
+  font-size: 28px;
+  color: #111;
 }
 
-/* ====================================================
-   MODAL 1: BOTÕES DE SELEÇÃO
-   ==================================================== */
-.modal-body-buttons {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    padding: 32px 40px;
+.relatorio-icon {
+  width: 42px;
 }
 
-.btn-modal-option {
-    border: none;
-    border-radius: 20px;
-    padding: 14px;
-    font-size: 1rem;
-    font-weight: bold;
-    color: white;
-    cursor: pointer;
-    transition: transform 0.1s, filter 0.2s;
+.alert-box {
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+
+  gap: 10px;
+
+  opacity: 0.5;
 }
 
-.btn-modal-option:hover {
-    filter: brightness(1.1);
+.alert-box img {
+  width: 70px;
 }
 
-.btn-modal-option:active {
-    transform: scale(0.98);
+.alert-box p {
+  font-size: 14px;
 }
 
-.btn-blue-dark {
-    background-color: #1a499c;
+/* =========================================
+ MODAIS
+========================================= */
+
+.modal-form {
+  border: none;
+
+  border-radius: 18px;
+
+  background: var(--azul-modal-box);
+
+  padding: 0;
+
+  overflow-y: auto; /*cria rolagem vertical automaticamente quando necessário*/
+
+  position: fixed;
+
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+
+  margin: 0;
+
+  max-height: 90vh; /*impede o modal de ultrapassar a tela*/
+}
+/* fundo escuro */
+
+.modal-form::backdrop {
+  background: rgba(0, 0, 0, 0.45);
+
+  backdrop-filter: blur(2px);
 }
 
-.btn-blue-light {
-    background-color: #2196f3;
+/* =========================================
+ MODAL PEQUENA
+========================================= */
+
+#modalTipoRelatorio {
+  width: 420px;
 }
 
-/* ====================================================
-   ESTILIZAÇÃO DOS FORMULÁRIOS (MODAIS 2 E 3)
-   ==================================================== */
+/* =========================================
+ HEADER MODAL PEQUENO
+========================================= */
+
+.modal-header {
+  height: 70px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: relative;
+
+  border-bottom: 1px solid var(--azul-modal-box);
+}
+
+.modal-header h2 {
+  font-size: 20px;
+  color: #454545;
+}
+
+.btn-fechar {
+  position: absolute;
+
+  right: 20px;
+
+  background: none;
+  border: none;
+
+  font-size: 42px;
+
+  color: #454545;
+
+  cursor: pointer;
+}
+
+/* =========================================
+ BOTÕES MODAL PEQUENO
+========================================= */
+
+.modal-buttons {
+  padding: 45px;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 25px;
+}
+
+.modal-btndarkblue,
+.modal-btnlightblue {
+  height: 48px;
+
+  border: none;
+  border-radius: 30px;
+
+  color: white;
+
+  font-size: 16px;
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.modal-btndarkblue {
+  background: var(--cor-azul-escuro-botao);
+}
+
+.modal-btnlightblue {
+  background: var(--cor-azul-claro-botao);
+}
+
+/* =========================================
+ MODAIS GRANDES
+========================================= */
+
+#modalAtendGeral,
+#modalAcompPed {
+  width: 1020px;
+
+  border-radius: 20px;
+}
+
+/* =========================================
+ HEADER FORMULÁRIO
+========================================= */
+
+.modal-header-form {
+  height: 70px;
+
+  display: grid;
+
+  grid-template-columns: 60px 1fr 60px;
+
+  align-items: center;
+
+  padding: 0 20px;
+
+  border-bottom: 2px solid var(--azul-modal-box);
+}
+
+.modal-header-form h2 {
+  color: var(--cor-azul-escuro);
+
+  font-size: 22px;
+  font-weight: 500;
+
+  text-align: center;
+}
+
+/* =========================================
+ BOTÕES HEADER
+========================================= */
+
+.btn-voltar,
+.btn-fechar {
+  background: none;
+
+  border: none;
+
+  color: var(--cor-azul-escuro);
+
+  cursor: pointer;
+
+  font-size: 42px;
+}
+
+/* =========================================
+ FORMULÁRIO
+========================================= */
+
 .form-grid {
-    padding: 24px;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
+  padding: 35px 28px;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 30px;
 }
 
-/* Linhas de filtros */
-.form-row {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 12px;
-    row-gap: 16px;
+/* =========================================
+ GRUPOS
+========================================= */
+.fieldgroup,
+.fieldgroup-below {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+
+  color: var(--cor-azul-escuro);
 }
 
-/* Divisores horizontais sutis entre blocos */
-.form-divider {
-    border: none;
-    border-top: 1px solid #b4c7dc;
-    margin: 8px 0;
-    width: 100%;
+/* Campos de cima */
+.fieldgroup {
+  justify-content: flex-start;
 }
 
-/* Estilo padrão de Inputs e Selects (Azul claro arredondado) */
-.form-grid select, 
-.form-grid input[type="text"] {
-    background-color: #92bce9;
-    border: 1px solid #7ea7d3;
-    border-radius: 18px;
-    color: #1a4275;
-    font-weight: bold;
-    font-size: 0.85rem;
-    padding: 10px 16px;
-    text-align: center;
-    min-width: 130px;
-    outline: none;
-    box-sizing: border-box;
+/* Campos de baixo */
+.fieldgroup-below {
+  justify-content: center;
 }
 
-/* Customização do visual interno do Select */
-.form-grid select {
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    background-image: url("data:image/svg+xml;utf8,<svg fill='%231a4275' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
-    background-repeat: no-repeat;
-    background-position: right 10px center;
-    padding-right: 32px;
-    text-align-last: center; /* Centraliza o texto no Chrome/Safari */
+/* =========================================
+ INPUTS E SELECTS
+========================================= */
+
+input,
+select {
+  height: 46px;
+
+  padding: 0 16px;
 }
 
-.form-grid input::placeholder {
-    color: #1a4275;
-    opacity: 0.8;
+input,
+select,
+textarea {
+  border: 1.5px solid var(--cor-azul-escuro);
+  background: var(--cor-azul-claro-inputs);
+  color: var(--cor-azul-escuro);
+  font-size: 15px;
+  outline: none;
+  border-radius: 18px;
+  box-sizing: border-box;
 }
 
-/* Campos de texto menores para textos muito grandes (ex: data do encerramento) */
-.placeholder-small {
-    font-size: 0.75rem !important;
+/* tamanhos */
+
+select {
+  min-width: 180px;
 }
 
-/* Textareas (Tratativa NEP e Descrição) */
+input {
+  min-width: 180px;
+}
+
+/* =========================================
+ DIVISOR
+========================================= */
+
+.line-divider {
+  border: none;
+
+  height: 2px;
+
+  background: var(--linha-divisora);
+}
+
+/* =========================================
+ TEXTAREAS
+========================================= */
+
 .form-textareas {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
+  display: flex;
+
+  gap: 20px;
 }
 
 .input-container {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 10px;
 }
 
-.input-container label {
-    font-size: 0.85rem;
-    font-weight: bold;
-    color: #1a4275;
-    padding-left: 8px;
+textarea {
+  /* Campos de mensagem extensa */
+  height: 120px;
+
+  resize: none;
+
+  padding: 15px;
+
+  border-radius: 18px;
+
+  border: 1.5px solid var(--cor-azul-escuro);
+
+  outline: none;
+
+  font-size: 15px;
 }
 
-.form-grid textarea {
-    background-color: #92bce9;
-    border: 1px solid #7ea7d3;
-    border-radius: 18px;
-    padding: 12px;
-    min-height: 100px;
-    resize: none;
-    outline: none;
-    color: #1a4275;
-    font-family: sans-serif;
-    font-size: 0.9rem;
+/* =========================================
+ BOTÃO SALVAR
+========================================= */
+
+.btn-salvarAtendimento {
+  width: 600px;
+  height: 48px;
+
+  margin: auto;
+
+  border: none;
+  border-radius: 30px;
+
+  background: var(--cor-azul-escuro-botao);
+
+  color: white;
+
+  font-size: 16px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.2s;
 }
 
-/* Botão Salvar Atendimento */
-.btn-submit-atendimento {
-    background-color: #1a499c;
-    color: white;
-    border: none;
-    border-radius: 20px;
-    padding: 14px;
-    font-size: 1rem;
-    font-weight: bold;
-    cursor: pointer;
-    align-self: center;
-    width: 100%;
-    max-width: 400px;
-    margin-top: 12px;
-    transition: background-color 0.2s;
-}
-
-.btn-submit-atendimento:hover {
-    background-color: #133775;
+.btn-salvarAtendimento:hover {
+  transform: scale(1.02);
 }
