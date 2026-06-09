@@ -16,10 +16,8 @@
   display: flex;
   justify-content: flex-end;
 }
+/* fundo escuro */
 
-/* =========================================
- BOTÃO NOVO RELATÓRIO
-========================================= */
 
 #btnNovoRelatorio {
   display: flex;
@@ -101,6 +99,8 @@
 /* =========================================
  MODAIS
 ========================================= */
+
+ MODAIS
 
 .modal-form {
   border: none;
