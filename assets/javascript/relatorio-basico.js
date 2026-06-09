@@ -188,21 +188,9 @@ document.addEventListener("DOMContentLoaded", () => {
       cardBody.appendChild(pData);
       cardBody.appendChild(pDescricao);
 
-      // 4. Rodapé do Card com o botão de remoção
-      const cardFooter = document.createElement("div");
-      cardFooter.className = "card-footer";
-
-      const btnDeletar = document.createElement("button");
-      btnDeletar.className = "btn-deletar";
-      btnDeletar.textContent = "Excluir";
-      btnDeletar.setAttribute("data-id", rel.id); // Guardamos o ID numérico aqui
-
-      cardFooter.appendChild(btnDeletar);
-
       // 5. Montagem hierárquica do Card
       card.appendChild(cardHeader);
       card.appendChild(cardBody);
-      card.appendChild(cardFooter);
 
       // Injeta o elemento pronto dentro da Grid de exibição
       containerRelatorios.appendChild(card);
