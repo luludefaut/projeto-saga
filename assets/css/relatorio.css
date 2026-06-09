@@ -7,10 +7,7 @@
   --linha-divisora: #b0a7a7;
 }
 
-
-/* =========================================
- HEADER MAIN
-========================================= */
+/*==================== HEADER MAIN ===================== */
 
 .main-header {
   width: 100%;
@@ -19,15 +16,13 @@
   justify-content: flex-end;
 }
 
-.header-main-relatorio{
-display: flex;
-flex-direction: column;
-align-items: center;
+.header-main-relatorio {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-/* =========================================
- BOTÃO NOVO RELATÓRIO
-========================================= */
+/*================== BOTÃO NOVO RELATÓRIO ======================= */
 
 #btnNovoRelatorio {
   display: flex;
@@ -60,9 +55,7 @@ align-items: center;
   width: 16px;
 }
 
-/* =========================================
- EMPTY STATE
-========================================= */
+/*================= EMPTY STATE ==================== */
 
 .empty-state-container {
   flex: 1;
@@ -113,9 +106,7 @@ align-items: center;
   font-size: 14px;
 }
 
-/* =========================================
- MODAIS
-========================================= */
+/*=================== MODAIS ====================== */
 
 .modal-form {
   border: none;
@@ -147,17 +138,13 @@ align-items: center;
   backdrop-filter: blur(2px);
 }
 
-/* =========================================
- MODAL PEQUENA
-========================================= */
+/*============ MODAL PEQUENA ===========*/
 
 #modalTipoRelatorio {
   width: 420px;
 }
 
-/* =========================================
- HEADER MODAL PEQUENO
-========================================= */
+/*============ HEADER MODAL PEQUENO ============*/
 
 .modal-header {
   height: 70px;
@@ -191,9 +178,7 @@ align-items: center;
   cursor: pointer;
 }
 
-/* =========================================
- BOTÕES MODAL PEQUENO
-========================================= */
+/*========= BOTÕES MODAL PEQUENO ==========*/
 
 .modal-buttons {
   padding: 45px;
@@ -227,9 +212,7 @@ align-items: center;
   background: var(--cor-azul-claro-botao);
 }
 
-/* =========================================
- MODAIS GRANDES
-========================================= */
+/*========= MODAIS GRANDES =========*/
 
 #modalAtendGeral,
 #modalAcompPed {
@@ -238,9 +221,7 @@ align-items: center;
   border-radius: 20px;
 }
 
-/* =========================================
- HEADER FORMULÁRIO
-========================================= */
+/*========= HEADER FORMULÁRIO ===========*/
 
 .modal-header-form {
   height: 70px;
@@ -265,9 +246,7 @@ align-items: center;
   text-align: center;
 }
 
-/* =========================================
- BOTÕES HEADER
-========================================= */
+/*======== BOTÕES HEADER ==========*/
 
 .btn-voltar,
 .btn-fechar {
@@ -279,14 +258,10 @@ align-items: center;
 
   cursor: pointer;
 
-   font-size: 42px;
+  font-size: 42px;
 }
 
-
-
-/* =========================================
- FORMULÁRIO
-========================================= */
+/*=========== FORMULÁRIO ============*/
 
 .form-grid {
   padding: 35px 28px;
@@ -297,61 +272,60 @@ align-items: center;
   gap: 30px;
 }
 
-/* =========================================
- GRUPOS
-========================================= */
+/*=========== GRUPOS ==============*/
 .fieldgroup,
 .fieldgroup-below {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(
+    4,
+    220px
+  ); /*cria exatamente 4 colunas fixas de 220px cada uma*/
   gap: 18px;
-
   color: var(--cor-azul-escuro);
 }
 
-/* Campos de cima */
+/*alinhamento da tabela interna*/
 .fieldgroup {
   justify-content: flex-start;
 }
 
-/* Campos de baixo */
 .fieldgroup-below {
   justify-content: center;
 }
-
 /* =========================================
  INPUTS E SELECTS
 ========================================= */
-
 input,
 select {
   height: 46px;
-
   padding: 0 16px;
+
+  /*Faz o campo ocupar exatamente a coluna de 220px do Grid*/
+  width: 100%;
+  max-width: 220px;
+  box-sizing: border-box;
+
+  /* Força o texto muito longo a ser cortado com reticências visuais */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+select {
+  cursor: pointer;
+  /* Avisa o motor do navegador para aplicar o corte interno */
+  text-overflow: ellipsis;
 }
 
 input,
 select,
 textarea {
-
   border: 1.5px solid var(--cor-azul-escuro);
   background: var(--cor-azul-claro-inputs);
   color: var(--cor-azul-escuro);
-  font-size: 15px;
+  font-size: 14px; /* Fonte ligeiramente menor para o texto respirar melhor */
   outline: none;
   border-radius: 18px;
-  box-sizing: border-box;
-
-}
-
-/* tamanhos */
-
-select {
-  min-width: 180px;
-}
-
-input {
-  min-width: 180px;
 }
 
 /* =========================================
@@ -374,7 +348,6 @@ input {
   display: flex;
 
   gap: 20px;
-
 }
 
 .input-container {
@@ -385,7 +358,6 @@ input {
 
   gap: 10px;
 }
-
 
 textarea {
   /* Campos de mensagem extensa */
