@@ -405,4 +405,121 @@ textarea {
   transform: scale(1.02);
 }
 
-/*==================================== ESTILIZAÇÃO ===================================================*/
+/*==================================== ESTILIZAÇÃO DOS CARDS ===================================================*/
+
+/* CONTAINER DOS CARDS */
+
+.cards-container {
+  display: grid;
+  /* Cria colunas automáticas: mínimo 300px, máximo distribui o espaço igual (1fr) */
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px 0;
+  width: 100%;
+}
+
+/*ESTRUTURA BASE DO CARD*/
+.card-relatorio {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05),
+    0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Efeito sutil ao passar o mouse por cima */
+.card-relatorio:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08);
+}
+
+/* PARTES DO CARD (HEADER, BODY, FOOTER)*/
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #f1f5f9;
+  padding-bottom: 12px;
+  margin-bottom: 15px;
+}
+
+.card-header h3 {
+  font-size: 1.1rem;
+  color: #1e293b; /* Tom de azul/cinza escuro profissional */
+  font-weight: 700;
+  margin: 0;
+}
+
+.card-body {
+  font-size: 0.95rem;
+  color: #475569;
+  line-height: 1.6;
+  flex-grow: 1; /* Faz o corpo ocupar o espaço restante se o texto for curto */
+}
+
+.card-body p {
+  margin: 8px 0;
+}
+
+.card-body strong {
+  color: #1e293b;
+}
+
+.card-footer {
+  margin-top: 20px;
+  border-top: 1px solid #f1f5f9;
+  padding-top: 12px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+/*ETIQUETAS DE STATUS (TAGS COLORIDAS)*/
+.status-tag {
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 20px;
+  letter-spacing: 0.5px;
+}
+
+/* Cores dinâmicas que batem com as classes injetadas pelo JS */
+.status-tag.andamento {
+  background-color: #fef3c7; /* Amarelo claro */
+  color: #d97706; /* Texto Amarelo escuro */
+}
+
+.status-tag.pendente {
+  background-color: #fee2e2; /* Vermelho claro */
+  color: #dc2626; /* Texto Vermelho escuro */
+}
+
+.status-tag.finalizado {
+  background-color: #dcfce7; /* Verde claro */
+  color: #16a34a; /* Texto Verde escuro */
+}
+
+/*BOTÃO DE EXCLUIR (LIXEIRA)*/
+.btn-deletar {
+  background-color: transparent;
+  color: #64748b;
+  border: 1px solid #cbd5e1;
+  padding: 6px 12px;
+  font-size: 0.85rem;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: all 0.2s ease;
+}
+
+.btn-deletar:hover {
+  background-color: #fee2e2;
+  color: #dc2626;
+  border-color: #fca5a5;
+}
