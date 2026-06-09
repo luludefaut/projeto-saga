@@ -1,11 +1,11 @@
-.header-main-configuracoes { /* Configuração do header principal */
+.header-main-global { /* Configuração do header principal */
     display: flex;
     justify-content: center;
     height: 182px;
     border-bottom: 3px solid #D4E6FF;
 }
 
-.header-section-configuracoes { /* Configuração do ícone e nome da seção do ícone */
+.header-section-global { /* Configuração do ícone e nome da seção do ícone */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -13,7 +13,7 @@
     margin: 10px;
 }
 
-.header-section-configuracoes h2 {
+.header-section-global h2 {
     font-size: 24px;
     font-weight: 500;
 }

@@ -1,15 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 
-header {
-    grid-area: header; 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: white;
-    box-shadow: 4px 8px 12px rgba(0, 0, 0, 0.2);
-}
-
 input, textarea, select {
   appearance: none; /* Remove estilos padrão do sistema operacional */
   -webkit-appearance: none;
@@ -25,24 +16,6 @@ input::placeholder {
     color:#040446
 }
 
-main {
-    grid-area: main;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.headerDashboard {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 25px 50px;
-    background-color: transparent;
-    box-shadow: 4px 8px 12px TRANSPARENT;
-}
-
 .headerContainer {
     box-shadow: none;
     font-size: 24px;
@@ -53,12 +26,6 @@ main {
     filter: invert(100%)
 }
 
-.separador {
-    width: 100%;
-    height: 2px;
-    background-color: #ffffffa6;
-}
-
 .separadorContainer {
     width: 100%;
     height: 2px;
@@ -67,7 +34,7 @@ main {
 }
 
 .dashboardContainer {
-    margin-top: 25px;
+    margin: 20px auto;
     display: flex;
     flex-direction: column;
     align-items: center;

@@ -126,3 +126,25 @@ main {
     grid-area: main; /* montamos a main no seu lugar */
     overflow-y: auto; /* permitimos a rolagem se o conteúdo crescer */
 }
+
+.header-main-global { /* Configuração do header principal */
+    display: flex;
+    justify-content: center;
+    height: 182px;
+    border-bottom: 3px solid #D4E6FF;
+}
+
+.header-section-global { /* Configuração do ícone e nome da seção do ícone */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+}
+
+.header-section-global h2 {
+    font-size: 24px;
+    font-weight: 500;
+}
+
+/* Fim das Configuração do header principal */

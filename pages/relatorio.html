@@ -1,501 +1,483 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Página Inicial | Relatório</title>
-    <link rel="icon" type="image/png" href="assets/icons/logo-saga-blue.svg" />
-    <link rel="stylesheet" href="../assets/css/global.css" />
-    <link rel="stylesheet" href="../assets/css/relatorio.css" />
-  </head>
-  <body>
-    <!--header para a organização da tela inicial globa-->
-    <header class="header-global-configuration">
-      <div class="logo-inicial">
-        <img
-          src="../assets/icons/logo-saga-blue.svg"
-          alt="logo-inicial"
-          id="logo-principal" />
-      </div>
-      <!--logo do site-->
 
-      <div class="icone-perfil">
-        <a href="../pages/configuracoes.html"><img
-            src="../assets/icons/usuario-icon.svg"
-            alt="icone-usuario"
-            id="icone-usuario" /></a>
-      </div>
-      <!--Icone de usuário-->
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Página Inicial | Relatório</title>
+  <link rel="icon" type="image/png" href="assets/icons/logo-saga-blue.svg" />
+  <link rel="stylesheet" href="../assets/css/global.css" />
+  <link rel="stylesheet" href="../assets/css/relatorio.css" />
+</head>
+
+<body>
+  <!--header para a organização da tela inicial globa-->
+  <header class="header-global-configuration">
+    <div class="logo-inicial">
+      <img src="../assets/icons/logo-saga-blue.svg" alt="logo-inicial" id="logo-principal" />
+    </div>
+    <!--logo do site-->
+
+    <div class="icone-perfil">
+      <a href="../pages/configuracoes.html"><img src="../assets/icons/usuario-icon.svg" alt="icone-usuario"
+          id="icone-usuario" /></a>
+    </div>
+    <!--Icone de usuário-->
+  </header>
+
+  <nav>
+    <!-- Side Bar principal de todo site -->
+
+    <article id="nav-container-section">
+      <section class="active">
+        <a href="../pages/relatorio.html">
+          <img src="../assets/icons/global-relatorio-icon.svg" alt="icone de relatório" id="rel" />
+          <h2>Relatório</h2>
+        </a>
+      </section>
+
+      <section>
+        <a href="../pages/dashboard.html">
+          <img src="../assets/icons/global-dashboard-icon.svg" alt="icone de dashboard" id="dash" />
+          <h2>Dashboard</h2>
+        </a>
+      </section>
+
+      <section>
+        <a href="../basico/historico-basico.html">
+          <img src="../assets/icons/global-historico-icon.svg" alt="icone de histórico" id="histo" />
+          <h2>Histórico</h2>
+        </a>
+      </section>
+
+      <section>
+        <a href="../basico/chatbot-basico.html">
+          <img src="../assets/icons/global-chatbot-icon.svg" alt="icone de ChatBot" id="chat" />
+          <h2>ChatBot</h2>
+        </a>
+      </section>
+
+      <section>
+        <a href="../pages/configuracoes.html">
+          <img src="../assets/icons/global-configuracoes-icon.svg" alt="icone de configurações" id="config" />
+          <h2>Configurações</h2>
+        </a>
+      </section>
+    </article>
+  </nav>
+  <!--------------------------------------- Á R E A     M A I N -------------------------------------------------------------------------->
+
+  <main>
+    <!--Onde vai conter os botões e os modais-->
+
+    <header class="header-main-global">
+      <section class="header-section-global">
+        <img src="../assets/icons/relatorio-icon.svg" alt="Ícone de Relatório" class="relatorio-icon">
+        <h2>Relatório</h2>
+      </section>
     </header>
 
-    <nav>
-      <!-- Side Bar principal de todo site -->
+    <div class="main-header">
+      <button id="btnNovoRelatorio" class="editar-icon">
+        <img src="../assets/icons/editar-icon.svg" alt="Ícone de editar" />
+        <span>Novo Relatório</span>
+      </button>
+    </div>
 
-      <article id="nav-container-section">
-        <section class="active">
-          <a href="../pages/relatorio.html">
-            <img
-              src="../assets/icons/global-relatorio-icon.svg"
-              alt="icone de relatório"
-              id="rel" />
-            <h2>Relatório</h2>
-          </a>
-        </section>
 
-        <section>
-          <a href="../pages/dashboard.html">
-            <img
-              src="../assets/icons/global-dashboard-icon.svg"
-              alt="icone de dashboard"
-              id="dash" />
-            <h2>Dashboard</h2>
-          </a>
-        </section>
+    <div class="empty-state-container">
 
-        <section>
-          <a href="../basico/historico-basico.html">
-            <img
-              src="../assets/icons/global-historico-icon.svg"
-              alt="icone de histórico"
-              id="histo" />
-            <h2>Histórico</h2>
-          </a>
-        </section>
-
-        <section>
-          <a href="../basico/chatbot-basico.html">
-            <img
-              src="../assets/icons/global-chatbot-icon.svg"
-              alt="icone de ChatBot"
-              id="chat" />
-            <h2>ChatBot</h2>
-          </a>
-        </section>
-
-        <section>
-          <a href="../pages/configuracoes.html">
-            <img
-              src="../assets/icons/global-configuracoes-icon.svg"
-              alt="icone de configurações"
-              id="config" />
-            <h2>Configurações</h2>
-          </a>
-        </section>
-      </article>
-    </nav>
-    <!--------------------------------------- Á R E A     M A I N -------------------------------------------------------------------------->
-
-    <main>
-      <!--Onde vai conter os botões e os modais-->
-
-      <div class="main-header">
-        <button id="btnNovoRelatorio" class="editar-icon">
-          <img src="../assets/icons/editar-icon.svg" alt="Ícone de editar" />
-          <span>Novo Relatório</span>
+      <div class="alert-box">
+        <img src="../assets/icons/alert-icon.svg" alt="Aviso" />
+        <p>Sem relatórios por enquanto</p>
+      </div>
+    </div>
+    <!--------------------------------1° MODAL: OPÇÕES ------------------------------------->
+    <dialog id="modalTipoRelatorio" class="modal-form">
+      <div class="modal-header">
+        <h2>Tipo de Relatório</h2>
+        <button class="btn-fechar" onclick="this.closest('dialog').close()">
+          &times;
         </button>
       </div>
-
-<div class="header-main-relatorio">
-          <img
-            src="../assets/icons/relatorio-icon.svg"
-            alt="Ícone de Relatório"
-            class="relatorio-icon" />
-          <h1>Relatório</h1>
-        </div>
-
-      <div class="empty-state-container">
-        
-        <div class="alert-box">
-          <img src="../assets/icons/alert-icon.svg" alt="Aviso" />
-          <p>Sem relatórios por enquanto</p>
-        </div>
+      <div class="modal-buttons">
+        <button id="btnAtendGeral" class="modal-btndarkblue">
+          Atend. Geral
+        </button>
+        <button id="btnAcompPed" class="modal-btnlightblue">
+          Acomp. Pedagógico
+        </button>
       </div>
-      <!--------------------------------1° MODAL: OPÇÕES ------------------------------------->
-      <dialog id="modalTipoRelatorio" class="modal-form">
-        <div class="modal-header">
-          <h2>Tipo de Relatório</h2>
-          <button class="btn-fechar" onclick="this.closest('dialog').close()">
-            &times;
-          </button>
-        </div>
-        <div class="modal-buttons">
-          <button id="btnAtendGeral" class="modal-btndarkblue">
-            Atend. Geral
-          </button>
-          <button id="btnAcompPed" class="modal-btnlightblue">
-            Acomp. Pedagógico
-          </button>
-        </div>
-      </dialog>
-      <!-----------------------------------2°MODAL: ATENDIMENTO GERAL----------------------------------------------------------->
-      <dialog id="modalAtendGeral" class="modal-form">
-        <div class="modal-header-form">
-          <button class="btn-voltar" id="btnVoltarAtend">&larr;</button>
-          <h2>ATENDIMENTO GERAL</h2>
-          <button class="btn-fechar" onclick="this.closest('dialog').close()">
-            &times;
-          </button>
-        </div>
-        <form method="dialog" class="form-grid">
-          <!---avisa ao navegador que o formulário pertence a um modal.-->
-
-          <div class="fieldgroup">
-            <!--grupo de campos do topo-->
-            <!---------------------------------------------------Campos Select------------------------------------------------------->
-            <select name="turno">
-              <option value>TURNO</option>
-              <option value="manha">MANHÃ</option>
-              <option value="tarde">TARDE</option>
-              <option value="noite">NOITE</option>
-            </select>
-
-            <select name="modalidade">
-              <option value>MODALIDADE</option>
-            </select>
-
-            <!---------------------------------------------------------------------------------------------------------->
-
-            <input type="text" placeholder="DATA" />
-            <input type="text" placeholder="TURMA" />
-
-
-            <select name="tipoCurso" class="tipoCurso">
-              <option value>TIPO DE CURSO</option>
-              <option value="tecnico">Cursos Técnicos</option>
-              <option value="qualificacao">Cursos de Qualificação,
-                Aperfeiçoamento e Extensão</option>
-              <option value="programas">Programas</option>
-            </select>
-
-            <select name="curso" class="curso">
-              <option value>CURSO</option>
-            </select>
-
-            <input type="text" placeholder="DATA DO ENCERRAMENTO" />
-          </div> <!----- fim da div fieldgroup----->
-
-          <hr class="line-divider" />
-          <!---------------------------------------Linha divisora-------------------------------------------->
-
-           <div class="fieldgroup-below"> <!----Campos abaixo do grupo acima---->
-
-            <select name="tipoAtendimento">
-
-              <option value>TIPO DE ATENDIMENTO</option>
-              <option value="acolhimento">Acolhimento</option>
-
-              <option value="acompanhamento">Acompanhamento</option>
-
-              <option value="afastamento_temporario">
-                AFASTAMENTO TEMPORARIO
-              </option>
-
-              <option value="advertencia">
-                ADVERTÊNCIA
-              </option>
-
-              <option value="ambientacao_docente">
-                AMBIENTAÇÃO DOCENTE
-              </option>
-
-              <option value="aplicacao_pesquisa">
-                APLICAÇÃO DE PESQUISA
-              </option>
-
-              <option value="apoio_coordenacao">
-                APOIO A COORDENAÇÃO
-              </option>
-
-              <option value="atendimento_emergencial">
-                ATENDIMENTO EMERGENCIAL
-              </option>
-
-              <option value="boas_vindas">
-                BOAS-VINDAS
-              </option>
+    </dialog>
+    <!-----------------------------------2°MODAL: ATENDIMENTO GERAL----------------------------------------------------------->
+    <dialog id="modalAtendGeral" class="modal-form">
+      <div class="modal-header-form">
+        <button class="btn-voltar" id="btnVoltarAtend">&larr;</button>
+        <h2>ATENDIMENTO GERAL</h2>
+        <button class="btn-fechar" onclick="this.closest('dialog').close()">
+          &times;
+        </button>
+      </div>
+      <form method="dialog" class="form-grid">
+        <!---avisa ao navegador que o formulário pertence a um modal.-->
+
+        <div class="fieldgroup">
+          <!--grupo de campos do topo-->
+          <!---------------------------------------------------Campos Select------------------------------------------------------->
+          <select name="turno">
+            <option value>TURNO</option>
+            <option value="manha">MANHÃ</option>
+            <option value="tarde">TARDE</option>
+            <option value="noite">NOITE</option>
+          </select>
+
+          <select name="modalidade">
+            <option value>MODALIDADE</option>
+          </select>
+
+          <!---------------------------------------------------------------------------------------------------------->
+
+          <input type="text" placeholder="DATA" />
+          <input type="text" placeholder="TURMA" />
+
+
+          <select name="tipoCurso" class="tipoCurso">
+            <option value>TIPO DE CURSO</option>
+            <option value="tecnico">Cursos Técnicos</option>
+            <option value="qualificacao">Cursos de Qualificação,
+              Aperfeiçoamento e Extensão</option>
+            <option value="programas">Programas</option>
+          </select>
+
+          <select name="curso" class="curso">
+            <option value>CURSO</option>
+          </select>
 
-              <option value="calcado_inadequado">
-                CALÇADO INADEQUADO
-              </option>
+          <input type="text" placeholder="DATA DO ENCERRAMENTO" />
+        </div> <!----- fim da div fieldgroup----->
 
-              <option value="fardamento_inadequado">
-                FARDAMENTO INADEQUADO
-              </option>
+        <hr class="line-divider" />
+        <!---------------------------------------Linha divisora-------------------------------------------->
 
-              <option value="intervencao_pedagogica">
-                INTERVENÇÃO PEDAGOGICA
-              </option>
+        <div class="fieldgroup-below"> <!----Campos abaixo do grupo acima---->
 
-              <option value="miniaula">
-                MINIAULA
-              </option>
+          <select name="tipoAtendimento">
 
-              <option value="na">
-                N.A
-              </option>
+            <option value>TIPO DE ATENDIMENTO</option>
+            <option value="acolhimento">Acolhimento</option>
 
-              <option value="orientacao_aluno">
-                ORIENTAÇÃO ALUNO
-              </option>
+            <option value="acompanhamento">Acompanhamento</option>
 
-              <option value="orientacao_reuniao_instrutora">
-                ORIENTAÇÃO/REUNIÃO INSTRUTORA
-              </option>
+            <option value="afastamento_temporario">
+              AFASTAMENTO TEMPORARIO
+            </option>
 
-              <option value="outros">
-                OUTROS
-              </option>
+            <option value="advertencia">
+              ADVERTÊNCIA
+            </option>
 
-              <option value="pais_resp">
-                PAIS/RESP
-              </option>
+            <option value="ambientacao_docente">
+              AMBIENTAÇÃO DOCENTE
+            </option>
 
-              <option value="reuniao">
-                REUNIÃO
-              </option>
+            <option value="aplicacao_pesquisa">
+              APLICAÇÃO DE PESQUISA
+            </option>
 
-              <option value="visita_pedagogica">
-                VISITA PEDAGOGICA
-              </option>
+            <option value="apoio_coordenacao">
+              APOIO A COORDENAÇÃO
+            </option>
 
-            </select>
+            <option value="atendimento_emergencial">
+              ATENDIMENTO EMERGENCIAL
+            </option>
 
-            <select name="status">
-              <option value>STATUS</option>
-              <option value="andamento" class="andamento">EM ANDAMENTO</option>
-              <option value="pendente" class="pendente">PENDENTE</option>
-              <option value="finalizado" class="finalizado">FINALIZADO</option>
-            </select>
+            <option value="boas_vindas">
+              BOAS-VINDAS
+            </option>
 
-            <input type="text" placeholder="PEDAGOGO" />
+            <option value="calcado_inadequado">
+              CALÇADO INADEQUADO
+            </option>
 
+            <option value="fardamento_inadequado">
+              FARDAMENTO INADEQUADO
+            </option>
 
-         
-            <input type="text" placeholder="INSTRUTOR/ALUNO" />
-            <input type="text" placeholder="COORDENAÇÃO" />
-            
-          </div> <!----- fim da div fieldgroup-below ----->
+            <option value="intervencao_pedagogica">
+              INTERVENÇÃO PEDAGOGICA
+            </option>
 
-          <hr class="line-divider" />
+            <option value="miniaula">
+              MINIAULA
+            </option>
 
-          <!------------- ↑ Linha divisora-------------------------------------------------------------------------->
+            <option value="na">
+              N.A
+            </option>
 
-          <div class="form-textareas">
-            <!-------Div com campos de escrita extensa-------->
+            <option value="orientacao_aluno">
+              ORIENTAÇÃO ALUNO
+            </option>
 
-            <div class="input-container">
-              <label>TRATATIVA NEP</label>
-              <textarea name="tratativaNep"></textarea>
-            </div>
+            <option value="orientacao_reuniao_instrutora">
+              ORIENTAÇÃO/REUNIÃO INSTRUTORA
+            </option>
 
-            <div class="input-container">
-              <label>DESCRIÇÃO</label>
-              <textarea name="descricao"></textarea>
-            </div>
+            <option value="outros">
+              OUTROS
+            </option>
 
-          </div> <!--- fim da div form-textareas --->
+            <option value="pais_resp">
+              PAIS/RESP
+            </option>
 
-          <!------------------------------------------   BOTÃO DE SALVAR     -------------------------------------------------------------------->
-          <button type="button" class="btn-salvarAtendimento">
-            Salvar atendimento
-          </button>
-        </form>
+            <option value="reuniao">
+              REUNIÃO
+            </option>
 
-      </dialog><!---------fim do 2° modal---------->
+            <option value="visita_pedagogica">
+              VISITA PEDAGOGICA
+            </option>
 
-      <!---------------------------------3° MODAL: ACOMPANHAMENTO PEDAGÓGICO------------------------------------------------------------------>
+          </select>
 
-      <dialog id="modalAcompPed" class="modal-form">
+          <select name="status">
+            <option value>STATUS</option>
+            <option value="andamento" class="andamento">EM ANDAMENTO</option>
+            <option value="pendente" class="pendente">PENDENTE</option>
+            <option value="finalizado" class="finalizado">FINALIZADO</option>
+          </select>
 
-        <div class="modal-header-form">
-          <!----Cabeçalho com título do formulário ---->
+          <input type="text" placeholder="PEDAGOGO" />
 
-          <button class="btn-voltar" id="btnVoltarPed">&larr;</button>
-          <h2>ACOMPANHAMENTO PEDAGÓGICO</h2>
-          <button class="btn-fechar" onclick="this.closest('dialog').close()">
-            &times;
-          </button>
 
-        </div>
 
-        <form method="dialog" class="form-grid">
-          <!---avisa ao navegador que o formulário pertence a um modal.-->
+          <input type="text" placeholder="INSTRUTOR/ALUNO" />
+          <input type="text" placeholder="COORDENAÇÃO" />
 
-          <div class="fieldgroup"> <!--- Campos de cima ---->
+        </div> <!----- fim da div fieldgroup-below ----->
 
-            <select name="turno">
-              <option value>TURNO</option>
-              <option value="manha">MANHÃ</option>
-              <option value="tarde">TARDE</option>
-              <option value="noite">NOITE</option>
-            </select>
+        <hr class="line-divider" />
 
-            <select name="modalidade">
-              <option value>MODALIDADE</option>
-            </select>
+        <!------------- ↑ Linha divisora-------------------------------------------------------------------------->
 
-            <input type="text" placeholder="DATA" />
-            <input type="text" placeholder="TURMA" />
+        <div class="form-textareas">
+          <!-------Div com campos de escrita extensa-------->
 
+          <div class="input-container">
+            <label>TRATATIVA NEP</label>
+            <textarea name="tratativaNep"></textarea>
+          </div>
 
-            <select name="tipoCurso" class="tipoCurso">
-              <option value>TIPO DE CURSO</option>
-              <option value="tecnico">Cursos Técnicos</option>
-              <option value="qualificacao">Cursos de Qualificação,
-                Aperfeiçoamento e Extensão</option>
-              <option value="programas">Programas</option>
-            </select>
+          <div class="input-container">
+            <label>DESCRIÇÃO</label>
+            <textarea name="descricao"></textarea>
+          </div>
 
-            <select name="curso" class="curso">
-              <option value>CURSO</option>
-            </select>
+        </div> <!--- fim da div form-textareas --->
 
-            <select name="tipoAcao">
-              <option value>TIPO DE AÇÃO</option>
-            </select>
+        <!------------------------------------------   BOTÃO DE SALVAR     -------------------------------------------------------------------->
+        <button type="button" class="btn-salvarAtendimento">
+          Salvar atendimento
+        </button>
+      </form>
 
-            <input type="text" placeholder="DATA DO ENCERRAMENTO" />
+    </dialog><!---------fim do 2° modal---------->
 
-          </div> <!-------- fim da div fieldgroup---------->
+    <!---------------------------------3° MODAL: ACOMPANHAMENTO PEDAGÓGICO------------------------------------------------------------------>
 
-          <hr class="line-divider" />
+    <dialog id="modalAcompPed" class="modal-form">
 
-          <!----------- ↑ linha divisora ----------------------------------------------------->
+      <div class="modal-header-form">
+        <!----Cabeçalho com título do formulário ---->
 
-          <div class="fieldgroup-below"> 
+        <button class="btn-voltar" id="btnVoltarPed">&larr;</button>
+        <h2>ACOMPANHAMENTO PEDAGÓGICO</h2>
+        <button class="btn-fechar" onclick="this.closest('dialog').close()">
+          &times;
+        </button>
 
-            <select name="tipoAtendimento">
+      </div>
 
-              <option value>TIPO DE ATENDIMENTO</option>
-              <option value="acolhimento">Acolhimento</option>
+      <form method="dialog" class="form-grid">
+        <!---avisa ao navegador que o formulário pertence a um modal.-->
 
-              <option value="acompanhamento">Acompanhamento</option>
+        <div class="fieldgroup"> <!--- Campos de cima ---->
 
-              <option value="afastamento_temporario">
-                AFASTAMENTO TEMPORARIO
-              </option>
+          <select name="turno">
+            <option value>TURNO</option>
+            <option value="manha">MANHÃ</option>
+            <option value="tarde">TARDE</option>
+            <option value="noite">NOITE</option>
+          </select>
 
-              <option value="advertencia">
-                ADVERTÊNCIA
-              </option>
+          <select name="modalidade">
+            <option value>MODALIDADE</option>
+          </select>
 
-              <option value="ambientacao_docente">
-                AMBIENTAÇÃO DOCENTE
-              </option>
+          <input type="text" placeholder="DATA" />
+          <input type="text" placeholder="TURMA" />
 
-              <option value="aplicacao_pesquisa">
-                APLICAÇÃO DE PESQUISA
-              </option>
 
-              <option value="apoio_coordenacao">
-                APOIO A COORDENAÇÃO
-              </option>
+          <select name="tipoCurso" class="tipoCurso">
+            <option value>TIPO DE CURSO</option>
+            <option value="tecnico">Cursos Técnicos</option>
+            <option value="qualificacao">Cursos de Qualificação,
+              Aperfeiçoamento e Extensão</option>
+            <option value="programas">Programas</option>
+          </select>
 
-              <option value="atendimento_emergencial">
-                ATENDIMENTO EMERGENCIAL
-              </option>
+          <select name="curso" class="curso">
+            <option value>CURSO</option>
+          </select>
 
-              <option value="boas_vindas">
-                BOAS-VINDAS
-              </option>
+          <select name="tipoAcao">
+            <option value>TIPO DE AÇÃO</option>
+          </select>
 
-              <option value="calcado_inadequado">
-                CALÇADO INADEQUADO
-              </option>
+          <input type="text" placeholder="DATA DO ENCERRAMENTO" />
 
-              <option value="fardamento_inadequado">
-                FARDAMENTO INADEQUADO
-              </option>
+        </div> <!-------- fim da div fieldgroup---------->
 
-              <option value="intervencao_pedagogica">
-                INTERVENÇÃO PEDAGOGICA
-              </option>
+        <hr class="line-divider" />
 
-              <option value="miniaula">
-                MINIAULA
-              </option>
+        <!----------- ↑ linha divisora ----------------------------------------------------->
 
-              <option value="na">
-                N.A
-              </option>
+        <div class="fieldgroup-below">
 
-              <option value="orientacao_aluno">
-                ORIENTAÇÃO ALUNO
-              </option>
+          <select name="tipoAtendimento">
 
-              <option value="orientacao_reuniao_instrutora">
-                ORIENTAÇÃO/REUNIÃO INSTRUTORA
-              </option>
+            <option value>TIPO DE ATENDIMENTO</option>
+            <option value="acolhimento">Acolhimento</option>
 
-              <option value="outros">
-                OUTROS
-              </option>
+            <option value="acompanhamento">Acompanhamento</option>
 
-              <option value="pais_resp">
-                PAIS/RESP
-              </option>
+            <option value="afastamento_temporario">
+              AFASTAMENTO TEMPORARIO
+            </option>
 
-              <option value="reuniao">
-                REUNIÃO
-              </option>
+            <option value="advertencia">
+              ADVERTÊNCIA
+            </option>
 
-              <option value="visita_pedagogica">
-                VISITA PEDAGOGICA
-              </option>
+            <option value="ambientacao_docente">
+              AMBIENTAÇÃO DOCENTE
+            </option>
 
-            </select>
+            <option value="aplicacao_pesquisa">
+              APLICAÇÃO DE PESQUISA
+            </option>
 
-            <select name="tipoContratacao">
-              <option value>TIPO DE CONTRATAÇÃO</option>
-            </select>
+            <option value="apoio_coordenacao">
+              APOIO A COORDENAÇÃO
+            </option>
 
-            <select name="status">
-              <option value>STATUS</option>
-              <option value="andamento" class="andamento">EM ANDAMENTO</option>
-              <option value="pendente" class="pendente">PENDENTE</option>
-              <option value="finalizado" class="finalizado">FINALIZADO</option>
-            </select>
+            <option value="atendimento_emergencial">
+              ATENDIMENTO EMERGENCIAL
+            </option>
 
-            <select name="relatorio">
-              <option value>RELATÓRIO</option>
-            </select>
+            <option value="boas_vindas">
+              BOAS-VINDAS
+            </option>
 
-          
-            <input type="text" placeholder="INSTRUTOR/ALUNO" />
-            <input type="text" placeholder="COORDENAÇÃO" />
-            <input type="text" placeholder="PEDAGOGO" />
-            <input type="text" placeholder="DOCENTE" />
+            <option value="calcado_inadequado">
+              CALÇADO INADEQUADO
+            </option>
 
-          </div><!----fim da div fieldgroup-below---->
+            <option value="fardamento_inadequado">
+              FARDAMENTO INADEQUADO
+            </option>
 
-          <hr class="line-divider" />
-          <!----------- ↑ linha divisora ----------------------------------------------------->
+            <option value="intervencao_pedagogica">
+              INTERVENÇÃO PEDAGOGICA
+            </option>
 
-          <div class="form-textareas">
-            <!-------Div com campos de escrita extensa-------->
+            <option value="miniaula">
+              MINIAULA
+            </option>
 
-            <div class="input-container">
-              <label>TRATATIVA NEP</label>
-              <textarea name="tratativaNep"></textarea>
-            </div>
+            <option value="na">
+              N.A
+            </option>
 
-            <div class="input-container">
-              <label>DESCRIÇÃO</label>
-              <textarea name="descricao"></textarea>
-            </div>
+            <option value="orientacao_aluno">
+              ORIENTAÇÃO ALUNO
+            </option>
 
-          </div><!------fim da div form-textareas------->
+            <option value="orientacao_reuniao_instrutora">
+              ORIENTAÇÃO/REUNIÃO INSTRUTORA
+            </option>
 
-          <!--------  Botão de salvar   ---------->
+            <option value="outros">
+              OUTROS
+            </option>
 
-          <button type="button" class="btn-salvarAtendimento">
-            Salvar Atendimento
-          </button>
-        </form>
-      </dialog>
-    </main>
+            <option value="pais_resp">
+              PAIS/RESP
+            </option>
 
-    <!------- Referenciando o JS ---------->
-    <script src="../assets/javascript/relatorio-basico.js"></script>
-  </body>
+            <option value="reuniao">
+              REUNIÃO
+            </option>
+
+            <option value="visita_pedagogica">
+              VISITA PEDAGOGICA
+            </option>
+
+          </select>
+
+          <select name="tipoContratacao">
+            <option value>TIPO DE CONTRATAÇÃO</option>
+          </select>
+
+          <select name="status">
+            <option value>STATUS</option>
+            <option value="andamento" class="andamento">EM ANDAMENTO</option>
+            <option value="pendente" class="pendente">PENDENTE</option>
+            <option value="finalizado" class="finalizado">FINALIZADO</option>
+          </select>
+
+          <select name="relatorio">
+            <option value>RELATÓRIO</option>
+          </select>
+
+
+          <input type="text" placeholder="INSTRUTOR/ALUNO" />
+          <input type="text" placeholder="COORDENAÇÃO" />
+          <input type="text" placeholder="PEDAGOGO" />
+          <input type="text" placeholder="DOCENTE" />
+
+        </div><!----fim da div fieldgroup-below---->
+
+        <hr class="line-divider" />
+        <!----------- ↑ linha divisora ----------------------------------------------------->
+
+        <div class="form-textareas">
+          <!-------Div com campos de escrita extensa-------->
+
+          <div class="input-container">
+            <label>TRATATIVA NEP</label>
+            <textarea name="tratativaNep"></textarea>
+          </div>
+
+          <div class="input-container">
+            <label>DESCRIÇÃO</label>
+            <textarea name="descricao"></textarea>
+          </div>
+
+        </div><!------fim da div form-textareas------->
+
+        <!--------  Botão de salvar   ---------->
+
+        <button type="button" class="btn-salvarAtendimento">
+          Salvar Atendimento
+        </button>
+      </form>
+    </dialog>
+  </main>
+
+  <!------- Referenciando o JS ---------->
+  <script src="../assets/javascript/relatorio-basico.js"></script>
+</body>
 </html>

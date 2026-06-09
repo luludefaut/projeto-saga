@@ -7,56 +7,31 @@
   --linha-divisora: #b0a7a7;
 }
 
-main {
-  margin-left: 90px;
-  padding: 30px;
-
-  min-height: 100vh;
-
-  display: flex;
-  flex-direction: column;
-}
-
 /* =========================================
  HEADER MAIN
 ========================================= */
 
 .main-header {
   width: 100%;
-
   display: flex;
   justify-content: flex-end;
 }
+/* fundo escuro */
 
-.header-main-relatorio{
-display: flex;
-flex-direction: column;
-align-items: center;
-}
-
-/* =========================================
- BOTÃO NOVO RELATÓRIO
-========================================= */
 
 #btnNovoRelatorio {
   display: flex;
   align-items: center;
   gap: 8px;
-
   padding: 12px 22px;
-
+  margin: 40px 20px;
   border: none;
   border-radius: 30px;
-
   background: var(--cor-azul-escuro);
-
   color: white;
-
   font-size: 14px;
   font-weight: 600;
-
   cursor: pointer;
-
   transition: 0.2s;
 }
 
@@ -124,6 +99,8 @@ align-items: center;
 /* =========================================
  MODAIS
 ========================================= */
+
+ MODAIS
 
 .modal-form {
   border: none;
@@ -287,10 +264,8 @@ align-items: center;
 
   cursor: pointer;
 
-   font-size: 42px;
+  font-size: 42px;
 }
-
-
 
 /* =========================================
  FORMULÁRIO
@@ -341,7 +316,6 @@ select {
 input,
 select,
 textarea {
-
   border: 1.5px solid var(--cor-azul-escuro);
   background: var(--cor-azul-claro-inputs);
   color: var(--cor-azul-escuro);
@@ -349,7 +323,6 @@ textarea {
   outline: none;
   border-radius: 18px;
   box-sizing: border-box;
-
 }
 
 /* tamanhos */
@@ -382,7 +355,6 @@ input {
   display: flex;
 
   gap: 20px;
-
 }
 
 .input-container {
@@ -393,7 +365,6 @@ input {
 
   gap: 10px;
 }
-
 
 textarea {
   /* Campos de mensagem extensa */
@@ -440,4 +411,3 @@ textarea {
 .btn-salvarAtendimento:hover {
   transform: scale(1.02);
 }
-
