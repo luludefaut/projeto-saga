@@ -66,7 +66,7 @@ main {
 /* Transformado em Grid para controlar os elementos soltos na coluna direita */
 .full-container {
   display: flex;
-  background: rgba(255, 255, 255, 0.4);
+  background: rgba(255,255,255,0.38);
   min-height: 480px;
   max-width: 900px;
   width: 90vw;
@@ -83,6 +83,7 @@ main {
   flex-direction: column;
   padding: 60px 40px;
   width: 55%;
+  /* sugestão para cor: #0A2255 */
   color: white;
 }
 
@@ -90,6 +91,10 @@ main {
   font-size: 2rem;
   margin-bottom: 20px;
 }
+/* 
+.glass-esquerda p { sugestão para cor
+  color: #16356F;
+} */
 
 .cadastrotop {
   display: flex;
