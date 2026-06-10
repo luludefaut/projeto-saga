@@ -1,0 +1,231 @@
+:root {
+  --cor-azul-ciano: #bfcad9;
+  --cor-azul-escuro: #2585d9;
+  --cor-azul-escuro2: #040446;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+input,
+textarea,
+select {
+  appearance: none;
+  /* Remove estilos padrão do sistema operacional */
+  -webkit-appearance: none;
+  width: 100%;
+  /* Facilita o controle via Grid/Flex */
+  border: 1px solid transparent;
+  /* Base para bordas */
+  background-color: transparent;
+  outline: none;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  background: linear-gradient(
+    180deg,
+    var(--cor-azul-ciano),
+    var(--cor-azul-escuro)
+  );
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: sans-serif;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.logo-saga {
+  margin: -80px 0 30px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo-img {
+  width: 300px;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.1));
+}
+
+.logo-saga,
+#troca img {
+  display: flex;
+}
+
+/* Transformado em Grid para controlar os elementos soltos na coluna direita */
+.full-container {
+  display: flex;
+  background: rgba(255, 255, 255, 0.4);
+  min-height: 480px;
+  max-width: 900px;
+  width: 90vw;
+  border-radius: 40px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 1px solid white;
+  overflow: visible;
+  margin-top: 40px;
+}
+
+/* Coluna 1: Vidro na esquerda */
+.glass-esquerda {
+  display: flex;
+  flex-direction: column;
+  padding: 60px 40px;
+  width: 55%;
+  color: white;
+}
+
+.glass-esquerda h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.logintop {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  margin-bottom: 15px;
+}
+/* Coluna 2: Caixa branca */
+.login-direito {
+  background: white;
+  color: var(--cor-azul-escuro2);
+  border-radius: 80px 40px 40px 80px;
+  padding: 40px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: 45%;
+}
+
+#troca {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: grid;
+}
+
+#troca img {
+  width: 22px;
+  height: auto;
+}
+
+#areaform {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: 100%;
+}
+
+.perfil {
+  width: 90px;
+  height: auto;
+  margin-bottom: 15px;
+}
+
+.groupGeral {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-bottom: 2px solid var(--cor-azul-escuro2);
+}
+
+.areaemail,
+.areasenha {
+  display: flex;
+  flex-direction: column;
+}
+
+.groupGeral {
+  display: flex;
+  gap: 10px;
+  padding-bottom: 5px;
+}
+
+.areaemail img,
+.areasenha img {
+  width: 30px;
+}
+
+.areaemail input::placeholder,
+.areasenha input::placeholder {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #040446;
+}
+
+#alertaEmail,
+#alertaSenha {
+  color: red;
+  margin-top: 3px;
+  font-weight: 600;
+  font-size: 12px;
+}
+
+.lembrarsenha {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+#lembreMe {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+
+  border: 2px solid var(--cor-azul-escuro2);
+  border-radius: 4px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  cursor: pointer;
+}
+
+#lembreMe:checked {
+  background-color: var(--cor-azul-escuro2);
+}
+
+#lembreMe:checked::before {
+  content: "✓";
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.loginbtn {
+  background-color: var(--cor-azul-escuro2);
+  color: white;
+
+  font-size: 1rem;
+  font-weight: bold;
+  margin: 15px auto 0 auto;
+  padding: 12px;
+  width: 70%;
+
+  border: none;
+  border-radius: 40px;
+  cursor: pointer;
+  transition: 300ms ease;
+}

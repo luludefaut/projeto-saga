@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SAGA | Cadastro</title>
+  <link rel="stylesheet" href="../assets/css/cadastro.css" />
+</head>
+
+<body>
+
+  <main>
+
+    <header class="logo-saga">
+      <img src="../assets/icons/logo-saga-login-blue.png" alt="Logo SAGA" class="logo-img">
+    </header>
+    <!--fim fo cabeçalho-->
+
+    <section class="full-container">
+      <!---Área contendo a caixa inteira de login-->
+
+      <div class="glass-esquerda">
+        <!--lado esquerdo da caixa, contendo uma breve introdução do site (puramente estético)-->
+        <h2>BEM VINDO AO SAGA</h2>
+        <p>Bem-vindo ao SAGA! Somos o seu Sistema de Análise e Gestão de Atividade, prontos para transformar e gerir suas informações com segurança, acessibilidade e criatividade. O que acha de começar hoje por uma nova jornada ?</p>
+      </div>
+
+      <section class="cadastro-direito">
+
+        <div class="cadastrotop">
+          <h1 class="cadastrotitle">Cadastre-se</h1>
+          <button id="troca">
+            <!-- Botão para trocar de tema entre modo claro e modo escuro -->
+            <img src="../assets/icons/darkmode-moon-icon.svg" alt="Trocar Tema">
+          </button>
+        </div>
+
+        <form id="areaform">
+          <!-- lado direito da caixa com os dados a serem inseridos -->
+          <!--fim da div logintop-->
+          <section class="areaemail">
+            <div class="groupGeral">
+              <!--Área do e-mail-->
+              <img src="../assets/icons/login-email-icon.svg" alt="Ícone de email" class="input-icon">
+              <input type="email" id="email" placeholder="E-mail">
+            </div>
+            <p id="alertaEmail"></p>
+          </section>
+
+          <!--fim da div areaemail-->
+          <section class="areasenha">
+            <div class="groupGeral">
+              <img src="../assets/icons/login-padlock-icon.svg" alt="Ícone de senha" class="input-icon">
+              <input type="password" id="senha" placeholder="Senha">
+              <!--Área da senha, com opção de invisibilidade-->
+            </div>
+            <p id="alertaSenha"></p>
+          </section>
+          <!--fim da div areasenha-->
+
+          <section class="areanome">
+            <div class="groupGeral">
+              <img src="../assets/icons/usuariosemfundo2-icon.svg" alt="Ícone de perfil" class="input-icon">
+              <input type="text" id="nome" placeholder="Nome Completo">
+              <!--Input do tipo texto-->
+            </div>
+            <p id="alertaNome"></p>
+          </section>
+          <!--fim da div areanome-->
+
+          <section class="areafuncao">
+            <div class="groupGeral">
+              <img src="../assets/icons/icon-maleta.svg" alt="Ícone de maleta" class="input-icon">
+              <input type="text" id="funcao" placeholder="Função">
+              <!--Input do tipo texto-->
+            </div>
+            <p id="alertaFuncao"></p>
+          </section>
+
+          <!--fim da div areafuncao-->
+          <button id="cadastrobtn">Cadastro</button>
+        </form>
+        <!--Fim da form logindireito -->
+      </section>
+
+    </section>
+
+  </main>
+
+  <script src="../assets/javascript/cadastro.js"></script>
+</body>
+</html>

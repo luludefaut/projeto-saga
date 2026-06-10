@@ -1,0 +1,201 @@
+.header-main-global { /* Configuração do header principal */
+    display: flex;
+    justify-content: center;
+    height: 182px;
+    border-bottom: 3px solid #D4E6FF;
+}
+
+.header-section-global { /* Configuração do ícone e nome da seção do ícone */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+}
+
+.header-section-global h2 {
+    font-size: 24px;
+    font-weight: 500;
+}
+
+/* Fim das Configuração do header principal */
+
+/* Início das Configuração da main */
+
+.secao-main-configuracoes {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    gap: 30px;
+    justify-content: center;
+    margin: 60px 20px;
+}
+
+.secao-seuPerfil h2, .secao-acessibilidade h2, .secao-faleConosco h2, .secao-cadastroUsuario h2 {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: #002F71;
+    margin-bottom: 10px;
+}
+
+.secao-container-seuPerfil, .secao-container-acessibilidade, .secao-container-faleConosco, .secao-container-cadastroUsuario {
+    display: flex;
+    flex-direction: column;
+    background-color: #F5F8FC;
+    padding: 40px 20px;
+    border-radius: 20px;
+}
+
+.secao-seuPerfil {
+    width: 380px;
+    height: 100%;
+}
+
+.secao-container-seuPerfil {
+    gap: 12px;
+}
+
+.group-seuPerfil h3 {
+    font-size: 14px;
+    font-weight: bold;
+    color: #123465;
+    margin-bottom: 12px;
+}
+
+.group-seuPerfil span {
+    display: block;
+    background-color: #94BDF2;
+    color: #072048;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 17px 10px;
+    border-radius: 15px;
+}
+
+.secao-acessibilidade {
+    width: 380px;
+    height: 100%;
+}
+
+.secao-container-acessibilidade {
+    display: flex;
+    gap: 40px;
+}
+
+.group-onOFF {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.group-onOFF h3 {
+    color: #00378E;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+/* Esconde o checkbox padrão */
+.switch input {
+  display: none;
+}
+
+/* Define o tamanho e o formato do botão (trilho) */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 30px;
+}
+
+/* Estiliza o fundo do botão */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: gray;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+
+/* Cria o botão circular (bolinha) */
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 22px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+/* Muda a cor de fundo quando o botão é ativado */
+input:checked + .slider {
+  background-color: #0088FF;
+}
+
+/* Move a bolinha para a direita quando ativado */
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+.secao-faleConosco {
+    width: 350px;
+    height: 100%;
+}
+
+.secao-container-faleConosco {
+    padding: 20px !important;
+}
+
+.secao-container-faleConosco p {
+    color: #072048;
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.group-faleConosco {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    background-color: #94BDF2;
+    color: #072048;
+    margin-top: 5px;
+    padding: 16px 15px;
+    border-radius: 15px;
+}
+
+.img-ajuste-copy {
+    padding-top: 3px;
+    cursor: pointer;
+}
+
+#msgSucesso {
+    color: #03A683;
+    font-size: 12px;
+    font-weight: 600;
+    margin-top: 5px;
+}
+
+.secao-cadastroUsuario {
+    width: 400px;
+    height: 100%;
+}
+
+.secao-container-cadastroUsuario {
+    padding: 20px !important;
+}
+
+.group-cadastro {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    color: #00378E;
+    font-size: 20px;
+    font-weight: bold;
+}
