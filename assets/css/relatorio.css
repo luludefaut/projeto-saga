@@ -292,9 +292,7 @@
 .fieldgroup-below {
   justify-content: center;
 }
-/* =========================================
- INPUTS E SELECTS
-========================================= */
+/* ========== INPUTS E SELECTS ========= */
 input,
 select {
   height: 46px;
@@ -328,9 +326,7 @@ textarea {
   border-radius: 18px;
 }
 
-/* =========================================
- DIVISOR
-========================================= */
+/*========= DIVISOR ========== */
 
 .line-divider {
   border: none;
@@ -340,9 +336,7 @@ textarea {
   background: var(--linha-divisora);
 }
 
-/* =========================================
- TEXTAREAS
-========================================= */
+/* ========= TEXTAREAS ========= */
 
 .form-textareas {
   display: flex;
@@ -376,9 +370,7 @@ textarea {
   font-size: 15px;
 }
 
-/* =========================================
- BOTÃO SALVAR
-========================================= */
+/*======== BOTÃO SALVAR =======*/
 
 .btn-salvarAtendimento {
   width: 600px;
@@ -430,6 +422,7 @@ textarea {
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05),
     0 2px 4px -1px rgba(0, 0, 0, 0.03);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  margin-left: 30px;
 }
 
 /* Efeito sutil ao passar o mouse por cima */
@@ -478,6 +471,18 @@ textarea {
   justify-content: flex-end;
 }
 
+/*Estilo para cortar a descrição com reticências*/
+.card-body .descricao-card {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;           /*Limita o texto a 3 linhas*/
+  -webkit-box-orient: vertical;  /*Define a orientação do bloco para o corte*/
+  overflow: hidden;               /*Esconde o texto que passar do limite*/
+  text-overflow: ellipsis;        /*Adiciona as reticências automaticamente*/
+  
+  /* Garante o comportamento correto caso o texto não tenha espaços */
+  word-break: break-word;         
+}
+
 /*ETIQUETAS DE STATUS (TAGS COLORIDAS)*/
 .status-tag {
   font-size: 0.75rem;
@@ -503,23 +508,17 @@ textarea {
   color: #16a34a; /* Texto Verde escuro */
 }
 
-/*BOTÃO DE EXCLUIR (LIXEIRA)*/
-.btn-deletar {
-  background-color: transparent;
-  color: #64748b;
-  border: 1px solid #cbd5e1;
-  padding: 6px 12px;
-  font-size: 0.85rem;
-  border-radius: 6px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  transition: all 0.2s ease;
+.btn-editar-card{
+  background-color: var(--cor-azul-claro-botao);
+  display:flex;
+  border: none;
+  border-radius: 20px;
+  border-width: none;
+  color: white;
+  width: 110px;
+  font-size: 16px;
 }
 
-.btn-deletar:hover {
-  background-color: #fee2e2;
-  color: #dc2626;
-  border-color: #fca5a5;
+.btn-editar-card img, {
+  margin-left: 10px;
 }
