@@ -93,12 +93,7 @@ grid-template-areas
 
 ↓
 
-┌────────────────────┐
-│	      header       │
-├─────────┬──────────┤
-│ sidebar │   main   │
-└─────────┴──────────┘
-
+*A sidebar esta à esquerda da main, no topo das duas está a header*
 
 Também temos uma sidebar com os links das páginas, todos com animações suaves feitas por keyframes (usando opacity e translateX) e hovers.
 
