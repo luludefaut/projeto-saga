@@ -166,11 +166,17 @@
 
             <select name="modalidade">
               <option value>MODALIDADE</option>
+              <option name="presencial">Presencial</option> 
+              <option name="ead">EAD</option>
+              <option name="hibrido">Híbrido</option>
             </select>
 
             <!---------------------------------------------------------------------------------------------------------->
+<div class="data-rotulo">  <p>DATA</p>
+  <input type="date" name="data"/>
+</div>
+          
 
-            <input type="date" name="data" placeholder="DATA" />
             <input type="text" name="turma" placeholder="TURMA" />
 
             <select name="tipoCurso" class="tipoCurso">
@@ -186,12 +192,16 @@
               <option value>CURSO</option>
             </select>
 
-            <input
+            <div class="data-rotulo">
+              <p>DATA DO ENCERRAMENTO</p>
+                  <input
               type="date"
               name="data_encerramento"
               placeholder="DATA DO
             ENCERRAMENTO"
             />
+            </div>
+        
           </div>
           <!----- fim da div fieldgroup----->
 
@@ -328,7 +338,13 @@
               <option value>MODALIDADE</option>
             </select>
 
-            <input type="date" name="data" placeholder="DATA" />
+             <div class="data-rotulo">
+              <p>DATA</p>
+               <input type="date" name="data" placeholder="DATA" />
+            </div>
+           
+
+
             <input type="text" name="turma" placeholder="TURMA" />
 
             <select name="tipoCurso" class="tipoCurso">
@@ -348,11 +364,16 @@
               <option value>TIPO DE AÇÃO</option>
             </select>
 
-            <input
+
+             <div class="data-rotulo">
+              <P>DATA DO ENCERRAMENTO</P>
+     <input
               type="date"
               name="data_encerramento"
               placeholder="DATA DO ENCERRAMENTO"
             />
+             </div>
+       
           </div>
           <!-------- fim da div fieldgroup---------->
 
