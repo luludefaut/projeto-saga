@@ -76,6 +76,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const camposObrigatorios = [
       "turno",
+      "modalidade",
       "data",
       "turma",
       "tipoCurso",
