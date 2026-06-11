@@ -72,12 +72,12 @@
 
         <div id="frontalmenuelem">
 
-        <header class="header-main-global">
-            <section class="header-section-global">
-                <img src="../assets/icons/global-historico-black-icon.svg" alt="ilustra-hist">
-                <h2>Histórico</h2>
-            </section>
-        </header>
+            <header class="header-main-global">
+                <section class="header-section-global">
+                    <img src="../assets/icons/global-historico-black-icon.svg" alt="ilustra-hist">
+                    <h2>Histórico</h2>
+                </section>
+            </header>
 
             <p class="mensagem-historico">
                 Salvando apenas os últimos 30 Dias. Para acessar o Histórico Completo, <a href="#" class="link-clique"
@@ -85,8 +85,29 @@
             </p>
         </div>
 
+        <div id="containerHistorico"></div>
+
     </main>
+
+    <dialog id="modalVisualizarRelatorio">
+
+        <div class="modal-header">
+
+            <h2>Relatório Completo</h2>
+
+            <button class="btn-fechar" onclick="this.closest('dialog').close()">
+                ×
+            </button>
+
+        </div>
+
+        <div id="conteudoRelatorioCompleto">
+
+        </div>
+
+    </dialog>
 
     <script src="../basico/javascript-basico/historico-basico.js"></script>
 </body>
+
 </html>
