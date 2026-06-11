@@ -325,6 +325,11 @@ textarea {
   border-radius: 18px;
 }
 
+select {
+  appearance: base-select;
+  align-items: center;
+}
+
 input::placeholder {
   color:var(--cor-azul-escuro);
 }
@@ -530,11 +535,11 @@ textarea {
 /*Estilizando o rótulo*/
 .data-rotulo p{
 position: absolute;
-font-size:12px;
-margin-left: 10px;
+font-size: 12px;
+margin: 1px 0 0 10px;
 }
 
-.data-rotulo input{
-  padding-top: 25px;
+.data-rotulo input[type="date"] {
+  padding: 15px 10px !important;
 }
 
