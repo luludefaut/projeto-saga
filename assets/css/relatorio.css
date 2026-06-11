@@ -519,6 +519,18 @@ textarea {
   font-size: 16px;
 }
 
-.btn-editar-card img, {
+.btn-editar-card img{
   margin-left: 10px;
+}
+
+
+/*Estilizando o rótulo*/
+.data-rotulo p{
+position: absolute;
+font-size:12px;
+margin-left: 10px;
+}
+
+.data-rotulo input{
+  padding-top: 25px;
 }
