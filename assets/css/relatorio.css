@@ -320,10 +320,13 @@ select,
 textarea {
   border: 1.5px solid var(--cor-azul-escuro);
   background: var(--cor-azul-claro-inputs);
-  color: var(--cor-azul-escuro);
   font-size: 14px; /* Fonte ligeiramente menor para o texto respirar melhor */
   outline: none;
   border-radius: 18px;
+}
+
+input::placeholder {
+  color:var(--cor-azul-escuro);
 }
 
 /*========= DIVISOR ========== */
