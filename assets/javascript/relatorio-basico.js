@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   // Inicialização do Banco Local
   let relatorios = JSON.parse(localStorage.getItem("meusRelatorios")) || [];
-  
+
   // VARIÁVEL DE CONTROLE: Armazena o ID do relatório que está sendo editado (null se for um novo)
   let idRelatorioSendoEditado = null;
 
@@ -72,23 +72,47 @@ document.addEventListener("DOMContentLoaded", () => {
   // 3. FUNÇÕES PRINCIPAIS (SALVAMENTO, EDIÇÃO E EXIBIÇÃO)
   // ==========================================================================
 
+  function relatorioCompleto(rel) {
+
+    const camposObrigatorios = [
+      "turno",
+      "data",
+      "turma",
+      "tipoCurso",
+      "curso",
+      "status",
+      "instrutor_aluno",
+      "coordenacao",
+      "pedagogo",
+      "descricao"
+    ];
+
+    return camposObrigatorios.every(campo => {
+      return (
+        rel[campo] &&
+        rel[campo].trim() !== ""
+      );
+    });
+
+  }
+
   // Função genérica para preencher o formulário na hora de editar
   function preencherFormulario(formulario, dados) {
     if (!formulario) return;
-    
+
     // Varre todos os campos do formulário pelo atributo 'name'
     Object.keys(dados).forEach(key => {
       const campo = formulario.elements[key];
       if (campo) {
         campo.value = dados[key];
-        
+
         // Se for o campo de tipo de curso, dispara o evento 'change' manualmente para atualizar os cursos
         if (key === 'tipoCurso') {
           campo.dispatchEvent(new Event('change'));
         }
       }
     });
-    
+
     // Pequeno delay necessário para o campo curso (select dinâmico) conseguir carregar e receber o valor antigo
     setTimeout(() => {
       if (formulario.elements['curso']) {
@@ -104,6 +128,18 @@ document.addEventListener("DOMContentLoaded", () => {
     const formData = new FormData(formulario);
     const dadosRelatorio = Object.fromEntries(formData.entries());
 
+    if (
+      dadosRelatorio.status === "finalizado" &&
+      !relatorioCompleto(dadosRelatorio)
+    ) {
+
+      alert(
+        "Para finalizar o relatório é necessário preencher todos os campos obrigatórios."
+      );
+
+      return;
+    }
+
     if (idRelatorioSendoEditado !== null) {
       // MODO EDIÇÃO: Localiza o relatório antigo pelo ID e atualiza os dados dele
       const index = relatorios.findIndex(rel => rel.id === idRelatorioSendoEditado);
@@ -117,6 +153,7 @@ document.addEventListener("DOMContentLoaded", () => {
       // MODO NOVO: Cria um novo registro com ID único baseado em timestamp
       dadosRelatorio.id = Date.now();
       dadosRelatorio.tipoRelatorio = tipoRelatorio;
+      dadosRelatorio.dataCriacao = new Date().toISOString();
       relatorios.push(dadosRelatorio);
     }
 
@@ -157,7 +194,16 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     if (emptyState) emptyState.style.display = "none";
 
-    relatorios.forEach((rel) => {
+    const relatoriosAtivos = relatorios.filter(rel => {
+
+      return (
+        rel.status === "pendente" ||
+        rel.status === "andamento"
+      );
+
+    });
+
+    relatoriosAtivos.forEach((rel) => {
       // 1. Estrutura externa
       const card = document.createElement("div");
       card.className = "card-relatorio";
@@ -207,7 +253,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const btnEditarCard = document.createElement("button");
       btnEditarCard.className = "btn-editar-card";
       btnEditarCard.innerHTML = `<img src="../assets/icons/editar-icon.svg" alt="Editar"> Editar`;
-      
+
       // LOGICA DO CLIQUE NO EDITAR DO CARD
       btnEditarCard.addEventListener("click", () => {
         idRelatorioSendoEditado = rel.id; // Salva qual item estamos alterando
