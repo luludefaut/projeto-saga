@@ -7,137 +7,367 @@
 - Luca Mendes
 - Mateus Chaves
 
+***
+# 📘 SAGA - Sistema de Análise e Gestão de Atividades
 
-## Introdução
+> Plataforma desenvolvida para registro, análise e gestão de relatórios da equipe pedagógica do SENAI.
 
-abacaxi
+---
 
-## Problemática
+# 🚀 Sobre o Projeto
 
-Atualmente, a equipe pedagógica do SENAI Camaçari enfrenta dificuldades no registro do comportamento e desempenho dos alunos, principalmente devido à falta de uma ferramenta para o registro das ocorrências. Em muitos casos, os registros ficam descentralizados ou limitados a anotações individuais, dificultando o acompanhamento pelos responsáveis e pela própria instituição. Com a ausência de um sistema que integre essas informações, cada professor tem uma visão limitada do aluno, muitas vezes resultando em falta de comunicação sobre o que está acontecendo nas outras disciplinas. (SAGA SENAI, 2025). 
-A questão se agrava ainda mais, uma vez que o fluxo de informações é sobrecarregado, levando em consideração o método utilizado por cada instituição acadêmica. Isso pode acarretar na falta de inclusão, adaptação e interesse dos alunos, além de aumentar as chances de reprovação e evasão escolar.
-O nosso sistema visa solucionar esses problemas por meio de uma plataforma que permite não apenas registrar ocorrências, mas também identificar suas possíveis causas e sugerir ações corretivas. O objetivo final é estabelecer um ecossistema justo e equilibrado no ambiente escolar. 
+O **SAGA (Sistema de Análise e Gestão de Atividades)** foi desenvolvido com o objetivo de centralizar, organizar e monitorar relatórios acadêmicos e pedagógicos, proporcionando maior controle das informações, rastreabilidade dos registros e otimização dos processos internos.
 
-## Solução
+Além do gerenciamento de ocorrências, o sistema oferece dashboards analíticos, histórico de registros, recursos de acessibilidade e integração futura com Inteligência Artificial.
 
-Construímos um site de cunho educacional, buscando maior eficiência de registros de alunos, sobretudo os neurodivergentes, identificação precoce de dificuldades e transtornos — tendo uma IA utilizada para gerar recomendações — colaboração entre docentes e suporte pedagógico, melhorando a sua atuação em seu ambiente de trabalho.
+---
 
-Planejamos fornecer um suporte digital para profissionais da coordenação escolar e professores a fim de melhorar a comunicação entre esses profissionais, visto que muitos textos de relatoria são escritos e compartilhados de forma imprática — ou seja, de forma manual e trabalhosa, exigindo mais tempo e um gasto de energia maior. O nosso projeto visa exatamente trazer uma ferramenta que dispunha a capacidade de solucionar e/ou resolver as situações escolares de forma mais simples e prática.
+# ❗ Problemática
 
+Atualmente, a equipe pedagógica do SENAI Camaçari enfrenta dificuldades relacionadas ao:
+
+* Armazenamento descentralizado de informações;
+* Perda de registros importantes;
+* Falta de padronização nos relatórios;
+* Dificuldade de acompanhamento institucional;
+* Risco de alterações indevidas nos documentos.
+
+Esse cenário não é exclusivo do SENAI Camaçari. A necessidade de um sistema estruturado de registro e monitoramento também foi identificada em outras unidades da rede SENAI.
+
+---
+
+# 💡 Solução Proposta
+
+Para solucionar essas dificuldades, desenvolvemos uma plataforma web capaz de:
+
+✅ Registrar ocorrências acadêmicas;
+
+✅ Organizar relatórios em fluxo de trabalho;
+
+✅ Monitorar status das atividades;
+
+✅ Gerar indicadores através de dashboards;
+
+✅ Armazenar histórico de registros;
+
+✅ Disponibilizar recursos de acessibilidade;
+
+✅ Integrar futuramente uma IA para auxílio pedagógico.
+
+---
+
+# 🏗️ Estrutura do Sistema
+
+## Fluxo Geral
+
+Relatório → Histórico → Dashboard → Indicadores
+
+Todos os módulos do sistema estão conectados para garantir consistência dos dados e atualização das informações.
+
+---
+
+# 🔐 Módulo de Autenticação
+
+## Login
+
+Funcionalidades:
+
+* Campo de e-mail;
+* Campo de senha;
+* Opção "Lembrar senha";
+* Avatar de usuário;
+* Alternância de tema.
+
+## Cadastro
+
+Campos disponíveis:
+
+* Nome completo;
+* E-mail;
+* Senha;
+* Função atual.
+
+---
+
+# 📋 Página de Relatórios
+
+Responsável pela criação e gerenciamento das ocorrências.
 
 ## Funcionalidades
 
-Aqui estão descritas as funcionalidades do nosso projeto. Assim como, suas respectivas funções para cada visão presente: professores/adm, alunos e responsáveis.
+* Criar novo relatório;
+* Editar relatórios;
+* Alterar status;
+* Organizar por prioridade.
 
+## Status Disponíveis
 
-Páginas do Projeto SAGA 
+| Status          | Descrição                        |
+| --------------- | -------------------------------- |
+| 📝 A Fazer      | Relatório criado                 |
+| 🔄 Em Andamento | Relatório parcialmente concluído |
+| ✅ Realizado     | Relatório finalizado             |
 
-*Página de Login:* Terá um ícone inicial como uma foto de perfil vazia. Logo abaixo,temos 2 campos: e-mail e senha e uma opção centralizada para lembrar a senha.
+### Regra de Negócio
 
-*Página de Cadastro Adm:* Campos: e-mail, senha, nome completo e função atual.
+Relatórios concluídos podem ser editados por até **24 horas**.
 
-## Páginas do SAGA: 
+Após esse período:
 
-*Pg de Relatório:* Nesta seção, terá um botão com a opção de “Novo Relatório” para adicionar um relatório com base nos dados da planilha (aguardando). Também teremos 2 seções logo embaixo do botão para mostrar os relatórios que estão em andamento e para fazer. OBS: todo relatório incompleto deve ser marcado com a opção “em andamento”. Quando esses relatórios (seja ele em andamento ou a fazer) aparecerem na tela, será possível editá-los para mudar o seu status. Porém, os relatórios que forem marcados com a opção de “Realizado” terão um tempo máximo de edição de 24 horas, logo após esse tempo, não será possível editar novamente. 
+* Apenas visualização;
+* Exclusão permitida;
+* Edição bloqueada.
 
-*Pg de Dashboard:* A página de Dashboard deve conter áreas de gráficos (formatados através do JavaScript) acerca do andamento de ocorrências (por exemplo: em andamento, concluídas, etc) e será atualizada constantemente para manter os dados uniformes e válidos. Acerca da seção de relatório, a página de dashboard se relaciona através do registro de relatórios atrelados a sua respectiva página, e exibirá-os nos gráficos anteriormente mencionados. A página de dashboard possui objetivo principal relacionar prazos e exibir o progresso dos mesmos.
+---
 
-*Pg de Histórico:* Essa seção está ligada ao relatório, onde vai ter os relatórios armazenados. Também terá a opção de busca por status (concluído, em andamento, a fazer), além de poder editar textos já concluídos, mas com um limite de tempo de 24 horas.
+# 📊 Dashboard
 
-*Pg do Chatbot:* Esta seção irá conter a conversa com o chatbot, contendo a caixa de input para o usuário digitar e realizar a interação direta. A IA consegue produzir templates de ocorrências, analisar ocorrências atualmente realizadas e sugestões de melhoria ou tratativas para determinado problema. Esta funcionalidade está apenas disponível para assinantes premium.
+Área responsável pela visualização dos indicadores do sistema.
 
-*Pg de Configurações:* Sessão do site com opções de mudança na aparência do site, mudando entre a versão clara (padrão), modo escuro e o modo alto contraste, para pessoas com dificuldades visuais. O site também tem um switch de audiodescrição (ainda precisamos ver como fazer) para pessoas cegas se movimentarem no site de maneira mais fácil.
+## Recursos
 
-Codificação
+### 📈 Gráfico de Barras
 
-## Páginas de Login e Cadastro:
+Exibe:
 
-A interface de autenticação de login e cadastro do SAGA foi baseada no conceito de Glassmorphism (efeito de vidro fosco). O layout é centralizado em container principal dividido em dois painéis:
+* Quantidade de ocorrências;
+* Distribuição por categoria;
+* Evolução dos registros.
 
-Painel Esquerdo:  Uma div de camada translúcida com texto informativo e de boas-vindas ao usuário;
+### 🥧 Gráfico de Pizza
 
-Painel Direito: Uma caixa section sólida que comporta o formulário, contendo:
+Exibe:
 
-​Controle de Tema: Botão (#troca) preparado para mudar entre modos claro e escuro;
+* Pendentes;
+* Em andamento;
+* Concluídas.
 
-​Avatar do Usuário: Indicador de perfil;
+### 🔎 Filtros
 
-​Formulário de Autenticação:
-Blocos dentro da seção para capturar os dados, acompanhados de ícones descritivos (.input-icon)).
+* Data inicial;
+* Data final;
+* Curso;
+* Tipo de relatório.
 
-Todas as cores foram gerenciadas via variáveis CSS no escopo global para facilitar futuras manutenções, e as regras de comportamento e validação lógica ficam sob responsabilidade exclusiva do script externo login.js e cadastro.js.
+### 📌 Cards Informativos
 
-## Páginas de Configurações Globais:
+* Total de relatórios;
+* Pendentes;
+* Em andamento;
+* Concluídos.
 
+---
 
-Como temos 5 páginas em comum, nós decidimos criar um CSS global que será chamado em todas as páginas, além de uma estrutura HTML básica, conectada e inserida em cada uma das páginas. Nós utilizamos um header para o cabeçalho principal da página; no centro dele, temos o logo do nosso site e, no canto direito, um ícone de usuário (usando position: absolute) com um hiperlink escondido para a tela de configurações, facilitando assim a versão mobile. Para todos os componentes em geral (header, nav e main) usamos um layout grid para organizá-los. Veja abaixo:
+# 🗂️ Histórico
 
-grid-template-columns
+Armazena os relatórios finalizados.
 
+## Funcionalidades
 
-↓
+* Consulta de ocorrências;
+* Pesquisa por status;
+* Visualização detalhada;
+* Edição dentro do prazo de 24 horas.
+
+## Plano Básico
+
+O histórico completo é restrito.
+
+Ao tentar acessar funcionalidades premium, o usuário recebe uma tela de erro **403 - Acesso Negado**.
+
+---
+
+# 🤖 ChatBot Inteligente
+
+Módulo exclusivo para usuários Premium.
+
+## Objetivos
+
+* Auxiliar na elaboração de relatórios;
+* Sugerir tratativas;
+* Analisar ocorrências registradas.
+
+## Tecnologia Prevista
+
+Integração com API Gemini para implementação de IA baseada em NLP (Processamento de Linguagem Natural).
+
+### Plano Básico
+
+Exibe tela de bloqueio (Erro 403).
+
+### Plano Premium
+
+Liberação completa da funcionalidade.
+
+---
+
+# ⚙️ Configurações
+
+Área destinada às configurações do usuário e do sistema.
+
+## 👤 Perfil
+
+Exibe:
+
+* Nome;
+* E-mail;
+* Função.
+
+## ♿ Acessibilidade
+
+Recursos disponíveis:
+
+* 🌙 Dark Mode;
+* ⚫ Alto Contraste;
+
+## 📩 Fale Conosco
+
+* Botão de cópia automática do e-mail;
+* Feedback visual após a cópia.
+
+## 👥 Cadastro de Usuários
+
+Disponível apenas para usuários autenticados.
+
+---
+
+# 🎨 Interface e Design
+
+## Conceito Visual
+
+O sistema utiliza:
+
+* Glassmorphism;
+* Layout Responsivo;
+* Componentização visual;
+* Padronização global de estilos.
+
+---
+
+# 🧱 Estrutura Global
+
+Utilizamos CSS Global compartilhado entre as páginas.
+
+## Layout Principal
+
+grid-template-columns:
 
 210px | 1fr
 
-grid-template-rows
-
-↓
+grid-template-rows:
 
 100px | 1fr
 
-grid-template-areas
+Estrutura:
 
-↓
+| Header |
+|------------------|
+| Sidebar \| Main |
 
-“header header” “sidebar main”
+### Componentes
 
-↓
+* Header;
+* Sidebar;
+* Main Content.
 
-**A sidebar esta à esquerda da main, no topo das duas está a header**
+---
 
-Também temos uma sidebar com os links das páginas, todos com animações suaves feitas por keyframes (usando opacity e translateX) e hovers.
+# 💻 Estrutura JavaScript
 
+## Funcionalidades
 
-Telas Utilizadas no Projeto SAGA e suas Funcionalidades:
+### 📋 Relatórios
 
-## Página de Relatório:
+* Criação;
+* Armazenamento;
+* Edição;
+* Transporte de dados.
 
-A página de relatoria tem a barra superior comum contendo a logo centralizada e o ícone de usuário à direita. Na parte extrema esquerda principal da tela, abaixo dessa barra superior está a barra de navegação lateral com diferentes botões de acesso a outras páginas. Na seção em enfoque do site está a parte onde os relatórios feitos, em pendência e finalizados estão, esses relatórios podem ser criados ao clicar no botão na parte superior direita, onde um modal pequeno se abre para selecionar qual tipo de relatório será feito.
+### 🔐 Autenticação
 
-## Página de Dashboard:
+* Login;
+* Cadastro;
+* Validação de formulários.
 
-A página de Dashboard exige a aplicação da biblioteca “chart” do JavaScript para a criação de gráficos, relacionando-se com os dados de quantidade de relatórios elaborados. Conforme os dados são depositados e relacionados à seção de dashboard, os gráficos serão atualizados com os novos valores apresentados, de forma simples e fácil.
+### 🧭 Navegação
 
-Para o primeiro gráfico, definiu-se, primeiramente, no CSS, a estilização do container o qual irá armazenar os gráficos. Todos os containers possuem posição e tamanho igualitário. Dentro do primeiro container, foi inserido um gráfico utilizando a função chart no JavaScript, do tipo “pie” (ou seja, gráfico de setores). Dentro do segundo container, inseriu-se utilizando o mesmo processo de codificação, entretanto utilizando o tipo “bar” (gráfico de colunas).
+* Controle de rotas;
+* Controle de permissões.
 
-Além dos gráficos, possui-se — também — uma seção de filtragem de conteúdo, sendo eles: filtragem por data de início e término, tipo do curso
+### 📊 Dashboard
 
-## Página de Histórico:
+* Atualização dinâmica;
+* Integração com gráficos;
+* Filtros inteligentes.
 
-A página de Histórico no plano básico possui uma composição padrão como as outras páginas no quesito de estilização, por conta do global.css o html “Histórico Básico.html” possui lincagem com dois css sendo um deles o global e o outro histórico-basico.css. A estrutura em Html abrange um texto <h1>,  um ícone <img…> e um <p> com <a href> onde o texto informa “Salvando apenas os últimos 30 dias. Para acessar o Histórico completo, “clique aqui ” e quando tocado no link abrirá uma tela de erro 403 que impede o usuário de acessar a opção por ser uma ferramenta exclusiva do plano premium.
+---
 
-O erro 403 foi estruturado em css e DOM (JS) onde no css dele possui configurações mantidas no arquivo “Histórico-basico.css” contendo o mantimento de posição de cor e elementos da mensagem de erro.
+# 🛠️ Tecnologias Utilizadas
 
-## Página de ChatBot:
+## Front-end
 
-O chatbot é uma funcionalidade a parte do site, ele possui um comportamento que difere conforme o plano que o usuário está acessando, para isso, criamos dois htmls no qual um representa o plano básico onde o usuário não tem acesso, limitado à apenas uma tela semelhante ao  erro 403 (sem permissão para acesso). Enquanto que o segundo html se trata do plano premium onde o usuário consegue manter uma conversa com o chatbot e suas funções padrão bem estruturadas com o JS.
+* HTML5
+* CSS3
+* JavaScript
 
-O código em css guarda elementos de posição adicionais (pois o html do chatbot também se conecta ao arquivo global.css) sendo eles partes da composição da tela de erro enquanto escondido e a página não está carregada.
+## Back-end
 
-## Página de Configurações:
+* PHP
+* MySQL
 
-Nela temos um layout flex com 4 sections dentro dela: um para o perfil do usuário; outro para acessibilidade; outro para fale conosco e outro para cadastrar novos usuários. Cada um deles tem suas especificidades: 
+## Bibliotecas
 
-Perfil: Exibe o nome, e-mail e função do usuário logado no sistema.
+* Chart.js
 
-Acessibilidade: Possui 3 opções para acionar/desativar a audiodescrição, alto contraste e dark mode.
+## Futuras Integrações
 
-Fale Conosco: Um botão para copiar o e-mail e uma mensagem oculta se ele for copiado com sucesso.
+* Gemini API
+* IA NLP
 
-Cadastrar Novo Usuário: Um botão que leva a página de cadastro. Esta página só pode ser acessada se o usuário estiver logado (lembre disso quando configurar o back-end).
+---
 
-## Página de Cadastro:
+# 🌿 Estrutura de Branches
 
-## Conclusão
+## Main
 
-abacaxi
+Versão principal do projeto.
+
+## teste-final
+
+Versão utilizada para demonstração do fluxo completo utilizando Local Storage.
+
+---
+
+# 📈 Diferenciais do Projeto
+
+✅ Interface Responsiva
+
+✅ Sistema Full Stack
+
+✅ Dashboard Analítico
+
+✅ Recursos de Acessibilidade
+
+✅ Controle de Histórico
+
+✅ Chatbot Inteligente
+
+✅ Plano Premium
+
+---
+
+# 🎯 Conclusão
+
+O SAGA foi desenvolvido para transformar o processo de registro e monitoramento de relatórios, proporcionando maior organização, rastreabilidade e eficiência para a equipe pedagógica.
+
+Mais do que armazenar informações, o sistema busca oferecer uma solução moderna, acessível e escalável para a gestão institucional.
+
+---
+
+# 📚 Referências
+
+1. **SENAI.** Projeto Integrador 2025/02 4.02 – Sistema de Registro e Monitoramento de Ocorrências Acadêmicas. Plataforma SAGA SENAI de Inovação, Demanda da Indústria n. 11642, 2025.  
+   Disponível em: <https://plataforma.gpinovacao.senai.br/plataforma/demandas-da-industria/interna/11642>
+
+2. **REIS, Nubiragina Salasar dos et al.** Neurodiversidade na escola: quebrando barreiras e construindo uma educação inclusiva para todos. Revista Aracê, 2024.  
+   Disponível em: <https://doi.org/10.56238/arev6n4-293>
