@@ -325,11 +325,6 @@ textarea {
   border-radius: 18px;
 }
 
-select {
-  appearance: base-select;
-  align-items: center;
-}
-
 input::placeholder {
   color:var(--cor-azul-escuro);
 }
