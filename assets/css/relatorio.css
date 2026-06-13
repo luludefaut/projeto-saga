@@ -290,7 +290,7 @@
 }
 
 .fieldgroup-below {
-  justify-content: center;
+  justify-content: flex-start
 }
 /* ========== INPUTS E SELECTS ========= */
 input,
@@ -320,10 +320,13 @@ select,
 textarea {
   border: 1.5px solid var(--cor-azul-escuro);
   background: var(--cor-azul-claro-inputs);
-  color: var(--cor-azul-escuro);
   font-size: 14px; /* Fonte ligeiramente menor para o texto respirar melhor */
   outline: none;
   border-radius: 18px;
+}
+
+input::placeholder {
+  color:var(--cor-azul-escuro);
 }
 
 /*========= DIVISOR ========== */
@@ -527,11 +530,11 @@ textarea {
 /*Estilizando o rótulo*/
 .data-rotulo p{
 position: absolute;
-font-size:12px;
-margin-left: 10px;
+font-size: 12px;
+margin: 1px 0 0 10px;
 }
 
-.data-rotulo input{
-  padding-top: 25px;
+.data-rotulo input[type="date"] {
+  padding: 15px 10px !important;
 }
 
