@@ -7,10 +7,7 @@
   --linha-divisora: #b0a7a7;
 }
 
-
-/* =========================================
- HEADER MAIN
-========================================= */
+/*==================== HEADER MAIN ===================== */
 
 .main-header {
   width: 100%;
@@ -19,15 +16,13 @@
   justify-content: flex-end;
 }
 
-.header-main-relatorio{
-display: flex;
-flex-direction: column;
-align-items: center;
+.header-main-relatorio {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-/* =========================================
- BOTÃO NOVO RELATÓRIO
-========================================= */
+/*================== BOTÃO NOVO RELATÓRIO ======================= */
 
 #btnNovoRelatorio {
   display: flex;
@@ -60,9 +55,7 @@ align-items: center;
   width: 16px;
 }
 
-/* =========================================
- EMPTY STATE
-========================================= */
+/*================= EMPTY STATE ==================== */
 
 .empty-state-container {
   flex: 1;
@@ -113,9 +106,7 @@ align-items: center;
   font-size: 14px;
 }
 
-/* =========================================
- MODAIS
-========================================= */
+/*=================== MODAIS ====================== */
 
 .modal-form {
   border: none;
@@ -147,17 +138,13 @@ align-items: center;
   backdrop-filter: blur(2px);
 }
 
-/* =========================================
- MODAL PEQUENA
-========================================= */
+/*============ MODAL PEQUENA ===========*/
 
 #modalTipoRelatorio {
   width: 420px;
 }
 
-/* =========================================
- HEADER MODAL PEQUENO
-========================================= */
+/*============ HEADER MODAL PEQUENO ============*/
 
 .modal-header {
   height: 70px;
@@ -191,9 +178,7 @@ align-items: center;
   cursor: pointer;
 }
 
-/* =========================================
- BOTÕES MODAL PEQUENO
-========================================= */
+/*========= BOTÕES MODAL PEQUENO ==========*/
 
 .modal-buttons {
   padding: 45px;
@@ -227,9 +212,7 @@ align-items: center;
   background: var(--cor-azul-claro-botao);
 }
 
-/* =========================================
- MODAIS GRANDES
-========================================= */
+/*========= MODAIS GRANDES =========*/
 
 #modalAtendGeral,
 #modalAcompPed {
@@ -238,9 +221,7 @@ align-items: center;
   border-radius: 20px;
 }
 
-/* =========================================
- HEADER FORMULÁRIO
-========================================= */
+/*========= HEADER FORMULÁRIO ===========*/
 
 .modal-header-form {
   height: 70px;
@@ -265,9 +246,7 @@ align-items: center;
   text-align: center;
 }
 
-/* =========================================
- BOTÕES HEADER
-========================================= */
+/*======== BOTÕES HEADER ==========*/
 
 .btn-voltar,
 .btn-fechar {
@@ -279,14 +258,10 @@ align-items: center;
 
   cursor: pointer;
 
-   font-size: 42px;
+  font-size: 42px;
 }
 
-
-
-/* =========================================
- FORMULÁRIO
-========================================= */
+/*=========== FORMULÁRIO ============*/
 
 .form-grid {
   padding: 35px 28px;
@@ -297,66 +272,64 @@ align-items: center;
   gap: 30px;
 }
 
-/* =========================================
- GRUPOS
-========================================= */
+/*=========== GRUPOS ==============*/
 .fieldgroup,
 .fieldgroup-below {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(
+    4,
+    220px
+  ); /*cria exatamente 4 colunas fixas de 220px cada uma*/
   gap: 18px;
-
   color: var(--cor-azul-escuro);
 }
 
-/* Campos de cima */
+/*alinhamento da tabela interna*/
 .fieldgroup {
   justify-content: flex-start;
 }
 
-/* Campos de baixo */
 .fieldgroup-below {
-  justify-content: center;
+  justify-content: flex-start
 }
-
-/* =========================================
- INPUTS E SELECTS
-========================================= */
-
+/* ========== INPUTS E SELECTS ========= */
 input,
 select {
   height: 46px;
-
   padding: 0 16px;
+
+  /*Faz o campo ocupar exatamente a coluna de 220px do Grid*/
+  width: 100%;
+  max-width: 220px;
+  box-sizing: border-box;
+
+  /* Força o texto muito longo a ser cortado com reticências visuais */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+select {
+  cursor: pointer;
+  /* Avisa o motor do navegador para aplicar o corte interno */
+  text-overflow: ellipsis;
 }
 
 input,
 select,
 textarea {
-
   border: 1.5px solid var(--cor-azul-escuro);
   background: var(--cor-azul-claro-inputs);
-  color: var(--cor-azul-escuro);
-  font-size: 15px;
+  font-size: 14px; /* Fonte ligeiramente menor para o texto respirar melhor */
   outline: none;
   border-radius: 18px;
-  box-sizing: border-box;
-
 }
 
-/* tamanhos */
-
-select {
-  min-width: 180px;
+input::placeholder {
+  color:var(--cor-azul-escuro);
 }
 
-input {
-  min-width: 180px;
-}
-
-/* =========================================
- DIVISOR
-========================================= */
+/*========= DIVISOR ========== */
 
 .line-divider {
   border: none;
@@ -366,15 +339,12 @@ input {
   background: var(--linha-divisora);
 }
 
-/* =========================================
- TEXTAREAS
-========================================= */
+/* ========= TEXTAREAS ========= */
 
 .form-textareas {
   display: flex;
 
   gap: 20px;
-
 }
 
 .input-container {
@@ -385,7 +355,6 @@ input {
 
   gap: 10px;
 }
-
 
 textarea {
   /* Campos de mensagem extensa */
@@ -404,9 +373,7 @@ textarea {
   font-size: 15px;
 }
 
-/* =========================================
- BOTÃO SALVAR
-========================================= */
+/*======== BOTÃO SALVAR =======*/
 
 .btn-salvarAtendimento {
   width: 600px;
@@ -433,4 +400,141 @@ textarea {
   transform: scale(1.02);
 }
 
-/*==================================== ESTILIZAÇÃO ===================================================*/
+/*==================================== ESTILIZAÇÃO DOS CARDS ===================================================*/
+
+/* CONTAINER DOS CARDS */
+
+.cards-container {
+  display: grid;
+  /* Cria colunas automáticas: mínimo 300px, máximo distribui o espaço igual (1fr) */
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px 0;
+  width: 100%;
+}
+
+/*ESTRUTURA BASE DO CARD*/
+.card-relatorio {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05),
+    0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  margin-left: 30px;
+}
+
+/* Efeito sutil ao passar o mouse por cima */
+.card-relatorio:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08);
+}
+
+/* PARTES DO CARD (HEADER, BODY, FOOTER)*/
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #f1f5f9;
+  padding-bottom: 12px;
+  margin-bottom: 15px;
+}
+
+.card-header h3 {
+  font-size: 1.1rem;
+  color: #1e293b; /* Tom de azul/cinza escuro profissional */
+  font-weight: 700;
+  margin: 0;
+}
+
+.card-body {
+  font-size: 0.95rem;
+  color: #475569;
+  line-height: 1.6;
+  flex-grow: 1; /* Faz o corpo ocupar o espaço restante se o texto for curto */
+}
+
+.card-body p {
+  margin: 8px 0;
+}
+
+.card-body strong {
+  color: #1e293b;
+}
+
+.card-footer {
+  margin-top: 20px;
+  border-top: 1px solid #f1f5f9;
+  padding-top: 12px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+/*Estilo para cortar a descrição com reticências*/
+.card-body .descricao-card {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;           /*Limita o texto a 3 linhas*/
+  -webkit-box-orient: vertical;  /*Define a orientação do bloco para o corte*/
+  overflow: hidden;               /*Esconde o texto que passar do limite*/
+  text-overflow: ellipsis;        /*Adiciona as reticências automaticamente*/
+  
+  /* Garante o comportamento correto caso o texto não tenha espaços */
+  word-break: break-word;         
+}
+
+/*ETIQUETAS DE STATUS (TAGS COLORIDAS)*/
+.status-tag {
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 20px;
+  letter-spacing: 0.5px;
+}
+
+/* Cores dinâmicas que batem com as classes injetadas pelo JS */
+.status-tag.andamento {
+  background-color: #fef3c7; /* Amarelo claro */
+  color: #d97706; /* Texto Amarelo escuro */
+}
+
+.status-tag.pendente {
+  background-color: #fee2e2; /* Vermelho claro */
+  color: #dc2626; /* Texto Vermelho escuro */
+}
+
+.status-tag.finalizado {
+  background-color: #dcfce7; /* Verde claro */
+  color: #16a34a; /* Texto Verde escuro */
+}
+
+.btn-editar-card{
+  background-color: var(--cor-azul-claro-botao);
+  display:flex;
+  border: none;
+  border-radius: 20px;
+  border-width: none;
+  color: white;
+  width: 110px;
+  font-size: 16px;
+}
+
+.btn-editar-card img{
+  margin-left: 10px;
+}
+
+
+/*Estilizando o rótulo*/
+.data-rotulo p{
+position: absolute;
+font-size: 12px;
+margin: 1px 0 0 10px;
+}
+
+.data-rotulo input[type="date"] {
+  padding: 15px 10px !important;
+}
+

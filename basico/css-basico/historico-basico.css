@@ -68,3 +68,31 @@
     height: 100%;
     font-family: "Poppins", Arial, sans-serif;
 }
+
+.btn-visualizar{
+
+background:#164194;
+
+color:white;
+
+border:none;
+
+padding:10px 18px;
+
+border-radius:20px;
+
+cursor:pointer;
+
+font-weight:600;
+
+transition:.2s;
+
+}
+
+.btn-visualizar:hover{
+
+opacity:.9;
+
+transform:scale(1.02);
+
+}
