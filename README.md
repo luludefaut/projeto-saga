@@ -367,7 +367,4 @@ Mais do que armazenar informações, o sistema busca oferecer uma solução mode
 # 📚 Referências
 
 1. **SENAI.** Projeto Integrador 2025/02 4.02 – Sistema de Registro e Monitoramento de Ocorrências Acadêmicas. Plataforma SAGA SENAI de Inovação, Demanda da Indústria n. 11642, 2025.  
-   Disponível em: <https://plataforma.gpinovacao.senai.br/plataforma/demandas-da-industria/interna/11642>
-
-2. **REIS, Nubiragina Salasar dos et al.** Neurodiversidade na escola: quebrando barreiras e construindo uma educação inclusiva para todos. Revista Aracê, 2024.  
-   Disponível em: <https://doi.org/10.56238/arev6n4-293>
+   Disponível em: <https://plataforma.gpinovacao.senai.br/plataforma/demandas-da-industria/interna/11642> 
