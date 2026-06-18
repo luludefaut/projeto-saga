@@ -4,14 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SAGA | Login</title>
-  <link rel="stylesheet" href="assets/css/login.css" />
+  <link rel="stylesheet" href="assets/css/login.css">
 </head>
 <body>
 
   <main>
 
     <header class="logo-saga">
-      <img src="assets/icons/logo-saga-login-blue.png" alt="Logo SAGA" class="logo-img">
+      <img src="assets/icons/logo-saga-login-blue.png" alt="Logo SAGA" class="logo-img" id="logoSaga">
     </header>
     <!--fim do cabeçalho-->
 
@@ -28,17 +28,17 @@
           <h1 class="logintitle">Login</h1>
 
           <button id="troca">
-            <img src="assets/icons/darkmode-moon-icon.svg" alt="Trocar Tema">
+            <img src="assets/icons/darkmode-moon-icon.svg" alt="Trocar Tema" id="iconeTema">
           </button>
         </div>
 
-        <img src="assets/icons/usuario-icon.svg" alt="Ícone de perfil" class="perfil">
+        <img src="assets/icons/usuario-icon.svg" alt="Ícone de perfil" class="perfil" id="iconePerfil">
 
         <form id="areaform">
 
           <section class="areaemail">
             <div class="groupGeral">
-              <img src="assets/icons/login-email-icon.svg" alt="Ícone de email" class="input-icon">
+              <img src="assets/icons/login-email-icon.svg" alt="Ícone de email" class="input-icon" id="iconeEmail">
 
               <input type="email" id="email" placeholder="E-mail">
             </div>
@@ -48,7 +48,7 @@
 
           <section class="areasenha">
             <div class="groupGeral">
-              <img src="assets/icons/login-padlock-icon.svg" alt="Ícone de senha" class="input-icon">
+              <img src="assets/icons/login-padlock-icon.svg" alt="Ícone de senha" class="input-icon" id="iconeSenha">
 
               <input type="password" id="senha" placeholder="Senha">
             </div>
@@ -72,5 +72,6 @@
   </main>
 
   <script src="assets/javascript/login.js"></script>
+
 </body>
 </html>

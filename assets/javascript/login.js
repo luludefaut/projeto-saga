@@ -49,3 +49,54 @@ formulario.addEventListener('submit', (event) => {
         // Limpa os campos após o envio
     }
 });
+
+const btnTroca = document.getElementById("troca"); // pega o id do botáo de trocar o tema
+
+
+function ativarDarkMode() { // função para ativar o dark-mode e mudar os seus ícones
+
+    document.body.classList.add("dark-mode");
+
+    document.getElementById("logoSaga").src = "assets/icons/darkMode/logo-saga-login-blue-dark.png";
+
+    document.getElementById("iconeTema").src = "assets/icons/darkMode/darkmode-sun-icon.svg";
+
+    document.getElementById("iconePerfil").src = "assets/icons/darkMode/usuario-icon-dark.svg";
+
+    document.getElementById("iconeEmail").src = "assets/icons/darkMode/login-email-icon-dark.svg";
+
+    document.getElementById("iconeSenha").src = "assets/icons/darkMode/login-padlock-icon-dark.svg";
+
+}
+
+function desativarDarkMode() { // função para desativar o dark-mode e mudar os seus ícones, garantindo que eles carreguem novamente
+
+    document.body.classList.remove("dark-mode");
+
+    document.getElementById("logoSaga").src = "assets/icons/logo-saga-login-blue.png";
+
+    document.getElementById("iconeTema").src = "assets/icons/darkmode-moon-icon.svg";
+
+    document.getElementById("iconePerfil").src = "assets/icons/usuario-icon.svg";
+
+    document.getElementById("iconeEmail").src = "assets/icons/login-email-icon.svg";
+
+    document.getElementById("iconeSenha").src = "assets/icons/login-padlock-icon.svg";
+
+}
+
+btnTroca.addEventListener("click", (e) => { // verifica o click no botão
+
+    e.preventDefault(); // impede que página recarregue
+
+    if (document.body.classList.contains("dark-mode")) { // verifica se a class dark-mode existe
+
+        desativarDarkMode();
+
+    } else {
+
+        ativarDarkMode();
+
+    }
+
+});
