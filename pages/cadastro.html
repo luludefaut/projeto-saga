@@ -1,6 +1,5 @@
 <!doctype html>
 <html lang="pt-br">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -13,7 +12,7 @@
   <main>
 
     <header class="logo-saga">
-      <img src="../assets/icons/logo-saga-login-blue.png" alt="Logo SAGA" class="logo-img">
+      <img src="../assets/icons/logo-saga-login-blue.png" alt="Logo SAGA" class="logo-img" id="logoSaga">
     </header>
     <!--fim fo cabeçalho-->
 
@@ -32,7 +31,7 @@
           <h1 class="cadastrotitle">Cadastre-se</h1>
           <button id="troca">
             <!-- Botão para trocar de tema entre modo claro e modo escuro -->
-            <img src="../assets/icons/darkmode-moon-icon.svg" alt="Trocar Tema">
+            <img src="../assets/icons/darkmode-moon-icon.svg" alt="Trocar Tema" id="iconeTema">
           </button>
         </div>
 
@@ -42,7 +41,7 @@
           <section class="areaemail">
             <div class="groupGeral">
               <!--Área do e-mail-->
-              <img src="../assets/icons/login-email-icon.svg" alt="Ícone de email" class="input-icon">
+              <img src="../assets/icons/login-email-icon.svg" alt="Ícone de email" class="input-icon" id="iconeEmail">
               <input type="email" id="email" placeholder="E-mail">
             </div>
             <p id="alertaEmail"></p>
@@ -51,7 +50,7 @@
           <!--fim da div areaemail-->
           <section class="areasenha">
             <div class="groupGeral">
-              <img src="../assets/icons/login-padlock-icon.svg" alt="Ícone de senha" class="input-icon">
+              <img src="../assets/icons/login-padlock-icon.svg" alt="Ícone de senha" class="input-icon" id="iconeSenha">
               <input type="password" id="senha" placeholder="Senha">
               <!--Área da senha, com opção de invisibilidade-->
             </div>
@@ -61,7 +60,7 @@
 
           <section class="areanome">
             <div class="groupGeral">
-              <img src="../assets/icons/usuariosemfundo2-icon.svg" alt="Ícone de perfil" class="input-icon">
+              <img src="../assets/icons/usuariosemfundo2-icon.svg" alt="Ícone de perfil" class="input-icon" id="iconeNome">
               <input type="text" id="nome" placeholder="Nome Completo">
               <!--Input do tipo texto-->
             </div>
@@ -71,7 +70,7 @@
 
           <section class="areafuncao">
             <div class="groupGeral">
-              <img src="../assets/icons/icon-maleta.svg" alt="Ícone de maleta" class="input-icon">
+              <img src="../assets/icons/icon-maleta.svg" alt="Ícone de maleta" class="input-icon" id="iconeFuncao">
               <input type="text" id="funcao" placeholder="Função">
               <!--Input do tipo texto-->
             </div>
@@ -89,5 +88,6 @@
   </main>
 
   <script src="../assets/javascript/cadastro.js"></script>
+
 </body>
 </html>

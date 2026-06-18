@@ -1,7 +1,47 @@
 :root {
-  --cor-azul-ciano: #bfcad9;
-  --cor-azul-escuro: #2585d9;
-  --cor-azul-escuro2: #040446;
+
+  --cor-azul-ciano-gradiente1: #bfcad9;
+  --cor-azul-ciano-gradiente2: #2585d9;
+
+  --cor-azul-escuro-principal: #040446;
+
+  --cor-input: #040446;
+
+  --cor-texto-esquerda: #ffffff;
+  --cor-texto-direita: #040446;
+
+  --cor-card-login: #ffffff;
+
+  --cor-padrao: #ffffff;
+
+  --cor-bg-container: rgba(255,255,255,.4);
+
+  --cor-bg-shadow: rgba(0,0,0,.1);
+
+  --cor-alerta-js: #ff0000;
+
+  --cor-bg-none: transparent;
+}
+
+body.dark-mode {
+
+  --cor-azul-ciano-gradiente1: #0A1C43;
+  --cor-azul-ciano-gradiente2: #2D7BBF;
+
+  --cor-azul-escuro-principal: #164194;
+
+  --cor-input: #ffffff;
+
+  --cor-texto-esquerda: #ffffff;
+  --cor-texto-direita: #ffffff;
+
+  --cor-card-login: rgba(0,0,0,.78);
+
+  --cor-padrao: #ffffff;
+
+  --cor-bg-container: rgba(255,255,255,.15);
+
+  --cor-bg-shadow: rgba(255,255,255,.1);
 }
 
 * {
@@ -33,8 +73,8 @@ body {
 body {
   background: linear-gradient(
     180deg,
-    var(--cor-azul-ciano),
-    var(--cor-azul-escuro)
+    var(--cor-azul-ciano-gradiente1),
+    var(--cor-azul-ciano-gradiente2)
   );
   height: 100vh;
   display: flex;
@@ -66,13 +106,13 @@ main {
 /* Transformado em Grid para controlar os elementos soltos na coluna direita */
 .full-container {
   display: flex;
-  background: rgba(255,255,255,0.38);
+  background: var(--cor-bg-container);
   min-height: 480px;
   max-width: 900px;
   width: 90vw;
   border-radius: 40px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-  border: 1px solid white;
+  box-shadow: 0 8px 32px var(--cor-bg-shadow);
+  border: 1px solid var(--cor-padrao);
   overflow: visible;
   margin-top: 40px;
 }
@@ -84,7 +124,7 @@ main {
   padding: 60px 40px;
   width: 55%;
   /* sugestão para cor: #0A2255 */
-  color: white;
+  color: var(--cor-texto-esquerda);
 }
 
 .glass-esquerda h2 {
@@ -107,8 +147,8 @@ main {
 
 /* Coluna 2: caixa branca */
 .cadastro-direito {
-  background: white;
-  color: var(--cor-azul-escuro2);
+  background: var(--cor-card-login);
+  color: var(--cor-texto-direita);
   border-radius: 80px 40px 40px 80px;
   padding: 40px;
   display: flex;
@@ -140,7 +180,7 @@ main {
   display: flex;
   flex-direction: row;
   align-items: center;
-  border-bottom: 2px solid var(--cor-azul-escuro2);
+  border-bottom: 2px solid var(--cor-input);
 }
 
 /*Deixando o ícone e o texto lado a lado*/
@@ -165,7 +205,11 @@ main {
 .areaemail input::placeholder, .areasenha input::placeholder, .areanome input::placeholder, .areafuncao input::placeholder {
   font-size: 1rem;
   font-weight: bold;
-  color: #040446;
+  color: var(--cor-input);
+}
+
+.cadastrotitle, input {
+  color: var(--cor-texto-direita);
 }
 
 #alertaEmail, #alertaSenha, #alertaNome, #alertaFuncao {
@@ -176,7 +220,7 @@ main {
 }
 
 #cadastrobtn {
-  background-color: var(--cor-azul-escuro2);
+  background-color: var(--cor-azul-escuro-principal);
   color: white;
   
   font-size: 1rem;
@@ -189,4 +233,8 @@ main {
   border-radius: 40px;
   cursor: pointer;
   transition: 300ms ease;
+}
+
+body, .full-container, .cadastro-direito, .glass-esquerda, .groupGeral, #cadastrobtn, input, input::placeholder, .cadastrotitle {
+    transition: background 0.4s ease, background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
 }

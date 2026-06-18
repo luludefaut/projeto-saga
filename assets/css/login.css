@@ -1,27 +1,51 @@
 :root {
-  --cor-azul-ciano-gradiente1: #bfcad9; /* 1 cor do linear gradiente 0% */
-  --cor-azul-ciano-gradiente2: #2585d9; /* 2 cor do linear gradiente 100% */
-  --cor-azul-escuro-principal: #040446; /* azul principal do site (botões, inputs e etc. */
-  --cor-input-paraDark: #040446;
-  --cor-padrao: #ffffff; /* branco padrão do site */
 
-  --cor-alerta-js: #ff0000; /* msg de alerta pelo js */
-  --cor-bg-none: transparent; /* fundo transparent para os inputs */
-  --cor-bg-container: rgba(255, 255, 255, 0.4); /* fundo do container principal */
-  --cor-bg-shadow: rgba(0, 0, 0, 0.1); /* box-shadow do container */
+  /* Fundo */
+  --cor-azul-ciano-gradiente1: #bfcad9;
+  --cor-azul-ciano-gradiente2: #2585d9;
+
+  /* Componentes */
+  --cor-azul-escuro-principal: #040446;
+
+  /* Inputs */
+  --cor-input: #040446;
+
+  /* Textos */
+  --cor-texto-esquerda: #ffffff;
+  --cor-texto-direita: #040446;
+
+  /* Card login */
+  --cor-card-login: #ffffff;
+
+  /* Estrutura */
+  --cor-padrao: #ffffff;
+  --cor-bg-container: rgba(255,255,255,.4);
+  --cor-bg-shadow: rgba(0,0,0,.1);
+
+  /* Utilidades */
+  --cor-alerta-js: red;
+  --cor-bg-none: transparent;
 }
 
-body.dark-mode { /* dark mode controlado pelo js */
-  --cor-azul-ciano-gradiente1: #0A1C43; /* 1 cor do linear gradiente 0% */
-  --cor-azul-ciano-gradiente2: #2D7BBF; /* 2 cor do linear gradiente 100% */
-  --cor-azul-escuro-principal: #164194; /* azul principal do site (botões, inputs e etc. */
-  --cor-input-paraDark: #ffffff;
-  --cor-padrao: #ffffff; /* branco padrão do site */
+body.dark-mode {
 
-  --cor-alerta-js: #ff0000; /* msg de alerta pelo js */
-  --cor-bg-none: transparent; /* fundo transparent para os inputs */
-  --cor-bg-container: rgba(255, 251, 251, 0.2); /* fundo do container principal */
-  --cor-bg-shadow: rgba(0, 0, 0, 0.1); /* box-shadow do container */
+  --cor-azul-ciano-gradiente1: #0A1C43;
+  --cor-azul-ciano-gradiente2: #2D7BBF;
+
+  --cor-azul-escuro-principal: #164194;
+
+  --cor-input: #ffffff;
+
+  --cor-texto-esquerda: #ffffff;
+  --cor-texto-direita: #ffffff;
+
+  --cor-card-login: rgba(0,0,0,.78);
+
+  --cor-padrao: #ffffff;
+
+  --cor-bg-container: rgba(255,255,255,.15);
+
+  --cor-bg-shadow: rgba(255,255,255,.1);
 }
 
 * {
@@ -107,7 +131,7 @@ main {
   flex-direction: column;
   padding: 60px 40px;
   width: 55%;
-  color: var(--cor-padrao);
+  color: var(--cor-texto-esquerda);
 }
 
 .glass-esquerda h2 {
@@ -125,7 +149,8 @@ main {
 }
 /* Coluna 2: Caixa branca */
 .login-direito {
-  background: var(--cor-padrao);
+  background: var(--cor-card-login);
+  color: var(--cor-texto-direita);
   border-radius: 80px 40px 40px 80px;
   padding: 40px;
 
@@ -160,13 +185,15 @@ main {
   width: 90px;
   height: auto;
   margin-bottom: 15px;
+  border-radius: 50%;
+  border: 2px solid var(--cor-padrao);
 }
 
 .groupGeral {
   display: flex;
   flex-direction: row;
   align-items: center;
-  border-bottom: 2px solid var(--cor-input-paraDark);
+  border-bottom: 2px solid var(--cor-input);
 }
 
 .areaemail,
@@ -190,7 +217,11 @@ main {
 .areasenha input::placeholder {
   font-size: 1rem;
   font-weight: bold;
-  color: var(--cor-input-paraDark);
+  color: var(--cor-input);
+}
+
+.logintitle, input, .lembrarsenha {
+  color: var(--cor-texto-direita);
 }
 
 #alertaEmail,
@@ -213,7 +244,7 @@ main {
   width: 20px;
   height: 20px;
 
-  border: 2px solid var(--cor-input-paraDark);
+  border: 2px solid var(--cor-input);
   border-radius: 4px;
 
   display: flex;
@@ -248,4 +279,8 @@ main {
   border-radius: 40px;
   cursor: pointer;
   transition: 300ms ease;
+}
+
+body, .full-container, .login-direito, .glass-esquerda, .groupGeral, .loginbtn, #lembreMe, input, input::placeholder, .logintitle, .lembrarsenha {
+    transition: background 0.4s ease, background-color 0.4s ease, color 0.4s ease,border-color 0.4s ease, box-shadow 0.4s ease;
 }
