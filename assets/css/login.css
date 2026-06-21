@@ -84,6 +84,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow-x: hidden;
   font-family: sans-serif;
 }
 
@@ -104,6 +105,13 @@ main {
 .logo-img {
   width: 300px;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.1));
+}
+
+/* Ensure images scale responsively */
+.logo-img, .perfil, .input-icon, #troca img {
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
 
 .logo-saga,
@@ -151,7 +159,7 @@ main {
 .login-direito {
   background: var(--cor-card-login);
   color: var(--cor-texto-direita);
-  border-radius: 80px 40px 40px 80px;
+  border-radius: 80px 50px 50px 80px;
   padding: 40px;
 
   display: flex;
@@ -283,4 +291,95 @@ main {
 
 body, .full-container, .login-direito, .glass-esquerda, .groupGeral, .loginbtn, #lembreMe, input, input::placeholder, .logintitle, .lembrarsenha {
     transition: background 0.4s ease, background-color 0.4s ease, color 0.4s ease,border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* ==========================
+   Responsive Breakpoints
+   ========================== */
+
+/* Desktop Grande */
+@media (min-width: 1441px) {
+  .full-container {
+    max-width: 900px;
+    width: 85vw;
+    min-height: 480px;
+    border-radius: 48px;
+  }
+
+  .logo-img { width: 340px; }
+  .glass-esquerda { padding: 60px 40px; }
+  .login-direito { padding: 40px; }
+}
+
+/* Notebook */
+@media (max-width: 1440px) {
+  .full-container { width: 88vw; max-width: 980px; }
+  .logo-img { width: 320px; }
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .full-container {
+    width: 92vw;
+    max-width: 820px;
+    min-height: 520px;
+    border-radius: 40px;
+  }
+
+  .glass-esquerda { width: 50%; padding: 48px 30px; }
+  .login-direito { width: 50%; padding: 36px; }
+  .logo-img { width: 300px; }
+  .perfil { width: 78px; }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  /* Stack layout vertically and hide left glass to match mobile reference */
+  .full-container {
+    flex-direction: column;
+    align-items: center;
+    width: 92vw;
+    max-width: 420px;
+    border-radius: 28px;
+    padding: 18px 12px;
+    min-height: auto;
+  }
+
+  .glass-esquerda {
+    display: none;
+  }
+
+  .login-direito {
+    background: var(--cor-bg-none);
+    width: 100%;
+    border-radius: 28px;
+    padding: 28px 22px;
+  }
+
+  .logo-saga { margin: -40px 0 18px 0; }
+  .logo-img { width: 220px; }
+  .perfil { width: 86px; margin-bottom: 6px; }
+  .areaemail input::placeholder, .areasenha input::placeholder { font-size: 0.95rem; }
+
+  .loginbtn { width: 72%; padding: 14px; font-size: 1rem; }
+  .groupGeral { gap: 12px; }
+}
+
+/* Mobile Pequeno */
+@media (max-width: 480px) {
+  .full-container { width: 96vw; max-width: 360px; padding: 12px; }
+  .logo-img { width: 180px; }
+  .login-direito { padding: 20px 16px; border-radius: 26px; }
+  .perfil { width: 72px; }
+  .loginbtn { width: 80%; padding: 12px 18px; font-size: 0.95rem; }
+  .groupGeral { padding-bottom: 6px; }
+  input { font-size: 0.95rem; }
+
+  /* Remove potential horizontal overflow on very small screens */
+  html, body { max-width: 100%; overflow-x: hidden; }
+}
+
+/* Utility: ensure inputs and buttons are touch-friendly on all small screens */
+@media (max-width: 768px) {
+  input, .loginbtn, #lembreMe { touch-action: manipulation; }
 }
