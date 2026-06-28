@@ -325,8 +325,8 @@ textarea {
   border-radius: 18px;
 }
 
-input::placeholder {
-  color:var(--cor-azul-escuro);
+input::placeholder, select, input[type="date"] {
+  color: var(--cor-azul-escuro);
 }
 
 /*========= DIVISOR ========== */
@@ -400,133 +400,6 @@ textarea {
   transform: scale(1.02);
 }
 
-/*==================================== ESTILIZAÇÃO DOS CARDS ===================================================*/
-
-/* CONTAINER DOS CARDS */
-
-.cards-container {
-  display: grid;
-  /* Cria colunas automáticas: mínimo 300px, máximo distribui o espaço igual (1fr) */
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 20px;
-  padding: 20px 0;
-  width: 100%;
-}
-
-/*ESTRUTURA BASE DO CARD*/
-.card-relatorio {
-  background-color: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-radius: 12px;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05),
-    0 2px 4px -1px rgba(0, 0, 0, 0.03);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  margin-left: 30px;
-}
-
-/* Efeito sutil ao passar o mouse por cima */
-.card-relatorio:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08);
-}
-
-/* PARTES DO CARD (HEADER, BODY, FOOTER)*/
-.card-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px solid #f1f5f9;
-  padding-bottom: 12px;
-  margin-bottom: 15px;
-}
-
-.card-header h3 {
-  font-size: 1.1rem;
-  color: #1e293b; /* Tom de azul/cinza escuro profissional */
-  font-weight: 700;
-  margin: 0;
-}
-
-.card-body {
-  font-size: 0.95rem;
-  color: #475569;
-  line-height: 1.6;
-  flex-grow: 1; /* Faz o corpo ocupar o espaço restante se o texto for curto */
-}
-
-.card-body p {
-  margin: 8px 0;
-}
-
-.card-body strong {
-  color: #1e293b;
-}
-
-.card-footer {
-  margin-top: 20px;
-  border-top: 1px solid #f1f5f9;
-  padding-top: 12px;
-  display: flex;
-  justify-content: flex-end;
-}
-
-/*Estilo para cortar a descrição com reticências*/
-.card-body .descricao-card {
-  display: -webkit-box;
-  -webkit-line-clamp: 3;           /*Limita o texto a 3 linhas*/
-  -webkit-box-orient: vertical;  /*Define a orientação do bloco para o corte*/
-  overflow: hidden;               /*Esconde o texto que passar do limite*/
-  text-overflow: ellipsis;        /*Adiciona as reticências automaticamente*/
-  
-  /* Garante o comportamento correto caso o texto não tenha espaços */
-  word-break: break-word;         
-}
-
-/*ETIQUETAS DE STATUS (TAGS COLORIDAS)*/
-.status-tag {
-  font-size: 0.75rem;
-  font-weight: 700;
-  padding: 4px 10px;
-  border-radius: 20px;
-  letter-spacing: 0.5px;
-}
-
-/* Cores dinâmicas que batem com as classes injetadas pelo JS */
-.status-tag.andamento {
-  background-color: #fef3c7; /* Amarelo claro */
-  color: #d97706; /* Texto Amarelo escuro */
-}
-
-.status-tag.pendente {
-  background-color: #fee2e2; /* Vermelho claro */
-  color: #dc2626; /* Texto Vermelho escuro */
-}
-
-.status-tag.finalizado {
-  background-color: #dcfce7; /* Verde claro */
-  color: #16a34a; /* Texto Verde escuro */
-}
-
-.btn-editar-card{
-  background-color: var(--cor-azul-claro-botao);
-  display:flex;
-  border: none;
-  border-radius: 20px;
-  border-width: none;
-  color: white;
-  width: 110px;
-  font-size: 16px;
-}
-
-.btn-editar-card img{
-  margin-left: 10px;
-}
-
-
 /*Estilizando o rótulo*/
 .data-rotulo p{
 position: absolute;
@@ -538,3 +411,313 @@ margin: 1px 0 0 10px;
   padding: 15px 10px !important;
 }
 
+/*==================== RESPONSIVIDADE RELATÓRIO ====================*/
+
+/* DESKTOP GRANDE: manter layout atual e aproveitar o máximo espaço horizontal */
+@media (min-width: 1441px) {
+  .modal-form {
+    width: auto;
+    max-width: 1040px;
+  }
+
+  .fieldgroup,
+  .fieldgroup-below {
+    grid-template-columns: repeat(4, minmax(0, 220px));
+  }
+}
+
+/* NOTEBOOK: reduzir paddings e evitar desperdício de espaço horizontal */
+@media (max-width: 1440px) {
+  .modal-form {
+    width: 85%;
+    max-width: 980px;
+  }
+
+  .form-grid {
+    padding: 30px 22px;
+  }
+
+  .fieldgroup,
+  .fieldgroup-below {
+    grid-template-columns: repeat(4, minmax(0, 220px));
+  }
+
+  .btn-salvarAtendimento {
+    width: 100%;
+    max-width: 520px;
+  }
+
+  .form-textareas {
+    gap: 18px;
+  }
+}
+
+/* TABLET: sidebar compacta, texto oculto e grid principal 80px 1fr */
+@media (max-width: 1024px) {
+  #modalAtendGeral,
+  #modalAcompPed {
+    width: min(92vw, 900px);
+    max-width: 900px;
+    min-width: 0;
+    box-sizing: border-box;
+  }
+
+  .form-grid {
+    padding: 30px 20px;
+    gap: 24px;
+  }
+
+  .fieldgroup,
+  .fieldgroup-below {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    min-width: 0;
+  }
+
+  .fieldgroup > *,
+  .fieldgroup-below > *,
+  .data-rotulo,
+  .data-rotulo input,
+  .data-rotulo select {
+    min-width: 0;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  input,
+  select,
+  textarea {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .form-textareas {
+    flex-wrap: wrap;
+    gap: 18px;
+  }
+
+  .input-container {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .btn-salvarAtendimento {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+/* MOBILE: barra inferior fixa, único fluxo vertical e navegação no rodapé */
+@media (max-width: 768px) {
+  #btnNovoRelatorio {
+    margin: 20px 16px 0;
+    min-height: 48px;
+  }
+
+  .empty-state-container {
+    padding: 0 16px 24px;
+  }
+
+  #modalAtendGeral,
+  #modalAcompPed {
+    width: min(96vw, 590px);
+    max-width: 590px;
+    min-width: 0;
+    box-sizing: border-box;
+  }
+
+  .form-grid {
+    padding: 24px 16px 20px;
+    gap: 20px;
+  }
+
+  .fieldgroup,
+  .fieldgroup-below {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .fieldgroup > *,
+  .fieldgroup-below > *,
+  .data-rotulo,
+  .data-rotulo input,
+  .data-rotulo select {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+  }
+
+  input,
+  select,
+  textarea {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .input-container {
+    width: 100%;
+  }
+
+  .form-textareas {
+    flex-direction: column;
+    gap: 16px;
+  }
+}
+
+/* MOBILE PEQUENO: reduzir margens, empilhar campos e evitar overflow */
+@media (max-width: 480px) {
+  #btnNovoRelatorio {
+    margin: 16px 12px 0;
+    padding: 14px 16px;
+    font-size: 14px;
+  }
+
+  #modalAtendGeral,
+  #modalAcompPed {
+    width: min(98vw, 400px);
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+  }
+
+  .form-grid {
+    padding: 18px 12px 20px;
+    gap: 18px;
+  }
+
+  .fieldgroup,
+  .fieldgroup-below {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .fieldgroup > *,
+  .fieldgroup-below > *,
+  .data-rotulo,
+  .data-rotulo input,
+  .data-rotulo select {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+  }
+
+  input,
+  select,
+  textarea {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .form-textareas {
+    gap: 14px;
+  }
+
+  .btn-salvarAtendimento {
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+
+/* ESTILIZAÇÃO FUTURA DOS CARDS DE RELATÓRIO */
+.cards-grid {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  width: 100%;
+}
+
+@media (max-width: 1024px) {
+  .cards-grid {
+    grid-template-columns: repeat(2, minmax(220px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .cards-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card-relatorio {
+  background: #ffffff;
+  border-radius: 18px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-header,
+.card-body,
+.card-footer {
+  padding: 20px;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.card-header h3 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--cor-azul-escuro);
+}
+
+.status-tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.status-tag.andamento {
+  background: #fff3d3;
+  color: #7a5a14;
+}
+
+.card-body p {
+  margin: 0 0 10px;
+  color: #2b3e60;
+  line-height: 1.5;
+}
+
+.card-body p strong {
+  font-weight: 700;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn-editar-card {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 0 18px;
+  border: none;
+  border-radius: 999px;
+  background: #0e6df7;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}

@@ -148,3 +148,136 @@ main {
 }
 
 /* Fim das Configuração do header principal */
+
+/* ======================================================================
+                INÍCIO DA RESPONSIVIDADE GERAL
+======================================================================*/
+
+/* TABLET: sidebar compacta, texto oculto e grid principal 80px 1fr */
+@media (max-width: 1024px) {
+  body {
+    grid-template-columns: 80px 1fr;
+  }
+
+  nav {
+    min-width: 80px;
+  }
+
+  #nav-container-section {
+    margin: 60px 5px 0 0;
+  }
+
+  #nav-container-section section {
+    margin-bottom: 22px;
+  }
+
+  #nav-container-section section a {
+    justify-content: center;
+    margin-left: 0;
+  }
+
+  #nav-container-section section a h2 {
+    display: none;
+  }
+}
+
+/* MOBILE: barra inferior fixa, único fluxo vertical e navegação no rodapé */
+@media (max-width: 768px) {
+  body {
+    grid-template-columns: 1fr;
+    grid-template-rows: 80px 1fr 70px;
+    grid-template-areas: "header" "main" "sidebar";
+  }
+
+  .header-global-configuration {
+    position: sticky;
+    top: 0;
+    z-index: 15;
+  }
+
+  .icone-perfil {
+    top: 10px
+  }
+
+  #icone-usuario {
+    width: 60px;
+  }
+
+  main {
+    padding-bottom: 90px;
+    overflow-y: auto;
+    scrollbar-width: none;
+  }
+
+  main::-webkit-scrollbar {
+    display: none;
+  }
+
+  nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 70px;
+    width: 100%;
+    z-index: 20;
+    background-color: #1F3A5F;
+    box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.18);
+  }
+
+  #nav-container-section {
+    margin: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 0;
+  }
+
+  #nav-container-section section {
+    margin: 0;
+  }
+  
+  #nav-container-section section img {
+    width: 50px;
+  }
+  
+  #nav-container-section section a h2 {
+    display: none;
+  }
+  
+  #nav-container-section section a {
+    flex-direction: column;
+    justify-content: center;
+  }
+
+ #nav-container-section .active {
+    padding: 2px 7px 10px;
+    margin: 0;
+    border-radius: 10px 10px 0 0;
+  }
+}
+
+/* MOBILE PEQUENO: reduzir margens, empilhar campos e evitar overflow */
+@media (max-width: 480px) {
+  body {
+    grid-template-rows: 70px 1fr 60px;
+  }
+
+  .header-global-configuration {
+    height: 70px;
+  }
+
+  #hidden-config {
+    display: none;
+  }
+
+  .icone-perfil {
+    top: 7px;
+    right: 40px;
+  }
+
+  #icone-usuario {
+    width: 55px;
+  }
+}

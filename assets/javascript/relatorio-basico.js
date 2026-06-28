@@ -1,16 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Inicialização do Banco Local
-  let relatorios = JSON.parse(localStorage.getItem("meusRelatorios")) || [];
-
-  // VARIÁVEL DE CONTROLE: Armazena o ID do relatório que está sendo editado (null se for um novo)
-  let idRelatorioSendoEditado = null;
-
   // ==========================================================================
   // 1. CAPTURA DE ELEMENTOS DO DOM
   // ==========================================================================
   const btnNovoRelatorio = document.getElementById("btnNovoRelatorio");
-  const containerRelatorios = document.getElementById("containerRelatorios");
-  const emptyState = document.querySelector(".empty-state-container");
 
   const modalTipoRelatorio = document.getElementById("modalTipoRelatorio");
   const modalAtendGeral = document.getElementById("modalAtendGeral");
@@ -32,12 +24,11 @@ document.addEventListener("DOMContentLoaded", () => {
   // 2. INTERAÇÕES CONDICIONAIS (FLUXO DE NAVEGAÇÃO DOS MODAIS)
   // ==========================================================================
   if (btnNovoRelatorio) {
-    btnNovoRelatorio.addEventListener("click", () => {
-      idRelatorioSendoEditado = null; // Garante que estamos criando um NOVO
-      if (formAtendGeral) formAtendGeral.reset();
-      if (formAcompPed) formAcompPed.reset();
-      modalTipoRelatorio.showModal();
+
+      btnNovoRelatorio.addEventListener("click", () => {
+        modalTipoRelatorio.showModal();
     });
+
   }
 
   if (btnAtendGeral) {
@@ -68,241 +59,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // ==========================================================================
-  // 3. FUNÇÕES PRINCIPAIS (SALVAMENTO, EDIÇÃO E EXIBIÇÃO)
-  // ==========================================================================
-
-function relatorioCompleto(rel) {
-
-  const camposBase = [
-    "turno",
-    "modalidade",
-    "data",
-    "turma",
-    "tipoCurso",
-    "curso",
-    "status",
-    "instrutor_aluno",
-    "coordenacao",
-    "pedagogo",
-    "descricao"
-  ];
-
-  let camposObrigatorios = [...camposBase];
-
-  if (rel.tipoRelatorio === "Atendimento Geral") {
-
-    camposObrigatorios.push(
-      "tipo_atendimento"
-    );
-
-  }
-
-  if (rel.tipoRelatorio === "Acompanhamento Pedagógico") {
-
-    camposObrigatorios.push(
-      "tipoAcao",
-      "tipoContratacao",
-      "relatorio",
-      "docente"
-    );
-
-  }
-
-  return camposObrigatorios.every(campo => {
-
-    return (
-      rel[campo] &&
-      rel[campo].toString().trim() !== ""
-    );
-
-  });
-
-}
-
-  // Função genérica para preencher o formulário na hora de editar
-  function preencherFormulario(formulario, dados) {
-    if (!formulario) return;
-
-    // Varre todos os campos do formulário pelo atributo 'name'
-    Object.keys(dados).forEach(key => {
-      const campo = formulario.elements[key];
-      if (campo) {
-        campo.value = dados[key];
-
-        // Se for o campo de tipo de curso, dispara o evento 'change' manualmente para atualizar os cursos
-        if (key === 'tipoCurso') {
-          campo.dispatchEvent(new Event('change'));
-        }
-      }
-    });
-
-    // Pequeno delay necessário para o campo curso (select dinâmico) conseguir carregar e receber o valor antigo
-    setTimeout(() => {
-      if (formulario.elements['curso']) {
-        formulario.elements['curso'].value = dados['curso'] || "";
-      }
-    }, 50);
-  }
-
-  // Função genérica para processar, salvar ou atualizar os dados
-  function salvarFormulario(formulario, tipoRelatorio, modal) {
-    if (!formulario) return;
-
-    const formData = new FormData(formulario);
-    const dadosRelatorio = Object.fromEntries(formData.entries());
-
-    if (
-      dadosRelatorio.status === "finalizado" &&
-      !relatorioCompleto(dadosRelatorio)
-    ) {
-
-      alert(
-        "Para finalizar o relatório é necessário preencher todos os campos obrigatórios."
-      );
-
-      return;
-    }
-
-    if (idRelatorioSendoEditado !== null) {
-      // MODO EDIÇÃO: Localiza o relatório antigo pelo ID e atualiza os dados dele
-      const index = relatorios.findIndex(rel => rel.id === idRelatorioSendoEditado);
-      if (index !== -1) {
-        // Mantém o ID e o Tipo original, atualizando o resto do formulário
-        dadosRelatorio.id = idRelatorioSendoEditado;
-        dadosRelatorio.tipoRelatorio = tipoRelatorio;
-        relatorios[index] = dadosRelatorio;
-      }
-    } else {
-      // MODO NOVO: Cria um novo registro com ID único baseado em timestamp
-      dadosRelatorio.id = Date.now();
-      dadosRelatorio.tipoRelatorio = tipoRelatorio;
-      dadosRelatorio.dataCriacao = new Date().toISOString();
-      relatorios.push(dadosRelatorio);
-    }
-
-    // Atualiza o localStorage
-    localStorage.setItem("meusRelatorios", JSON.stringify(relatorios));
-
-    // Reseta o estado global e fecha as janelas
-    idRelatorioSendoEditado = null;
-    formulario.reset();
-    modal.close();
-    renderizarRelatorios();
-  }
-
-  // Eventos dos botões Salvar
-  if (btnSalvarAtendGeral) {
-    btnSalvarAtendGeral.addEventListener("click", (e) => {
-      e.preventDefault();
-      salvarFormulario(formAtendGeral, "Atendimento Geral", modalAtendGeral);
-    });
-  }
-
-  if (btnSalvarPed) {
-    btnSalvarPed.addEventListener("click", (e) => {
-      e.preventDefault();
-      salvarFormulario(formAcompPed, "Acompanhamento Pedagógico", modalAcompPed);
-    });
-  }
-
-  // Função dinâmica para criar e exibir os cards na tela
-  function renderizarRelatorios() {
-    if (!containerRelatorios) return;
-
-    containerRelatorios.innerHTML = "";
-
-    if (relatorios.length === 0) {
-      if (emptyState) emptyState.style.display = "flex";
-      return;
-    }
-    if (emptyState) emptyState.style.display = "none";
-
-    const relatoriosAtivos = relatorios.filter(rel => {
-
-      return (
-        rel.status === "pendente" ||
-        rel.status === "andamento"
-      );
-
-    });
-
-    relatoriosAtivos.forEach((rel) => {
-      // 1. Estrutura externa
-      const card = document.createElement("div");
-      card.className = "card-relatorio";
-
-      // 2. Cabeçalho do Card
-      const cardHeader = document.createElement("div");
-      cardHeader.className = "card-header";
-
-      const titulo = document.createElement("h3");
-      titulo.textContent = rel.tipoRelatorio;
-
-      const statusTag = document.createElement("span");
-      const statusClass = rel.status ? rel.status.toLowerCase() : "andamento";
-      statusTag.className = "status-tag " + statusClass;
-      statusTag.textContent = rel.status ? rel.status.toUpperCase() : "EM ANDAMENTO";
-
-      cardHeader.appendChild(titulo);
-      cardHeader.appendChild(statusTag);
-
-      // 3. Corpo do Card (Dados consolidados)
-      const cardBody = document.createElement("div");
-      cardBody.className = "card-body";
-
-      const pTurma = document.createElement("p");
-      pTurma.innerHTML = "<strong>Turma:</strong> " + (rel.turma || "Não informada");
-
-      const pCurso = document.createElement("p");
-      pCurso.innerHTML = "<strong>Curso:</strong> " + (rel.curso || "Não informado");
-
-      const dataFormatada = rel.data ? rel.data.split("-").reverse().join("/") : "N/A";
-      const pData = document.createElement("p");
-      pData.innerHTML = "<strong>Data:</strong> " + dataFormatada;
-
-      const pDescricao = document.createElement("p");
-      pDescricao.className = "descricao-card";
-      pDescricao.innerHTML = "<strong>Descrição:</strong> " + (rel.descricao || "Sem descrição...");
-
-      cardBody.appendChild(pTurma);
-      cardBody.appendChild(pCurso);
-      cardBody.appendChild(pData);
-      cardBody.appendChild(pDescricao);
-
-      // 4. Rodapé do Card (BOTÃO EDITAR)
-      const cardFooter = document.createElement("div");
-      cardFooter.className = "card-footer";
-
-      const btnEditarCard = document.createElement("button");
-      btnEditarCard.className = "btn-editar-card";
-      btnEditarCard.innerHTML = `<img src="../assets/icons/editar-icon.svg" alt="Editar"> Editar`;
-
-      // LOGICA DO CLIQUE NO EDITAR DO CARD
-      btnEditarCard.addEventListener("click", () => {
-        idRelatorioSendoEditado = rel.id; // Salva qual item estamos alterando
-
-        if (rel.tipoRelatorio === "Atendimento Geral") {
-          preencherFormulario(formAtendGeral, rel);
-          modalAtendGeral.showModal();
-        } else if (rel.tipoRelatorio === "Acompanhamento Pedagógico") {
-          preencherFormulario(formAcompPed, rel);
-          modalAcompPed.showModal();
-        }
-      });
-
-      cardFooter.appendChild(btnEditarCard);
-
-      // 5. Montagem hierárquica do Card
-      card.appendChild(cardHeader);
-      card.appendChild(cardBody);
-      card.appendChild(cardFooter); // Adiciona o rodapé com o botão
-
-      containerRelatorios.appendChild(card);
-    });
-  }
-
-  renderizarRelatorios();
 });
 
 // ==========================================================================
