@@ -5,7 +5,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-root {
+:root {
     --cor-gradient1: #BFCAD9;
     --cor-gradient2: #2585D9;
 }
@@ -187,6 +187,7 @@ main {
     grid-template-columns: 1fr;
     grid-template-rows: 80px 1fr 70px;
     grid-template-areas: "header" "main" "sidebar";
+    overflow: hidden;
   }
 
   .header-global-configuration {
@@ -256,6 +257,20 @@ main {
     margin: 0;
     border-radius: 10px 10px 0 0;
   }
+
+  @keyframes activeFlow { /* animação dos actives flows*/
+    
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+  }
 }
 
 /* MOBILE PEQUENO: reduzir margens, empilhar campos e evitar overflow */
@@ -279,5 +294,96 @@ main {
 
   #icone-usuario {
     width: 55px;
+  }
+}
+
+/* MOBILE EXTRA PEQUENO */
+@media (max-width: 380px) {
+  .icone-perfil {
+    top: 12px;
+    right: 20px;
+  }
+
+  #icone-usuario {
+    width: 45px;
+  }
+}
+
+/* =====================================================
+                MENU HAMBÚRGUER TABLET
+===================================================== */
+
+.hamburger-btn {
+  display: none;
+}
+
+@media (max-width: 1024px) and (min-width: 769px) {
+
+  .hamburger-btn {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    position: fixed;
+
+    top: 112px;
+    left: 10px;
+
+    width: 50px;
+    height: 50px;
+    
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    
+    z-index: 1001;
+    transition: left .25s ease;
+  }
+  
+  .hamburger-btn img {
+    width: 36px;
+    height: 36px;
+    margin-bottom: 10px;
+  }
+
+  /* Sidebar fechada */
+  nav {
+    width: 80px;
+    transition: width .25s ease;
+    overflow: hidden;
+  }
+
+  /* Sidebar aberta */
+  body.sidebar-open nav {
+    width: 210px;
+  }
+
+  body.sidebar-open {
+    grid-template-columns: 210px 1fr;
+  }
+
+  /* Move o botão para acompanhar a sidebar aberta */
+  body.sidebar-open .hamburger-btn {
+    left: 155px;
+  }
+
+  body.sidebar-open #nav-container-section {
+    margin: 60px 15px 0 0;
+  }
+
+  body.sidebar-open #nav-container-section section a {
+    justify-content: flex-start;
+    margin-left: 12px;
+  }
+
+  body.sidebar-open #nav-container-section section a h2 {
+    display: block;
+  }
+
+  body.sidebar-open main,
+  body.sidebar-open .header-global-configuration {
+    filter: blur(3px);
+    pointer-events: none;
   }
 }

@@ -141,7 +141,8 @@
 /*============ MODAL PEQUENA ===========*/
 
 #modalTipoRelatorio {
-  width: 420px;
+  width: 95vw;
+  max-width: 420px;
 }
 
 /*============ HEADER MODAL PEQUENO ============*/
@@ -625,6 +626,133 @@ margin: 1px 0 0 10px;
   .btn-salvarAtendimento {
     width: 100%;
     margin: 0 auto;
+  }
+}
+
+/* MOBILE EXTRA PEQUENO */
+@media (max-width: 380px) {
+
+  .modal-form {
+    width: 96vw;
+    max-width: none;
+    max-height: 92vh;
+    border-radius: 12px;
+  }
+
+  #modalTipoRelatorio,
+  #modalAtendGeral,
+  #modalAcompPed {
+    width: 96vw;
+    max-width: none;
+    min-width: 0;
+    box-sizing: border-box;
+  }
+
+  /* Header dos modais */
+
+  .modal-header {
+    height: 65px;
+  }
+
+  .modal-header h2 {
+    font-size: 18px;
+  }
+
+  .modal-header-form {
+    grid-template-columns: 40px 1fr 40px;
+    padding: 0 10px;
+    height: 65px;
+  }
+
+  .modal-header-form h2 {
+    font-size: 18px;
+  }
+
+  .btn-voltar,
+  .btn-fechar {
+    font-size: 30px;
+  }
+
+  /* Botões do modal de seleção */
+
+  .modal-buttons {
+    padding: 20px;
+    gap: 18px;
+  }
+
+  .modal-btndarkblue,
+  .modal-btnlightblue {
+    width: 100%;
+    min-height: 48px;
+  }
+
+  /* Formulário */
+
+  .form-grid {
+    padding: 12px 10px;
+    gap: 16px;
+  }
+
+  .fieldgroup,
+  .fieldgroup-below {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .fieldgroup > *,
+  .fieldgroup-below > *,
+  .data-rotulo,
+  .data-rotulo input,
+  .data-rotulo select {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+  }
+
+  input,
+  select,
+  textarea {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .form-textareas {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  textarea {
+    height: 100px;
+  }
+
+  /* Botão salvar */
+
+  .btn-salvarAtendimento {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  /* Botão Novo Relatório */
+
+  #btnNovoRelatorio {
+    width: calc(100% - 20px);
+    margin: 12px 10px;
+    padding: 12px 16px;
+    font-size: 14px;
+  }
+
+  /* Empty State */
+
+  .empty-state-content h1 {
+    font-size: 22px;
+    text-align: center;
+  }
+
+  .alert-box p {
+    text-align: center;
+    font-size: 13px;
   }
 }
 
