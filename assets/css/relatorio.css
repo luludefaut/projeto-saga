@@ -106,6 +106,115 @@
   font-size: 14px;
 }
 
+/*=================== ESTRUTURA DOS CARDS ================*/
+
+/* ESTILIZAÇÃO CARDS DE RELATÓRIO */
+.cards-grid {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+
+  width: 100%;
+
+  padding: 10px 30px 30px;
+  box-sizing: border-box;
+}
+
+.card-relatorio {
+  background: #ffffff;
+
+  border-radius: 18px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  min-height: 300px;
+
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Efeito sutil ao passar o mouse por cima */
+.card-relatorio:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08);
+}
+
+.card-header,
+.card-body,
+.card-footer {
+  padding: 20px;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.card-header h3 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--cor-azul-escuro);
+}
+
+/* Cor do status tag */
+.status-tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 6px 12px;
+  border-radius: 999px;
+
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.status-tag.andamento {
+  background: #fff3d3;
+  color: #7a5a14;
+}
+
+.status-tag.pendente {
+  background-color: #fee2e2; /* Vermelho claro */
+  color: #dc2626; /* Texto Vermelho escuro */
+}
+
+.card-body p {
+  margin: 0 0 10px;
+  color: #2b3e60;
+  line-height: 1.5;
+}
+
+.card-body p strong {
+  font-weight: 700;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn-editar-card {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 0 18px;
+  border: none;
+  border-radius: 999px;
+  background: #0e6df7;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+
 /*=================== MODAIS ====================== */
 
 .modal-form {
@@ -293,11 +402,12 @@
 .fieldgroup-below {
   justify-content: flex-start
 }
+
 /* ========== INPUTS E SELECTS ========= */
 input,
 select {
   height: 46px;
-  padding: 0 16px;
+  padding: 0 10px;
 
   /*Faz o campo ocupar exatamente a coluna de 220px do Grid*/
   width: 100%;
@@ -311,19 +421,26 @@ select {
 }
 
 select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
   cursor: pointer;
-  /* Avisa o motor do navegador para aplicar o corte interno */
-  text-overflow: ellipsis;
+
+  background-image: url("../icons/seta-select.svg");
+  background-repeat: no-repeat;
+  background-position: right 6px center;
+  background-size: 25px;
 }
 
 input,
 select,
 textarea {
   border: 1.5px solid var(--cor-azul-escuro);
-  background: var(--cor-azul-claro-inputs);
+  background-color: var(--cor-azul-claro-inputs);
   font-size: 14px; /* Fonte ligeiramente menor para o texto respirar melhor */
   outline: none;
-  border-radius: 18px;
+  border-radius: 14px;
 }
 
 input::placeholder, select, input[type="date"] {
@@ -411,6 +528,8 @@ margin: 1px 0 0 10px;
 .data-rotulo input[type="date"] {
   padding: 15px 10px !important;
 }
+
+
 
 /*==================== RESPONSIVIDADE RELATÓRIO ====================*/
 
@@ -756,13 +875,9 @@ margin: 1px 0 0 10px;
   }
 }
 
-/* ESTILIZAÇÃO FUTURA DOS CARDS DE RELATÓRIO */
-.cards-grid {
-  display: grid;
-  gap: 24px;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  width: 100%;
-}
+/*==================== RESPONSIVIDADE DOS CARDS DO RELATÓRIO ====================*/
+
+/* TABLET: garante que os cards fiquem em exatas 2 colunas*/
 
 @media (max-width: 1024px) {
   .cards-grid {
@@ -770,82 +885,13 @@ margin: 1px 0 0 10px;
   }
 }
 
+/* MOBILE: Garante que tenha exata 1 coluna no mobile */
 @media (max-width: 768px) {
   .cards-grid {
     grid-template-columns: 1fr;
   }
-}
 
-.card-relatorio {
-  background: #ffffff;
-  border-radius: 18px;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-}
-
-.card-header,
-.card-body,
-.card-footer {
-  padding: 20px;
-}
-
-.card-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 12px;
-}
-
-.card-header h3 {
-  margin: 0;
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--cor-azul-escuro);
-}
-
-.status-tag {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 6px 12px;
-  border-radius: 999px;
-  font-size: 12px;
-  font-weight: 700;
-  white-space: nowrap;
-}
-
-.status-tag.andamento {
-  background: #fff3d3;
-  color: #7a5a14;
-}
-
-.card-body p {
-  margin: 0 0 10px;
-  color: #2b3e60;
-  line-height: 1.5;
-}
-
-.card-body p strong {
-  font-weight: 700;
-}
-
-.card-footer {
-  display: flex;
-  justify-content: flex-end;
-}
-
-.btn-editar-card {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  min-height: 44px;
-  padding: 0 18px;
-  border: none;
-  border-radius: 999px;
-  background: #0e6df7;
-  color: white;
-  font-weight: 600;
-  cursor: pointer;
+  .status-tag {
+    margin-left: -3px;
+  }
 }
