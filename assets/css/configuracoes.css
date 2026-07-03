@@ -20,15 +20,35 @@
 
 /* Fim das Configuração do header principal */
 
-/* Início das Configuração da main */
+/* =====================================================
+   CONFIGURAÇÃO DA MAIN
+===================================================== */
 
 .secao-main-configuracoes {
-    display: flex;
-    flex-direction: row;
-    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
     gap: 30px;
-    justify-content: center;
     margin: 60px 20px;
+    align-items: start;
+}
+
+/* =====================================================
+   CARDS PADRÃO
+===================================================== */
+
+.secao-seuPerfil,
+.secao-acessibilidade,
+.secao-faleConosco,
+.secao-cadastroUsuario {
+
+    /* ALTERAÇÃO:
+       Remove larguras fixas */
+    width: 100%;
+
+    /* Limite para não ficarem gigantes */
+    max-width: 420px;
+
+    justify-self: center;
 }
 
 .secao-seuPerfil h2, .secao-acessibilidade h2, .secao-faleConosco h2, .secao-cadastroUsuario h2 {
@@ -47,9 +67,12 @@
     border-radius: 20px;
 }
 
+/* =====================================================
+   SEU PERFIL
+===================================================== */
+
 .secao-seuPerfil {
-    width: 380px;
-    height: 100%;
+    min-height: 350px;
 }
 
 .secao-container-seuPerfil {
@@ -73,13 +96,15 @@
     border-radius: 15px;
 }
 
+/* =====================================================
+   ACESSIBILIDADE
+===================================================== */
+
 .secao-acessibilidade {
-    width: 380px;
-    height: 100%;
+    min-height: 220px;
 }
 
 .secao-container-acessibilidade {
-    display: flex;
     gap: 40px;
 }
 
@@ -141,9 +166,12 @@ input:checked + .slider:before {
   transform: translateX(26px);
 }
 
+/* =====================================================
+   FALE CONOSCO
+===================================================== */
+
 .secao-faleConosco {
-    width: 350px;
-    height: 100%;
+    min-height: 200px;
 }
 
 .secao-container-faleConosco {
@@ -181,9 +209,12 @@ input:checked + .slider:before {
     margin-top: 5px;
 }
 
+/* =====================================================
+   CADASTRO
+===================================================== */
+
 .secao-cadastroUsuario {
-    width: 400px;
-    height: 100%;
+    min-height: 200px;
 }
 
 .secao-container-cadastroUsuario {
@@ -198,4 +229,126 @@ input:checked + .slider:before {
     color: #00378E;
     font-size: 20px;
     font-weight: bold;
+}
+
+/*==================== RESPONSIVIDADE CONFIGURAÇÕES ====================*/
+
+/* =====================================================
+   NOTEBOOK
+===================================================== */
+
+@media (max-width: 1440px) {
+
+    .secao-main-configuracoes {
+        grid-template-columns: repeat(
+            auto-fit,
+            minmax(320px, 1fr)
+        );
+    }
+
+}
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 1024px) {
+
+    .secao-main-configuracoes {
+
+        /* força duas colunas */
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 25px;
+
+        margin: 40px 15px;
+    }
+
+}
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 768px) {
+
+    main {
+        padding: 0;
+    }
+
+    .secao-main-configuracoes {
+
+        /* uma coluna */
+        grid-template-columns: 1fr;
+
+        margin: 30px 15px;
+
+        gap: 25px;
+    }
+
+    .secao-seuPerfil,
+    .secao-acessibilidade,
+    .secao-faleConosco,
+    .secao-cadastroUsuario {
+
+        max-width: 100%;
+    }
+
+    .group-onOFF h3 {
+        font-size: 18px;
+    }
+
+}
+
+/* =====================================================
+   MOBILE PEQUENO
+===================================================== */
+
+@media (max-width: 480px) {
+
+    .secao-main-configuracoes {
+        margin: 20px 10px;
+        gap: 20px;
+    }
+
+    .secao-seuPerfil h2,
+    .secao-acessibilidade h2,
+    .secao-faleConosco h2,
+    .secao-cadastroUsuario h2 {
+        font-size: 20px;
+    }
+
+    /* Mantém os switches ao lado do texto */
+    .group-onOFF {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .group-onOFF h3 {
+        font-size: 16px;
+    }
+
+    /* Mantém o botão copiar ao lado do email */
+    .group-faleConosco {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+    }
+
+    /* Mantém o ícone de cadastro ao lado do texto */
+    .group-cadastro {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .group-onOFF h3, .group-cadastro p, #emailSAGA {
+        min-width: 0;
+        overflow-wrap: anywhere;
+    }
+
 }
