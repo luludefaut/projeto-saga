@@ -1,98 +1,237 @@
-.mensagem-historico {
-    margin: 20px;
-    font-size: 15px;
-    color: #1F3A5F;
-    font-weight: 500;
-    line-height: 1.4;
-    text-align: right;
+/* ====================== CONFIGURAÇÕES GERAIS DOS ACCORDIONS ====================== */
+
+/*=================== Container geral ====================== */
+.accordion-historico {
+  width: calc(100% - 40px);
+  max-width: 1400px;
+
+  margin: 20px auto;
+
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
 }
 
-.link-clique {
-    color: #1F3A5F;
-    text-decoration: underline;
-    font-weight: 600;
-}
-/* SEÇÃO DE CODIGO CONTENDO A TELA DE ERRO*/
+/*=================== Card ====================== */
+.accordion-item {
+  background: #ffffff;
+  border-radius: 18px;
+  overflow: hidden;
 
-/* Possui quase a mesma estrutura do codigo do chatbot em css */
-.erro-basico-container {
-    background-color: black;
-    display: flex;
-    flex-direction: column;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+
+  transition: .3s, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.accordion-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08);
+}
+
+/*=================== Header ====================== */
+.accordion-header {
+  width: 100%;
+
+  border: none;
+  background: #ffffff;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 22px 28px;
+  cursor: pointer;
+}
+
+.accordion-header-left {
+  text-align: left;
+}
+
+.accordion-header-left h3 {
+  color: #040446;
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.accordion-header-left p {
+  color: #5f6f85;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.accordion-header-right {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.accordion-status {
+  background: #cbf5be;
+  color: #005a02;
+  
+  padding: 8px 16px;
+  border-radius: 20px;
+
+  font-size: 14px;
+  font-weight: 700;
+}
+
+/*=================== Seta + Rotação ====================== */
+.accordion-arrow {
+  width: 28px;
+  transition: .3s;
+}
+
+.accordion-item.active .accordion-arrow {
+  transform: rotate(180deg);
+}
+
+/*=================== Corpo ====================== */
+.accordion-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .4s ease, padding .4s ease;
+  padding: 0 28px;
+}
+
+.accordion-item.active .accordion-body {
+  max-height: 1500px;
+
+  padding: 0 28px 28px;
+}
+
+.accordion-section {
+  margin-top: 22px;
+}
+
+.accordion-section h4 {
+  color: #002F71;
+  border-bottom: 2px solid #dce8f8;
+  padding-bottom: 6px;
+  margin-bottom: 12px;
+}
+
+.accordion-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 14px;
+}
+
+.info-item {
+  background: #F5F8FC;
+  border-radius: 12px;
+  padding: 14px 16px;
+  min-height: 85px;
+}
+
+.info-item span {
+  display: block;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  color: #00378E;
+  margin-bottom: 4px;
+}
+
+.info-item p {
+  color: #072048;
+  line-height: 1.3;
+  font-size: 15px;
+}
+
+.texto-completo {
+  background: #F5F8FC;
+
+  padding: 20px;
+
+  border-radius: 12px;
+
+  line-height: 1.6;
+
+  color: #072048;
+
+  font-size: 15px;
+}
+
+/* =====================================================
+   Responsividade Dos Accordions
+===================================================== */
+
+
+/* =====================================================
+   Tablet
+===================================================== */
+@media (max-width: 1024px){
+
+  .accordion-grid{
+    grid-template-columns:
+      repeat(2,1fr);
+  }
+
+}
+
+/* =====================================================
+   Mobile 
+===================================================== */
+@media (max-width: 768px){
+
+  .accordion-grid{
+    grid-template-columns:1fr;
+  }
+
+  .accordion-header{
+    padding:18px;
+  }
+
+  .accordion-header-left h3{
+    font-size:18px;
+  }
+
+}
+
+/* =====================================================
+   MOBILE PEQUENO
+===================================================== */
+
+@media (max-width: 480px){
+
+  .accordion-header{
+    padding: 18px;
     align-items: center;
-    justify-content: center;
-    text-align: center;
-    width: 100%;
-    height: 100%;
-    font-family: "Poppins", Arial, sans-serif;
-}
+    gap: 15px;
+  }
 
-.erro-basico-container .erro-emoji {
-    font-size: 80px;
-    color: #ffffff;
-    margin-bottom: 20px;
-    line-height: 1;
-}
+  .accordion-header-left{
+    flex: 1;
+    min-width: 0;
+  }
 
-.erro-basico-container h2 {
-    color: #ffffff;
-    font-size: 22px;
-    font-weight: 600;
-    margin-bottom: 15px;
-    max-width: 500px;
-}
+  .accordion-header-left h3{
+    font-size: 16px;
+    line-height: 1.2;
+  }
 
-.erro-basico-container .btn-premium {
-    color: #ffffff;
-    font-size: 18px;
-    font-weight: 500;
-    text-decoration: underline;
-    background: none;
-    border: none;
-    cursor: pointer;
-    transition: opacity 0.2s;
-}
+  .accordion-header-left p{
+    font-size: 13px;
+  }
 
-.erro-basico-container .btn-premium:hover {
-    opacity: 0.8;
-}
-
-.erro-basico-container {
-    background-color: black;
+  .accordion-header-right{
     display: flex;
-    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    text-align: center;
-    width: 100%;
-    height: 100%;
-    font-family: "Poppins", Arial, sans-serif;
-}
+    gap: 10px;
+    flex-shrink: 0;
+  }
 
-.btn-visualizar{
+  .accordion-status{
+    font-size: 14px;
+    padding: 8px 14px;
+    white-space: nowrap;
+  }
 
-background:#164194;
-
-color:white;
-
-border:none;
-
-padding:10px 18px;
-
-border-radius:20px;
-
-cursor:pointer;
-
-font-weight:600;
-
-transition:.2s;
-
-}
-
-.btn-visualizar:hover{
-
-opacity:.9;
-
-transform:scale(1.02);
+  .accordion-arrow{
+    width: 18px;
+  }
 
 }
