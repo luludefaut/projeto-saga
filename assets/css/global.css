@@ -309,6 +309,7 @@ main {
   }
 }
 
+
 /* =====================================================
                 MENU HAMBÚRGUER TABLET
 ===================================================== */
@@ -353,6 +354,29 @@ main {
     transition: width .25s ease;
     overflow: hidden;
   }
+
+  /* Sidebar acima do overlay */
+  nav {
+    z-index: 1000;
+  }
+
+  .sidebar-overlay {
+
+    position: fixed;
+    inset: 0;
+
+    z-index: 998;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition: .25s;
+  }
+
+.sidebar-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
 
   /* Sidebar aberta */
   body.sidebar-open nav {

@@ -125,35 +125,41 @@ hamburgerBtn.addEventListener("click", () => {
 
   É o mesmo comportamento de um modal.
 */
-overlay.addEventListener("click", closeSidebar);
+
+overlay.addEventListener("click", () => {
+
+  closeSidebar();
+
+});
 
 /* =====================================================
-              RESPONSIVIDADE
+        RELOAD AO TROCAR BREAKPOINT
 ===================================================== */
 
-/*
-  Este evento é executado sempre
-  que a largura da tela muda.
+function obterBreakpoint() {
 
-  Exemplos:
-  - girar tablet
-  - redimensionar navegador
-  - mudar breakpoint
-*/
+  const largura = window.innerWidth;
+
+  if (largura > 1024) return "desktop";
+
+  if (largura > 768) return "tablet";
+
+  if (largura > 480) return "mobile";
+
+  return "mobile-pequeno";
+}
+
+let breakpointAtual =
+obterBreakpoint();
+
 window.addEventListener("resize", () => {
 
-  const larguraTela = window.innerWidth;
+  const novoBreakpoint =
+  obterBreakpoint();
 
-  /*
-    Se voltar para desktop (>1024)
-    ou entrar no mobile (<=768),
-    garantimos que a sidebar seja fechada.
+  if (novoBreakpoint !== breakpointAtual) {
 
-    Isso evita bugs visuais.
-  */
-  if (larguraTela > 1024 || larguraTela <= 768) {
-
-    closeSidebar();
+    location.reload();
 
   }
 
