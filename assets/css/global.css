@@ -49,8 +49,9 @@ body {
     box-shadow: 4px 8px 12px rgba(0, 0, 0, 0.2);;
 }
 
-#logo-principal{
-    width: 200px;
+#logo-principal {
+    width: 180px;
+    padding: 10px;
 }
 
 .icone-perfil {
@@ -190,6 +191,10 @@ main {
     overflow: hidden;
   }
 
+  #logo-principal {
+    padding: 20px;
+  }
+
   .header-global-configuration {
     position: sticky;
     top: 0;
@@ -277,6 +282,10 @@ main {
 @media (max-width: 480px) {
   body {
     grid-template-rows: 70px 1fr 60px;
+  }
+
+  #logo-principal {
+    padding: 30px;
   }
 
   .header-global-configuration {

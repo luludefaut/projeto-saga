@@ -1,25 +1,3 @@
-.header-main-global { /* Configuração do header principal */
-    display: flex;
-    justify-content: center;
-    height: 182px;
-    border-bottom: 3px solid #D4E6FF;
-}
-
-.header-section-global { /* Configuração do ícone e nome da seção do ícone */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin: 10px;
-}
-
-.header-section-global h2 {
-    font-size: 24px;
-    font-weight: 500;
-}
-
-/* Fim das Configuração do header principal */
-
 /* =====================================================
    CONFIGURAÇÃO DA MAIN
 ===================================================== */
@@ -39,7 +17,8 @@
 .secao-seuPerfil,
 .secao-acessibilidade,
 .secao-faleConosco,
-.secao-cadastroUsuario {
+.secao-cadastroUsuario,
+.secao-sairDaConta {
 
     /* ALTERAÇÃO:
        Remove larguras fixas */
@@ -51,7 +30,7 @@
     justify-self: center;
 }
 
-.secao-seuPerfil h2, .secao-acessibilidade h2, .secao-faleConosco h2, .secao-cadastroUsuario h2 {
+.secao-seuPerfil h2, .secao-acessibilidade h2, .secao-faleConosco h2, .secao-cadastroUsuario h2, .secao-sairDaConta h2 {
     text-align: center;
     font-size: 24px;
     font-weight: bold;
@@ -59,7 +38,7 @@
     margin-bottom: 10px;
 }
 
-.secao-container-seuPerfil, .secao-container-acessibilidade, .secao-container-faleConosco, .secao-container-cadastroUsuario {
+.secao-container-seuPerfil, .secao-container-acessibilidade, .secao-container-faleConosco, .secao-container-cadastroUsuario, .secao-container-sairDaConta {
     display: flex;
     flex-direction: column;
     background-color: #F5F8FC;
@@ -221,8 +200,9 @@ input:checked + .slider:before {
     padding: 20px !important;
 }
 
-.group-cadastro {
+.group-cadastro a {
     display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: space-between;
     width: 100%;
@@ -230,6 +210,37 @@ input:checked + .slider:before {
     font-size: 20px;
     font-weight: bold;
 }
+
+/* =====================================================
+   Sair da Conta
+===================================================== */
+
+.secao-sairDaConta {
+    min-height: 200px;
+}
+
+.secao-container-sairDaConta {
+    padding: 20px !important;
+}
+
+.group-sairConta { /* Falta colocar a lógica */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+    color: #00378E;
+    font-size: 20px;
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+.group-sairConta img {
+    width: 38px;
+}
+
 
 /*==================== RESPONSIVIDADE CONFIGURAÇÕES ====================*/
 
