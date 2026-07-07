@@ -1,15 +1,24 @@
+.header-main-global {
+
+    flex-shrink: 0;
+}
+
 /* =====================================================
    CONTAINER PRINCIPAL DO CHATBOT
 ===================================================== */
 
 .chatbot-container {
-    width: 100%;
-    height: calc(100vh - 285px);
+
+    flex: 1;
+
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+
+    min-height: 0;
 
     padding: 20px 40px;
+
+    overflow: hidden;
 }
 
 /* =====================================================
@@ -17,15 +26,22 @@
 ===================================================== */
 
 .chat-mensagens {
+
     flex: 1;
+
+    min-height: 0;
+
     display: flex;
     flex-direction: column;
+
     gap: 20px;
 
     overflow-y: auto;
-    scrollbar-width: none;
+    overflow-x: hidden;
 
-    padding-bottom: 30px;
+    padding-bottom: 20px;
+
+    scrollbar-width: none;
 }
 
 .chat-mensagens::-webkit-scrollbar {
@@ -33,74 +49,75 @@
 }
 
 /* =====================================================
-   ESTILO BASE DAS MENSAGENS
+   MENSAGENS
 ===================================================== */
 
 .mensagem {
+
     background: #396297;
+
     color: #FFFFFF;
+
     padding: 18px 22px;
+
     border-radius: 22px;
 
     font-size: 16px;
     line-height: 1.6;
 
-    /* Limite de largura */
+    width: fit-content;
+
+    min-width: 120px;
+
     max-width: 500px;
 
-    /* Quebra automática */
-    word-wrap: break-word;
-    overflow-wrap: break-word;
+    overflow-wrap: anywhere;
+    word-break: break-word;
 }
-
-/* =====================================================
-   MENSAGEM DO USUÁRIO
-===================================================== */
 
 .usuario {
     align-self: flex-end;
-    text-align: left;
 }
-
-/* =====================================================
-   MENSAGEM DO CHATBOT
-===================================================== */
 
 .chatbot {
     align-self: flex-start;
-    text-align: left;
 }
 
 /* =====================================================
-   ÁREA DO INPUT
+   INPUT FIXO
 ===================================================== */
 
 .chat-input-container {
+
+    flex-shrink: 0;
+
     display: flex;
     align-items: center;
+
     gap: 15px;
-    margin-top: 25px;
-    background: #D8E6F6;
-    border-radius: 30px;
 
     width: 90%;
     max-width: 800px;
 
-    margin: 0 auto;
+    margin: 20px auto 0;
+
     padding: 12px 20px;
+
+    background: #D8E6F6;
+
+    border-radius: 30px;
 }
 
 /* =====================================================
-   TEXTAREA ESTILO CHATGPT
+   TEXTAREA
 ===================================================== */
 
-#chatInput{
+#chatInput {
 
     flex: 1;
 
     border: none;
     outline: none;
-    box-shadow: none;
 
     resize: none;
 
@@ -111,34 +128,29 @@
 
     color: rgba(0,0,0,.7);
 
-    line-height: 1.5;
+    line-height: 1.2;
 
-    min-height: 28px;
-
+    height: 22px;
+    min-height: 22px;
     max-height: 180px;
+
+    padding: 0;
 
     overflow-y: hidden;
     overflow-x: hidden;
-
-    field-sizing: content;
 }
 
-#chatInput:focus{
+
+#chatInput:focus {
+
     outline: none;
     box-shadow: none;
 }
 
-#chatInput::placeholder{
+#chatInput::placeholder {
+    line-height: 22px;
     color: rgba(0,0,0,.7);
 }
-
-/* quebra palavras enormes */
-#chatInput,
-.mensagem{
-    overflow-wrap: anywhere;
-    word-break: break-word;
-}
-
 
 /* =====================================================
    BOTÃO ENVIAR
@@ -151,17 +163,167 @@
     background: transparent;
 
     cursor: pointer;
+
+    flex-shrink: 0;
     align-self: flex-end;
 }
 
 #btnEnviar img {
-
+    
+    align-items: flex-end;
     width: 38px;
 
-    transition: transform .2s ease;
+    transition: .2s;
 }
 
 #btnEnviar:hover img {
 
     transform: scale(1.1);
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+
+    height: 100%;
+    overflow: hidden;
+    padding-bottom: 15px;
+}
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width:1024px){
+
+    .chat-mensagens{
+
+        padding: 20px 25px;
+    }
+
+    .mensagem{
+
+        max-width: 75%;
+    }
+}
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width:768px){
+
+    .chat-mensagens{
+
+        padding: 15px;
+
+        bottom: 95px;
+    }
+
+    .mensagem{
+
+        max-width: 80%;
+
+        font-size: 15px;
+
+        padding: 16px 20px;
+    }
+
+    .chat-input-container{
+
+        width: calc(100% - 30px);
+
+        padding: 8px 16px;
+
+        min-height: 48px;
+    }
+
+    #chatInput{
+        font-size: 16px;
+        height: 20px;
+        min-height: 20px;
+    }
+
+    #btnEnviar img{
+
+        width: 34px;
+    }
+}
+
+/* =====================================================
+   MOBILE PEQUENO
+===================================================== */
+
+@media (max-width:480px){
+
+    .mensagem{
+
+        max-width: 85%;
+
+        font-size: 14px;
+
+        padding: 14px 18px;
+    }
+
+    .chat-input-container{
+
+        width: calc(100% - 20px);
+
+        padding: 7px 14px;
+
+        min-height: 44px;
+
+        border-radius: 24px;
+    }
+
+    #chatInput{
+
+        font-size: 15px;
+
+        height: 18px;
+        min-height: 18px;
+    }
+
+    #btnEnviar img{
+
+        width: 32px;
+    }
+}
+
+/* =====================================================
+   MOBILE EXTRA PEQUENO
+===================================================== */
+
+@media (max-width:380px){
+
+    .mensagem{
+
+        max-width: 90%;
+
+        font-size: 13px;
+
+        padding: 12px 16px;
+    }
+
+    .chat-input-container{
+
+        gap: 8px;
+
+        padding: 6px 12px;
+
+        min-height: 40px;
+    }
+
+    #chatInput{
+
+        font-size: 14px;
+
+        height: 18px;
+        min-height: 18px;
+    }
+
+    #btnEnviar img{
+
+        width: 28px;
+    }
 }
