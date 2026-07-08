@@ -6,8 +6,8 @@
 ===================================================== */
 
 // Seleciona todos os accordions da página
-// const accordions =
-// document.querySelectorAll(".accordion-item");
+const accordions =
+document.querySelectorAll(".accordion-item");
 
 // Percorre cada accordion encontrado
 accordions.forEach(item => {
