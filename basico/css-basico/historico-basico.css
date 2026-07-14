@@ -105,7 +105,7 @@
 /*=================== Corpo ====================== */
 .accordion-body {
   max-height: 0;
-  overflow: hidden;
+  overflow-y: scroll;
   transition: max-height .4s ease, padding .4s ease;
   padding: 0 28px;
 }

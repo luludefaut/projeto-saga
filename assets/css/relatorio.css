@@ -895,3 +895,16 @@ margin: 1px 0 0 10px;
     margin-left: -3px;
   }
 }
+
+/* MOBLE Pequeno: faz com que os status fiquem em baixo w com width: 100% */
+@media (max-width: 380px) {
+  .card-header {
+    flex-direction: column;
+    padding-bottom: 0;
+  }
+  
+  .status-tag {
+    width: 100%;
+    
+  }
+}
