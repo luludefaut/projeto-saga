@@ -191,3 +191,25 @@ chatInput.addEventListener(
   com a altura correta.
 */
 ajustarAlturaInput();
+
+const nav = document.querySelector("nav");
+
+function ajustarNav() {
+    if (!window.visualViewport) return;
+
+    const tecladoAberto =
+        window.innerHeight - window.visualViewport.height > 150;
+
+    if (tecladoAberto) {
+        nav.style.display = "none";
+    } else {
+        nav.style.display = "block";
+    }
+}
+
+if (window.visualViewport) {
+    visualViewport.addEventListener("resize", ajustarNav);
+    visualViewport.addEventListener("scroll", ajustarNav);
+}
+
+ajustarNav();
