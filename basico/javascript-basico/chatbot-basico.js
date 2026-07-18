@@ -100,37 +100,41 @@ function criarMensagem(texto, classe) {
 }
 
 /* =====================================================
-   ENVIAR MENSAGEM
+   ENVIAR MENSAGEM (ATUALIZADA)
 ===================================================== */
-
 function enviarMensagem() {
 
     const texto =
     chatInput.value.trim();
 
-    /*
-      Impede envio vazio.
-    */
+    
+    //   Impede envio vazio.
+    
     if(texto === "") return;
 
-    /*
-      Cria a mensagem do usuário.
-    */
+    
+    //   Cria a mensagem do usuário.
+    
     criarMensagem(
         texto,
         "usuario"
     );
 
-    /*
-      Limpa o campo.
-    */
+    
+    //   Limpa o campo.
+    
     chatInput.value = "";
 
-    /*
-      Retorna o input para
-      a altura inicial.
-    */
+    
+    //   Retorna o input para
+    //   a altura inicial.
+    
     ajustarAlturaInput();
+
+     
+    //   Isso faz o teclado virtual fechar automaticamente no celular.
+    
+    chatInput.blur();
 }
 
 /* =====================================================
