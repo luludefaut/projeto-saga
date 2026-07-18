@@ -192,24 +192,39 @@ chatInput.addEventListener(
 */
 ajustarAlturaInput();
 
-const nav = document.querySelector("nav");
-
-function ajustarNav() {
-    if (!window.visualViewport) return;
-
-    const tecladoAberto =
-        window.innerHeight - window.visualViewport.height > 150;
-
-    if (tecladoAberto) {
-        nav.style.display = "none";
-    } else {
-        nav.style.display = "block";
-    }
-}
-
+/* =====================================================
+   CONTROLE INTEGRADO DO TECLADO VIRTUAL MÓVEL
+   -----------------------------------------------------
+   Mapeia o Visual Viewport real, impedindo o sumiço do
+   header global e colando o input acima do teclado.
+===================================================== */
 if (window.visualViewport) {
-    visualViewport.addEventListener("resize", ajustarNav);
-    visualViewport.addEventListener("scroll", ajustarNav);
-}
+    const gerenciarAjusteTeclado = () => {
+        const alturaVisual = window.visualViewport.height;
+        const alturaJanelaInterna = window.innerHeight;
 
-ajustarNav();
+        // Passa a altura exata da área livre visível para o CSS
+        document.body.style.setProperty('--visual-viewport-height', `${alturaVisual}px`);
+
+        // Se a altura visual cair significativamente (cerca de 15% ou mais), o teclado subiu
+        if (alturaVisual < alturaJanelaInterna * 0.85) {
+            document.body.classList.add('teclado-aberto');
+            
+            // Faz um micro-scroll suave para garantir que o chat mostre a última mensagem
+            setTimeout(() => {
+                if (chatMensagens) {
+                    chatMensagens.scrollTop = chatMensagens.scrollHeight;
+                }
+            }, 80);
+        } else {
+            document.body.classList.remove('teclado-aberto');
+        }
+    };
+
+    // Escuta tanto redimensionamento quanto rolagem sutil provocada por foco nativo (iOS)
+    window.visualViewport.addEventListener('resize', gerenciarAjusteTeclado);
+    window.visualViewport.addEventListener('scroll', gerenciarAjusteTeclado);
+    
+    // Dispara no carregamento inicial para mapear a área correta
+    gerenciarAjusteTeclado();
+}
