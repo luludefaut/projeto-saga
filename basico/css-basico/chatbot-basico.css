@@ -1,46 +1,31 @@
 .header-main-global {
-
     flex-shrink: 0;
 }
 
 /* =====================================================
    CONTAINER PRINCIPAL DO CHATBOT
 ===================================================== */
-
 .chatbot-container {
-
     flex: 1;
-
     display: flex;
     flex-direction: column;
-
     min-height: 0;
-
     padding: 20px 40px;
-
     overflow: hidden;
 }
 
 /* =====================================================
    ÁREA DAS MENSAGENS
 ===================================================== */
-
 .chat-mensagens {
-
     flex: 1;
-
     min-height: 0;
-
     display: flex;
     flex-direction: column;
-
     gap: 20px;
-
     overflow-y: auto;
     overflow-x: hidden;
-
     padding-bottom: 20px;
-
     scrollbar-width: none;
 }
 
@@ -51,26 +36,16 @@
 /* =====================================================
    MENSAGENS
 ===================================================== */
-
 .mensagem {
-
     background: #396297;
-
     color: #FFFFFF;
-
     padding: 18px 22px;
-
     border-radius: 22px;
-
     font-size: 16px;
     line-height: 1.6;
-
     width: fit-content;
-
     min-width: 120px;
-
     max-width: 500px;
-
     overflow-wrap: anywhere;
     word-break: break-word;
 }
@@ -86,63 +61,41 @@
 /* =====================================================
    INPUT FIXO
 ===================================================== */
-
 .chat-input-container {
-
     flex-shrink: 0;
-
     display: flex;
     align-items: center;
-
     gap: 15px;
-
     width: 90%;
     max-width: 800px;
-
     margin: 20px auto 0;
-
     padding: 12px 20px;
-
     background: #D8E6F6;
-
     border-radius: 30px;
 }
 
 /* =====================================================
    TEXTAREA
 ===================================================== */
-
 #chatInput {
-
     flex: 1;
-
     border: none;
     outline: none;
-
     resize: none;
-
     background: transparent;
-
     font-family: inherit;
     font-size: 18px;
-
     color: rgba(0,0,0,.7);
-
     line-height: 1.2;
-
     height: 22px;
     min-height: 22px;
     max-height: 180px;
-
     padding: 0;
-
     overflow-y: hidden;
     overflow-x: hidden;
 }
 
-
 #chatInput:focus {
-
     outline: none;
     box-shadow: none;
 }
@@ -155,87 +108,96 @@
 /* =====================================================
    BOTÃO ENVIAR
 ===================================================== */
-
 #btnEnviar {
-
     border: none;
-
     background: transparent;
-
     cursor: pointer;
-
     flex-shrink: 0;
     align-self: flex-end;
 }
 
 #btnEnviar img {
-    
     align-items: flex-end;
     width: 38px;
-
     transition: .2s;
 }
 
 #btnEnviar:hover img {
-
     transform: scale(1.1);
 }
 
 main {
     display: flex;
     flex-direction: column;
-
     height: 100%;
     overflow: hidden;
     padding-bottom: 15px;
 }
 
 /* =====================================================
+   CORREÇÃO DO AMBIENTE GLOBAL APENAS NESTA PÁGINA
+===================================================== */
+body {
+    height: 100dvh !important; /* dVH impede que o rodapé suma sob as barras dos navegadores */
+}
+
+/* =====================================================
    TABLET
 ===================================================== */
-
 @media (max-width:1024px){
-
     .chat-mensagens{
-
         padding: 20px 25px;
     }
-
     .mensagem{
-
         max-width: 75%;
     }
 }
 
 /* =====================================================
-   MOBILE
+   MOBILE (AQUI ESTÁ O SEGREDO DO GMAIL STYLE)
 ===================================================== */
-
 @media (max-width:768px){
+    body {
+        /* Controlamos a altura do grid dinamicamente via JS com base no teclado */
+        height: var(--visual-viewport-height, 100dvh) !important;
+        grid-template-rows: 80px 1fr 70px !important;
+        position: fixed; /* Trava a janela do browser, impedindo o scroll do Header global */
+        width: 100%;
+        left: 0;
+        top: 0;
+    }
+
+    /* Quando o teclado virtual abre, mudamos as linhas do Grid */
+    body.teclado-aberto {
+        grid-template-rows: 80px 1fr 0px !important; /* Zera e esconde a linha da sidebar inferior */
+    }
+
+    body.teclado-aberto nav {
+        display: none !important; /* Oculta a barra de navegação inferior */
+    }
+
+    main {
+        height: 100% !important;
+        overflow: hidden !important;
+        padding-bottom: 0 !important;
+    }
 
     .chat-mensagens{
-
         padding: 15px;
-
-        bottom: 95px;
+        bottom: auto !important; /* Remove o bug do bottom de 95px fixo */
     }
 
     .mensagem{
-
         max-width: 80%;
-
         font-size: 15px;
-
         padding: 16px 20px;
     }
 
     .chat-input-container{
-
         width: calc(100% - 30px);
-
         padding: 8px 16px;
-
         min-height: 48px;
+        margin: 10px auto !important; /* Margem ajustada para otimizar espaço de tela */
     }
 
     #chatInput{
@@ -245,7 +207,6 @@ main {
     }
 
     #btnEnviar img{
-
         width: 34px;
     }
 }
@@ -253,39 +214,34 @@ main {
 /* =====================================================
    MOBILE PEQUENO
 ===================================================== */
-
 @media (max-width:480px){
-
+    body {
+        grid-template-rows: 70px 1fr 60px !important;
+    }
+    body.teclado-aberto {
+        grid-template-rows: 70px 1fr 0px !important;
+    }
+    
     .mensagem{
-
         max-width: 85%;
-
         font-size: 14px;
-
         padding: 14px 18px;
     }
 
     .chat-input-container{
-
         width: calc(100% - 20px);
-
         padding: 7px 14px;
-
         min-height: 44px;
-
         border-radius: 24px;
     }
 
     #chatInput{
-
         font-size: 15px;
-
         height: 18px;
         min-height: 18px;
     }
 
     #btnEnviar img{
-
         width: 32px;
     }
 }
@@ -293,37 +249,26 @@ main {
 /* =====================================================
    MOBILE EXTRA PEQUENO
 ===================================================== */
-
 @media (max-width:380px){
-
     .mensagem{
-
         max-width: 90%;
-
         font-size: 13px;
-
         padding: 12px 16px;
     }
 
     .chat-input-container{
-
         gap: 8px;
-
         padding: 6px 12px;
-
         min-height: 40px;
     }
 
     #chatInput{
-
         font-size: 14px;
-
         height: 18px;
         min-height: 18px;
     }
 
     #btnEnviar img{
-
         width: 28px;
     }
 }

@@ -191,3 +191,40 @@ chatInput.addEventListener(
   com a altura correta.
 */
 ajustarAlturaInput();
+
+/* =====================================================
+   CONTROLE INTEGRADO DO TECLADO VIRTUAL MÓVEL
+   -----------------------------------------------------
+   Mapeia o Visual Viewport real, impedindo o sumiço do
+   header global e colando o input acima do teclado.
+===================================================== */
+if (window.visualViewport) {
+    const gerenciarAjusteTeclado = () => {
+        const alturaVisual = window.visualViewport.height;
+        const alturaJanelaInterna = window.innerHeight;
+
+        // Passa a altura exata da área livre visível para o CSS
+        document.body.style.setProperty('--visual-viewport-height', `${alturaVisual}px`);
+
+        // Se a altura visual cair significativamente (cerca de 15% ou mais), o teclado subiu
+        if (alturaVisual < alturaJanelaInterna * 0.85) {
+            document.body.classList.add('teclado-aberto');
+            
+            // Faz um micro-scroll suave para garantir que o chat mostre a última mensagem
+            setTimeout(() => {
+                if (chatMensagens) {
+                    chatMensagens.scrollTop = chatMensagens.scrollHeight;
+                }
+            }, 80);
+        } else {
+            document.body.classList.remove('teclado-aberto');
+        }
+    };
+
+    // Escuta tanto redimensionamento quanto rolagem sutil provocada por foco nativo (iOS)
+    window.visualViewport.addEventListener('resize', gerenciarAjusteTeclado);
+    window.visualViewport.addEventListener('scroll', gerenciarAjusteTeclado);
+    
+    // Dispara no carregamento inicial para mapear a área correta
+    gerenciarAjusteTeclado();
+}
