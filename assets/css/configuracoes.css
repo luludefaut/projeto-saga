@@ -192,10 +192,6 @@ input:checked + .slider:before {
    CADASTRO
 ===================================================== */
 
-.secao-cadastroUsuario {
-    min-height: 200px;
-}
-
 .secao-container-cadastroUsuario {
     padding: 20px !important;
 }
@@ -214,10 +210,6 @@ input:checked + .slider:before {
 /* =====================================================
    Sair da Conta
 ===================================================== */
-
-.secao-sairDaConta {
-    min-height: 200px;
-}
 
 .secao-container-sairDaConta {
     padding: 20px !important;
@@ -300,9 +292,14 @@ input:checked + .slider:before {
     .secao-seuPerfil,
     .secao-acessibilidade,
     .secao-faleConosco,
-    .secao-cadastroUsuario {
+    .secao-cadastroUsuario,
+    .secao-sairDaConta {
 
         max-width: 100%;
+    }
+
+    .secao-sairDaConta {
+    min-height: 200px;
     }
 
     .group-onOFF h3 {
@@ -325,7 +322,8 @@ input:checked + .slider:before {
     .secao-seuPerfil h2,
     .secao-acessibilidade h2,
     .secao-faleConosco h2,
-    .secao-cadastroUsuario h2 {
+    .secao-cadastroUsuario h2,
+    .secao-sairDaConta h2 {
         font-size: 20px;
     }
 
