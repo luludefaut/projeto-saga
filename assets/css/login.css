@@ -70,7 +70,6 @@ select {
 
 html,
 body {
-  height: 100%;
   width: 100%;
 }
 
@@ -80,12 +79,17 @@ body {
     var(--cor-azul-ciano-gradiente1),
     var(--cor-azul-ciano-gradiente2)
   );
-  height: 100vh;
+
+  height: 100dvh;
+
   display: flex;
   justify-content: center;
   align-items: center;
+
   overflow-x: hidden;
   font-family: sans-serif;
+
+  padding: 12px;
 }
 
 main {
