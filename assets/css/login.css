@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 :root {
 
   /* Fundo */
@@ -52,6 +54,7 @@ body.dark-mode {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
 }
 
 input,
@@ -68,41 +71,25 @@ select {
   outline: none;
 }
 
-html,
-body {
-  width: 100%;
-}
-
-body {
-  background: linear-gradient(
-    180deg,
-    var(--cor-azul-ciano-gradiente1),
-    var(--cor-azul-ciano-gradiente2)
-  );
-
-  height: 100dvh;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  overflow-x: hidden;
-  font-family: sans-serif;
-
-  padding: 12px;
-}
 
 main {
+  background: linear-gradient(180deg, var(--cor-azul-ciano-gradiente1), var(--cor-azul-ciano-gradiente2));
+
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center; 
+
   width: 100%;
+  min-height: 100dvh;
+
+  overflow-x: hidden;
+  padding: 12px;
 }
 
 .logo-saga {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: block;
+  margin: 0 auto;
 }
 
 .logo-img {
@@ -355,7 +342,7 @@ body, .full-container, .login-direito, .glass-esquerda, .groupGeral, .loginbtn, 
     padding: 28px 22px;
   }
 
-  .logo-saga { margin: -40px 0 18px 0; }
+  .logo-saga { margin: 0 0 20px 0; }
   .logo-img { width: 220px; }
   .perfil { width: 86px; margin-bottom: 6px; }
   .areaemail input::placeholder, .areasenha input::placeholder { font-size: 0.95rem; }
@@ -367,7 +354,7 @@ body, .full-container, .login-direito, .glass-esquerda, .groupGeral, .loginbtn, 
 /* Mobile Pequeno */
 @media (max-width: 480px) {
   .full-container { width: 96vw; max-width: 360px; padding: 12px; }
-  .logo-img { width: 180px; }
+  .logo-img { width: 200px; }
   .login-direito { padding: 20px 16px; }
   .perfil { width: 72px; }
   .loginbtn { width: 80%; padding: 12px 18px; font-size: 0.95rem; }
