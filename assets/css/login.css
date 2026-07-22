@@ -184,7 +184,6 @@ main {
   height: auto;
   margin-bottom: 15px;
   border-radius: 50%;
-  border: 2px solid var(--cor-padrao);
 }
 
 .groupGeral {
@@ -317,7 +316,7 @@ body, .full-container, .login-direito, .glass-esquerda, .groupGeral, .loginbtn, 
   .glass-esquerda { width: 50%; padding: 48px 30px; }
   .login-direito { width: 50%; padding: 36px; }
   .logo-img { width: 300px; }
-  .perfil { width: 78px; }
+  .perfil { width: 78px; border: none; }
 }
 
 /* Mobile */

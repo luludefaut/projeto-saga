@@ -59,10 +59,11 @@ body {
     top: 16px;
     right: 50px;
     transition: transform 200ms linear;
-}
-
-#icone-usuario{
+  }
+  
+  #icone-usuario{
     width: 70px;
+    border-radius: 50%;
 }
 
 /* Configurações do Side bar (Início) */
@@ -303,6 +304,7 @@ main {
 
   #icone-usuario {
     width: 55px;
+    border: none;
   }
 }
 
@@ -311,6 +313,7 @@ main {
   .icone-perfil {
     top: 12px;
     right: 20px;
+    border: none;
   }
 
   #icone-usuario {
