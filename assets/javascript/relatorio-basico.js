@@ -71,7 +71,7 @@ const cursos = {
     "Técnico em Informática / Informática para Internet", "Técnico em Logística", "Técnico em Manutenção Automotiva / Automotiva",
     "Técnico em Planejamento e Controle da Produção / EAD", "Técnico em Qualidade", "Técnico em Segurança do Trabalho",
   ],
-  qualificacao: [
+  curso_de_qualificacao_aperfeiçoamento_extensão: [
     "Agente de Gestão de Resíduos Sólidos Industriais e Urbanos", "Almoxarife", "Aperfeiçoamento em Caldeiraria Industrial",
     "Assistente Administrativo / Assistente ADM", "Assistente de Logística", "Assistente de Production",
     "Auxiliar de Linha de Produção Para a Indústria de Pneus", "Auxiliar de Produção", "Controlador Lógico Programável",
@@ -84,6 +84,16 @@ const cursos = {
   ],
   programas: ["BYD", "LauroQualifica", "TI"],
 };
+
+function formatarParaEnum(texto) {
+  return texto
+    .normalize("NFD") // Separa os acentos das letras
+    .replace(/[\u0300-\u036f]/g, "") // Remove os acentos
+    .replace(/[^a-zA-Z0-9]/g, "_") // Substitui espaços e símbolos por underline
+    .replace(/_+/g, "_") // Garante que não fiquem dois underlines seguidos (ex: " / ")
+    .replace(/^_|_$/g, "") // Remove underlines que fiquem sobrando no começo ou fim
+    .toLowerCase(); // Converte para minúsculo
+}
 
 const tiposCurso = document.querySelectorAll(".tipoCurso");
 
@@ -104,7 +114,7 @@ tiposCurso.forEach(function (tipoCurso) {
 
     cursos[tipoSelecionado].forEach(function (nomeCurso) {
       const option = document.createElement("option");
-      option.value = nomeCurso;
+      option.value = formatarParaEnum(nomeCurso);
       option.textContent = nomeCurso;
       campoCurso.appendChild(option);
     });
