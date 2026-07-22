@@ -77,7 +77,7 @@ function desativarDarkMode() { // função para desativar o dark-mode e mudar os
 
     document.getElementById("iconeTema").src = "assets/icons/darkmode-moon-icon.svg";
 
-    document.getElementById("iconePerfil").src = "assets/icons/usuario-icon-padrao.png";
+    document.getElementById("iconePerfil").src = "assets/icons/usuario-icon.svg";
 
     document.getElementById("iconeEmail").src = "assets/icons/login-email-icon.svg";
 
