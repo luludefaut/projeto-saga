@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Página Inicial | ChatBot</title>
+    <link
+      rel=" icon "
+      type="image/png"
+      href="assets/icons/logo-saga-blue.svg"
+    />
+    <link rel="stylesheet" href="../assets/css/global.css" />
+    <link rel="stylesheet" href="../assets/css/chatbot.css" />
+  </head>
+
+  <body>
+    <!--header para a organização da tela inicial globa-->
+    <header class="header-global-configuration">
+      <div class="logo-inicial">
+        <img
+          src="../assets/icons/logo-saga-blue.svg"
+          alt="logo-inicial"
+          id="logo-principal"
+        />
+      </div>
+      <!--logo do site-->
+
+      <div class="icone-perfil">
+        <a href="../pages/configuracoes.html"
+          ><img
+            src="../assets/icons/usuario-icon.svg"
+            alt="icone-usuario"
+            id="icone-usuario"
+        /></a>
+      </div>
+      <!--Icone de usuário-->
+    </header>
+
+    <nav>
+      <!-- Side Bar principal de todo site -->
+
+      <article id="nav-container-section">
+        <section>
+          <a href="../pages/relatorio.html">
+            <img
+              src="../assets/icons/global-relatorio-icon.svg"
+              alt="icone de relatório"
+              id="rel"
+            />
+            <h2>Relatório</h2>
+          </a>
+        </section>
+
+        <section>
+          <a href="../pages/dashboard.html">
+            <img
+              src="../assets/icons/global-dashboard-icon.svg"
+              alt="icone de dashboard"
+              id="dash"
+            />
+            <h2>Dashboard</h2>
+          </a>
+        </section>
+
+        <section>
+          <a href="../pages/historico.html">
+            <img
+              src="../assets/icons/global-historico-icon.svg"
+              alt="icone de histórico"
+              id="histo"
+            />
+            <h2>Histórico</h2>
+          </a>
+        </section>
+
+        <section class="active">
+          <a href="../pages/chatbot.html">
+            <img
+              src="../assets/icons/global-chatbot-icon.svg"
+              alt="icone de ChatBot"
+              id="chat"
+            />
+            <h2>ChatBot</h2>
+          </a>
+        </section>
+
+        <section id="hidden-config">
+          <a href="../pages/configuracoes.html">
+            <img
+              src="../assets/icons/global-configuracoes-icon.svg"
+              alt="icone de configurações"
+              id="config"
+            />
+            <h2>Configurações</h2>
+          </a>
+        </section>
+      </article>
+    </nav>
+
+    <main>
+      <header class="header-main-global">
+        <section class="header-section-global">
+          <img
+            src=" ../assets/icons/global-chatbot-black-icon.svg"
+            alt="ícone de chatbot"
+          />
+          <h2>ChatBot</h2>
+          <p>Este Chat não salva o histórico</p>
+        </section>
+      </header>
+
+      <!-- Início do código -->
+
+      <section class="chatbot-container">
+
+        <!-- Área onde as mensagens aparecerão -->
+
+        <section class="chat-mensagens" id="chatMensagens">
+            <!-- Exemplo de mensagem do chatbot -->
+            <div class="mensagem chatbot">Olá! Como posso ajudar você hoje?</div>
+        </section>
+
+        <!-- Área de envio -->
+        <section class="chat-input-container">
+          <textarea id="chatInput" class="chatInput" placeholder="Peça ao Chatbot"></textarea>
+
+          <button id="btnEnviar">
+            <img src="../assets/icons/chatbot-send-icon.svg" alt="Enviar mensagem"/>
+          </button>
+
+        </section>
+
+      </section>
+
+    </main>
+
+    <script src="../assets/javascript/chatbot.js"></script>
+    <script src="../assets/javascript/global.js"></script>
+  </body>
+</html>
