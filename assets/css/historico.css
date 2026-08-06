@@ -112,7 +112,7 @@
 
 .accordion-item.active .accordion-body {
   max-height: 1500px;
-
+  
   padding: 0 28px 28px;
 }
 
@@ -169,6 +169,40 @@
 
   font-size: 15px;
 }
+
+/*=================== Botões de Editar e Excluir ====================== */
+.accordion-button {
+  display: flex;
+  gap: 25px;
+  margin: 20px 0;
+}
+
+#btnNovoRelatorio {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 12px 22px;
+
+  border: none;
+  border-radius: 30px;
+
+  color: white;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+.color-Red { background-color: #9c1a1a; }
+.color-Red:hover { background-color: #c33c3c; }
+
+.color-Blue { background-color: #114283; }
+.color-Blue:hover { background-color: #396297; }
+
 
 /* =====================================================
    Responsividade Dos Accordions
@@ -256,6 +290,11 @@
 
   .accordion-arrow{
     width: 18px;
+  }
+
+  #btnNovoRelatorio {
+    font-size: 12px;
+    padding: 10px 20px;
   }
 
 }
