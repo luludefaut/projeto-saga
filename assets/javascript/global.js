@@ -164,3 +164,26 @@ window.addEventListener("resize", () => {
   }
 
 });
+
+
+/* =====================================================
+    ATIVAR E DESATIVAR O DARK MODE E ALTO CONTRASTE
+===================================================== */
+
+const darkmodeAtivo = document.getElementById("acess-dark");
+
+function ativarDarkMode() {
+  document.body.classList.add("dark-mode");
+};
+
+function desativarDarkMode() {
+  document.body.classList.remove("dark-mode");
+};
+
+darkmodeAtivo.addEventListener("click", () => {
+  if (darkmodeAtivo.checked) {
+    ativarDarkMode();
+  } else {
+    desativarDarkMode();
+  }
+});

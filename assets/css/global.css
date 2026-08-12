@@ -8,6 +8,17 @@
 :root {
     --cor-gradient1: #BFCAD9;
     --cor-gradient2: #2585D9;
+
+    --border-bottom-header-main: #FFFFFF;
+    --icone-header-main: #000000;
+}
+
+body.dark-mode {
+    --cor-gradient1: #0A1C43;
+    --cor-gradient2: #2D7BBF;
+
+    --border-bottom-header-main: #FFFFFF;
+    --icone-header-main: #FFFFFF;
 }
 
 * {
@@ -23,7 +34,7 @@ a {
 
 body {
     font-family: "Poppins", Arial, Helvetica, sans-serif;
-    background: linear-gradient(180deg, #BFCAD9, #2585D9);
+    background: linear-gradient(180deg, var(--cor-gradient1), var(--cor-gradient2));
     background-repeat: no-repeat;
     background-attachment: fixed;
 
@@ -133,7 +144,7 @@ main {
     display: flex;
     justify-content: center;
     height: 182px;
-    border-bottom: 3px solid #D4E6FF;
+    border-bottom: 3px solid var(--border-bottom-header-main);
 }
 
 .header-section-global { /* Configuração do ícone e nome da seção do ícone */
@@ -144,7 +155,13 @@ main {
     margin: 10px;
 }
 
+.header-section-global svg {
+  fill: var(--icone-header-main);
+  width: 60px;
+}
+
 .header-section-global h2 {
+    color: var(--icone-header-main);
     font-size: 24px;
     font-weight: 500;
 }
