@@ -1,5 +1,22 @@
+:root {
+    --cor-aviso-historico: #000000;
+    --cor-mensagem-fundo: #396297;
+    --cor-mensagem-texto: #FFFFFF;
+}
+
+body.dark-mode {
+    --cor-aviso-historico: #FFFFFF;
+    --cor-mensagem-fundo: #6CA3EB;
+    --cor-mensagem-texto: #f2eeee;
+}
+
 .header-main-global {
     flex-shrink: 0;
+}
+
+.header-main-global p {
+    font-weight: 500;
+    color: var(--cor-aviso-historico);
 }
 
 /* =====================================================
@@ -37,8 +54,8 @@
    MENSAGENS
 ===================================================== */
 .mensagem {
-    background: #396297;
-    color: #FFFFFF;
+    background: var(--cor-mensagem-fundo);
+    color: var(--cor-mensagem-texto);
     padding: 18px 22px;
     border-radius: 22px;
     font-size: 16px;
