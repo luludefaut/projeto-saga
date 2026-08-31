@@ -32,6 +32,11 @@ a {
     color: white;
 }
 
+body.alto-contraste {
+  --cor-gradient1: #1c430a;
+  --cor-gradient2: #9d2dbf;
+}
+
 body {
     font-family: "Poppins", Arial, Helvetica, sans-serif;
     background: linear-gradient(180deg, var(--cor-gradient1), var(--cor-gradient2));

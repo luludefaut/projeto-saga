@@ -1,3 +1,11 @@
+:root {
+    --secoes-h2: #002F71;
+}
+
+body.dark-mode {
+    --secoes-h2: #ffffff;
+}
+
 /* =====================================================
    CONFIGURAÇÃO DA MAIN
 ===================================================== */
@@ -34,7 +42,7 @@
     text-align: center;
     font-size: 24px;
     font-weight: bold;
-    color: #002F71;
+    color: var(--secoes-h2);
     margin-bottom: 10px;
 }
 
