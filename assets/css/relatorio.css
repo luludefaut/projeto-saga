@@ -5,6 +5,22 @@
   --cor-azul-escuro-botao: #164194;
   --azul-modal-box: #c3d2e5;
   --linha-divisora: #b0a7a7;
+
+  --btn-editar-card: #0e6df7;
+  --btn-novo-relatorio: #FFFFFF;
+  --btn-novo-relatorio-bg: #040446;
+}
+
+body.dark-mode {
+  --btn-editar-card: #040446;
+  --btn-novo-relatorio: #040446;
+  --btn-novo-relatorio-bg: #FFFFFF;
+}
+
+body.alto-contraste {
+  --btn-editar-card: #040446;
+  --btn-novo-relatorio: #040446;
+  --btn-novo-relatorio-bg: #FFFFFF;
 }
 
 /*==================== HEADER MAIN ===================== */
@@ -35,9 +51,9 @@
   border: none;
   border-radius: 30px;
 
-  background: var(--cor-azul-escuro);
+  background: var(--btn-novo-relatorio-bg);
 
-  color: white;
+  color: var(--btn-novo-relatorio);
 
   font-size: 14px;
   font-weight: 600;
@@ -51,8 +67,13 @@
   transform: scale(1.03);
 }
 
-#btnNovoRelatorio img {
+#btnNovoRelatorio svg {
+  fill: var(--btn-novo-relatorio);
   width: 16px;
+
+  stroke: var(--btn-novo-relatorio); 
+  stroke-width: 10px;
+  stroke-linejoin: round;  
 }
 
 /*================= EMPTY STATE ==================== */
@@ -209,7 +230,7 @@
   padding: 0 18px;
   border: none;
   border-radius: 999px;
-  background: #0e6df7;
+  background: var(--btn-editar-card);
   color: white;
   font-weight: 600;
   cursor: pointer;

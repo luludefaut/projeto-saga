@@ -6,6 +6,10 @@ body.dark-mode {
     --secoes-h2: #ffffff;
 }
 
+body.alto-contraste {
+    --secoes-h2: #ffffff;
+}
+
 /* =====================================================
    CONFIGURAÇÃO DA MAIN
 ===================================================== */

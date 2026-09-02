@@ -10,6 +10,12 @@ body.dark-mode {
     --cor-mensagem-texto: #f2eeee;
 }
 
+body.alto-contraste {
+    --cor-aviso-historico: #FFFFFF;
+    --cor-mensagem-fundo: #FFFFFF;
+    --cor-mensagem-texto: #000000;
+}
+
 .header-main-global {
     flex-shrink: 0;
 }
