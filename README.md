@@ -3,20 +3,20 @@
 ## Componentes da equipe
 - Daniel Richard
 - Eloah Veiga
-- João Pedro Fagundes Ernesto
+- João Pedro Fagundes 
 - Luca Mendes
 - Mateus Chaves
 
 ***
-# 📘 SAGA - Sistema de Análise e Gestão de Atividades
+# 📘 SAGA - Site de Análise e Gestão de Atividades
 
-> Plataforma desenvolvida para registro, análise e gestão de relatórios da equipe pedagógica do SENAI.
+> Plataforma web desenvolvida para registro, análise e gestão de relatórios da equipe pedagógica do SENAI.
 
 ---
 
 # 🚀 Sobre o Projeto
 
-O **SAGA (Sistema de Análise e Gestão de Atividades)** foi desenvolvido com o objetivo de centralizar, organizar e monitorar relatórios acadêmicos e pedagógicos, proporcionando maior controle das informações, rastreabilidade dos registros e otimização dos processos internos.
+O **SAGA (Site de Análise e Gestão de Atividades)** foi desenvolvido com o objetivo de centralizar, organizar e monitorar relatórios acadêmicos e pedagógicos, proporcionando maior controle das informações, rastreabilidade dos registros e otimização dos processos internos.
 
 Além do gerenciamento de ocorrências, o sistema oferece dashboards analíticos, histórico de registros, recursos de acessibilidade e integração futura com Inteligência Artificial.
 
@@ -24,7 +24,7 @@ Além do gerenciamento de ocorrências, o sistema oferece dashboards analíticos
 
 # ❗ Problemática
 
-Atualmente, a equipe pedagógica do SENAI Camaçari enfrenta dificuldades relacionadas ao:
+Atualmente, o Núcleo de Educação Profissional do SENAI Camaçari enfrenta dificuldades relacionadas ao:
 
 * Armazenamento descentralizado de informações;
 * Perda de registros importantes;
@@ -56,13 +56,13 @@ Para solucionar essas dificuldades, desenvolvemos uma plataforma web capaz de:
 
 ---
 
-# 🏗️ Estrutura do Sistema
+# 🏗️ Estrutura do Site
 
 ## Fluxo Geral
 
 Relatório → Histórico → Dashboard → Indicadores
 
-Todos os módulos do sistema estão conectados para garantir consistência dos dados e atualização das informações.
+Todos os módulos da plataforma estão conectados para garantir consistência dos dados e atualização das informações.
 
 ---
 
@@ -106,11 +106,11 @@ Responsável pela criação e gerenciamento das ocorrências.
 | --------------- | -------------------------------- |
 | 📝 A Fazer      | Relatório criado                 |
 | 🔄 Em Andamento | Relatório parcialmente concluído |
-| ✅ Realizado     | Relatório finalizado             |
+| ✅ Realizado     | Relatório finalizado e enviado ao histórico            |
 
 ### Regra de Negócio
 
-Relatórios concluídos podem ser editados por até **24 horas**.
+Relatórios concluídos podem ser editados por até **24 horas** no histórico.
 
 Após esse período:
 
@@ -165,21 +165,12 @@ Armazena os relatórios finalizados.
 ## Funcionalidades
 
 * Consulta de ocorrências;
-* Pesquisa por status;
 * Visualização detalhada;
 * Edição dentro do prazo de 24 horas.
-
-## Plano Básico
-
-O histórico completo é restrito.
-
-Ao tentar acessar funcionalidades premium, o usuário recebe uma tela de erro **403 - Acesso Negado**.
 
 ---
 
 # 🤖 ChatBot Inteligente
-
-Módulo exclusivo para usuários Premium.
 
 ## Objetivos
 
@@ -190,14 +181,6 @@ Módulo exclusivo para usuários Premium.
 ## Tecnologia Prevista
 
 Integração com API Gemini para implementação de IA baseada em NLP (Processamento de Linguagem Natural).
-
-### Plano Básico
-
-Exibe tela de bloqueio (Erro 403).
-
-### Plano Premium
-
-Liberação completa da funcionalidade.
 
 ---
 
@@ -212,6 +195,10 @@ Exibe:
 * Nome;
 * E-mail;
 * Função.
+
+## 🚪 Encerrar Sessão
+
+Remove os tokens e exige o login novamente.
 
 ## ♿ Acessibilidade
 
@@ -312,8 +299,9 @@ Estrutura:
 
 ## Back-end
 
-* PHP
+* Node.js
 * MySQL
+* Prisma ORM
 
 ## Bibliotecas
 
@@ -332,11 +320,9 @@ Estrutura:
 
 Versão principal do projeto.
 
-## teste-final
+## darkmode-geral
 
-Versão utilizada para demonstração do fluxo completo utilizando Local Storage.
-
----
+Branch de trabalho atual com implantação do darkmode e alto contraste, além de testes de fluxo de usuário.
 
 # 📈 Diferenciais do Projeto
 
@@ -352,15 +338,13 @@ Versão utilizada para demonstração do fluxo completo utilizando Local Storage
 
 ✅ Chatbot Inteligente
 
-✅ Plano Premium
-
 ---
 
 # 🎯 Conclusão
 
 O SAGA foi desenvolvido para transformar o processo de registro e monitoramento de relatórios, proporcionando maior organização, rastreabilidade e eficiência para a equipe pedagógica.
 
-Mais do que armazenar informações, o sistema busca oferecer uma solução moderna, acessível e escalável para a gestão institucional.
+Mais do que armazenar informações, nossa plataforma busca oferecer uma solução moderna, acessível e escalável para a gestão institucional.
 
 ---
 
