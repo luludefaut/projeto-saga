@@ -9,19 +9,16 @@ formulario.addEventListener('submit', (event) => {
     const email = document.getElementById('email').value.trim();
     const senha = document.getElementById('senha').value.trim();
     const nome = document.getElementById('nome').value.trim();
-    const funcao = document.getElementById('funcao').value.trim();
 
     // 3. Pegando as tags <p> de erro
     const alertaEmail = document.getElementById('alertaEmail');
     const alertaSenha = document.getElementById('alertaSenha');
     const alertaNome = document.getElementById('alertaNome');
-    const alertaFuncao = document.getElementById('alertaFuncao');
 
     // Limpa todas as mensagens de erro anteriores
     alertaEmail.textContent = "";
     alertaSenha.textContent = "";
     alertaNome.textContent = "";
-    alertaFuncao.textContent = "";
 
     // Variável de controle para saber se o formulário está 100% correto
     let formularioValido = true;
@@ -34,11 +31,6 @@ formulario.addEventListener('submit', (event) => {
         formularioValido = false;
     }
 
-    // Validação da Função
-    if (funcao === "") {
-        alertaFuncao.textContent = "Preencha o campo Função!";
-        formularioValido = false;
-    }
 
     // Validação do E-mail (Verifica se está vazio e se tem o @ com domínio)
     const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -84,7 +76,6 @@ function ativarDarkMode() { // função para ativar o dark-mode e mudar os seus 
 
     document.getElementById("iconeNome").src = "../assets/icons/darkMode/usuariosemfundo2-icon-dark.svg";
 
-    document.getElementById("iconeFuncao").src = "../assets/icons/darkMode/icon-maleta-dark.svg";
 }
 
 function desativarDarkMode() { // função para desativar o dark-mode e mudar os seus ícones, garantindo que eles carreguem novamente
@@ -101,7 +92,6 @@ function desativarDarkMode() { // função para desativar o dark-mode e mudar os
 
     document.getElementById("iconeNome").src = "../assets/icons/usuariosemfundo2-icon.svg";
 
-    document.getElementById("iconeFuncao").src = "../assets/icons/icon-maleta.svg";
 }
 
 btnTroca.addEventListener("click", (e) => { // verifica o click no botão
