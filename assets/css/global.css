@@ -5,9 +5,28 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-root {
+:root {
     --cor-gradient1: #BFCAD9;
     --cor-gradient2: #2585D9;
+
+    --border-bottom-header-main: #FFFFFF;
+    --icone-header-main: #000000;
+}
+
+body.dark-mode {
+    --cor-gradient1: #0A1C43;
+    --cor-gradient2: #2D7BBF;
+
+    --border-bottom-header-main: #FFFFFF;
+    --icone-header-main: #FFFFFF;
+}
+
+body.alto-contraste {
+  --cor-gradient1: #0D1B2A; 
+  --cor-gradient2: #010409;
+
+  --border-bottom-header-main: #FFFFFF;
+  --icone-header-main: #FFFFFF;
 }
 
 * {
@@ -23,7 +42,7 @@ a {
 
 body {
     font-family: "Poppins", Arial, Helvetica, sans-serif;
-    background: linear-gradient(180deg, #BFCAD9, #2585D9);
+    background: linear-gradient(180deg, var(--cor-gradient1), var(--cor-gradient2));
     background-repeat: no-repeat;
     background-attachment: fixed;
 
@@ -49,8 +68,9 @@ body {
     box-shadow: 4px 8px 12px rgba(0, 0, 0, 0.2);;
 }
 
-#logo-principal{
-    width: 200px;
+#logo-principal {
+    width: 180px;
+    padding: 10px;
 }
 
 .icone-perfil {
@@ -58,10 +78,11 @@ body {
     top: 16px;
     right: 50px;
     transition: transform 200ms linear;
-}
-
-#icone-usuario{
+  }
+  
+  #icone-usuario{
     width: 70px;
+    border-radius: 50%;
 }
 
 /* Configurações do Side bar (Início) */
@@ -131,7 +152,7 @@ main {
     display: flex;
     justify-content: center;
     height: 182px;
-    border-bottom: 3px solid #D4E6FF;
+    border-bottom: 3px solid var(--border-bottom-header-main);
 }
 
 .header-section-global { /* Configuração do ícone e nome da seção do ícone */
@@ -142,9 +163,289 @@ main {
     margin: 10px;
 }
 
+.header-section-global svg {
+  fill: var(--icone-header-main);
+  width: 60px;
+}
+
+
 .header-section-global h2 {
+    color: var(--icone-header-main);
     font-size: 24px;
     font-weight: 500;
 }
 
 /* Fim das Configuração do header principal */
+
+/* ======================================================================
+                INÍCIO DA RESPONSIVIDADE GERAL
+======================================================================*/
+
+/* TABLET: sidebar compacta, texto oculto e grid principal 80px 1fr */
+@media (max-width: 1024px) {
+  body {
+    grid-template-columns: 80px 1fr;
+  }
+
+  nav {
+    min-width: 80px;
+  }
+
+  #nav-container-section {
+    margin: 60px 5px 0 0;
+  }
+
+  #nav-container-section section {
+    margin-bottom: 22px;
+  }
+
+  #nav-container-section section a {
+    justify-content: center;
+    margin-left: 0;
+  }
+
+  #nav-container-section section a h2 {
+    display: none;
+  }
+}
+
+/* MOBILE: barra inferior fixa, único fluxo vertical e navegação no rodapé */
+@media (max-width: 768px) {
+  body {
+    grid-template-columns: 1fr;
+    grid-template-rows: 80px 1fr 70px;
+    grid-template-areas: "header" "main" "sidebar";
+    overflow: hidden;
+  }
+
+  #logo-principal {
+    padding: 20px;
+  }
+
+  .header-global-configuration {
+    position: sticky;
+    top: 0;
+    z-index: 15;
+  }
+
+  .icone-perfil {
+    top: 10px
+  }
+
+  #icone-usuario {
+    width: 60px;
+  }
+
+  main {
+    padding-bottom: 90px;
+    overflow-y: auto;
+    scrollbar-width: none;
+  }
+
+  main::-webkit-scrollbar {
+    display: none;
+  }
+
+  nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 70px;
+    width: 100%;
+    z-index: 20;
+    background-color: #1F3A5F;
+    box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.18);
+  }
+
+  #nav-container-section {
+    margin: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 0;
+  }
+
+  #nav-container-section section {
+    margin: 0;
+  }
+  
+  #nav-container-section section img {
+    width: 50px;
+  }
+  
+  #nav-container-section section a h2 {
+    display: none;
+  }
+  
+  #nav-container-section section a {
+    flex-direction: column;
+    justify-content: center;
+  }
+
+ #nav-container-section .active {
+    padding: 2px 7px 10px;
+    margin: 0;
+    border-radius: 10px 10px 0 0;
+  }
+
+  @keyframes activeFlow { /* animação dos actives flows*/
+    
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+  }
+}
+
+/* MOBILE PEQUENO: reduzir margens, empilhar campos e evitar overflow */
+@media (max-width: 480px) {
+  body {
+    grid-template-rows: 70px 1fr 60px;
+  }
+
+  #logo-principal {
+    padding: 30px;
+  }
+
+  .header-global-configuration {
+    height: 70px;
+  }
+
+  #hidden-config {
+    display: none;
+  }
+
+  .icone-perfil {
+    top: 7px;
+    right: 40px;
+  }
+
+  #icone-usuario {
+    width: 55px;
+    border: none;
+  }
+}
+
+/* MOBILE EXTRA PEQUENO */
+@media (max-width: 380px) {
+  .icone-perfil {
+    top: 12px;
+    right: 20px;
+    border: none;
+  }
+
+  #icone-usuario {
+    width: 45px;
+  }
+}
+
+
+/* =====================================================
+                MENU HAMBÚRGUER TABLET
+===================================================== */
+
+.hamburger-btn {
+  display: none;
+}
+
+@media (max-width: 1024px) and (min-width: 769px) {
+
+  .hamburger-btn {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    position: fixed;
+
+    top: 112px;
+    left: 10px;
+
+    width: 50px;
+    height: 50px;
+    
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    
+    z-index: 1001;
+    transition: left .25s ease;
+  }
+  
+  .hamburger-btn img {
+    width: 36px;
+    height: 36px;
+    margin-bottom: 10px;
+  }
+
+  /* Sidebar fechada */
+  nav {
+    width: 80px;
+    transition: width .25s ease;
+    overflow: hidden;
+  }
+
+  /* Sidebar acima do overlay */
+  nav {
+    z-index: 1000;
+  }
+
+  .sidebar-overlay {
+
+    position: fixed;
+    inset: 0;
+
+    z-index: 998;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition: .25s;
+  }
+
+.sidebar-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+  /* Sidebar aberta */
+  body.sidebar-open nav {
+    width: 210px;
+  }
+
+  body.sidebar-open {
+    grid-template-columns: 210px 1fr;
+  }
+
+  /* Move o botão para acompanhar a sidebar aberta */
+  body.sidebar-open .hamburger-btn {
+    left: 155px;
+  }
+
+  body.sidebar-open #nav-container-section {
+    margin: 60px 15px 0 0;
+  }
+
+  body.sidebar-open #nav-container-section section a {
+    justify-content: flex-start;
+    margin-left: 12px;
+  }
+
+  body.sidebar-open #nav-container-section section a h2 {
+    display: block;
+  }
+
+  body.sidebar-open main,
+  body.sidebar-open .header-global-configuration {
+    filter: blur(3px);
+    pointer-events: none;
+  }
+}
