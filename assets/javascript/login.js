@@ -1,7 +1,7 @@
 // 1. Pegamos o formulário e o botão (apenas os elementos)
 const formulario = document.getElementById('areaform');
 
-formulario.addEventListener('submit', (event) => {
+formulario.addEventListener('submit', async (event) => {
     // Evita que a página recarregue e suma com as mensagens de erro
     event.preventDefault();
 
@@ -43,10 +43,29 @@ formulario.addEventListener('submit', (event) => {
 
     // 4. ENVIO FINAL: Só envia se nenhuma validação acima tiver falhado
     if (formularioValido) {
-        alert("Enviado com sucesso!");
-        
-        formulario.reset();
-        // Limpa os campos após o envio
+        const botaoLogin = formulario.querySelector('.loginbtn');
+        const lembrarMe = document.getElementById('lembreMe').checked;
+
+        // Evita clicar duas vezes enquanto espera a resposta
+        botaoLogin.disabled = true;
+
+        try {
+            // Os nomes dos campos são os que a API espera (email_usu, senha_usu, lembrarMe)
+            const resposta = await chamarApi('/auth/login', 'POST', {
+                email_usu: email,
+                senha_usu: senha,
+                lembrarMe: lembrarMe
+            });
+
+            // Guarda o token e os dados do usuário e vai para a tela inicial
+            salvarSessao(resposta.token, resposta.usuario);
+            window.location.href = 'pages/relatorio.html';
+
+        } catch (erro) {
+            // Senha errada, servidor desligado etc: mostra embaixo do campo senha
+            alertaSenha.textContent = erro.message;
+            botaoLogin.disabled = false;
+        }
     }
 });
 

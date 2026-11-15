@@ -449,3 +449,43 @@ main {
     pointer-events: none;
   }
 }
+
+/* =====================================================
+   MENSAGENS NA TELA (sucesso, erro e aviso)
+   Criadas pela função mostrarMensagem() do api.js
+===================================================== */
+#areaMensagens {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 9999;
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  max-width: calc(100% - 40px);
+}
+
+.toast {
+  padding: 14px 20px;
+  border-radius: 12px;
+
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.3;
+
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+
+  animation: toast-entrar 0.3s ease;
+}
+
+.toast.sucesso { background: #1f7a3d; }
+.toast.erro    { background: #b3261e; }
+.toast.aviso   { background: #b26a00; }
+
+@keyframes toast-entrar {
+  from { opacity: 0; transform: translateX(30px); }
+  to   { opacity: 1; transform: translateX(0); }
+}

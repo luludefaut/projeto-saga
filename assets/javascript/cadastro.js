@@ -1,7 +1,9 @@
+// A verificação de login desta página é feita pelo guarda.js (no <head>).
+
 // 1. Pegamos o formulário e o botão (apenas os elementos)
 const formulario = document.getElementById('areaform');
 
-formulario.addEventListener('submit', (event) => {
+formulario.addEventListener('submit', async (event) => {
     // Evita que a página recarregue e suma com as mensagens de erro
     event.preventDefault();
 
@@ -14,11 +16,13 @@ formulario.addEventListener('submit', (event) => {
     const alertaEmail = document.getElementById('alertaEmail');
     const alertaSenha = document.getElementById('alertaSenha');
     const alertaNome = document.getElementById('alertaNome');
+    const alertaGeral = document.getElementById('alertaGeral');
 
     // Limpa todas as mensagens de erro anteriores
     alertaEmail.textContent = "";
     alertaSenha.textContent = "";
     alertaNome.textContent = "";
+    alertaGeral.textContent = "";
 
     // Variável de controle para saber se o formulário está 100% correto
     let formularioValido = true;
@@ -28,6 +32,9 @@ formulario.addEventListener('submit', (event) => {
     // Validação do Nome
     if (nome === "") {
         alertaNome.textContent = "Preencha o campo Nome Completo!";
+        formularioValido = false;
+    } else if (nome.length < 3) {
+        alertaNome.textContent = "O nome deve ter no mínimo 3 caracteres!";
         formularioValido = false;
     }
 
@@ -53,10 +60,30 @@ formulario.addEventListener('submit', (event) => {
 
     // 4. ENVIO FINAL: Só envia se nenhuma validação acima tiver falhado
     if (formularioValido) {
-        alert("Enviado com sucesso!");
-        
-        formulario.reset();
-        // Limpa os campos após o envio
+        const botaoCadastro = document.getElementById('cadastrobtn');
+
+        // Evita clicar duas vezes enquanto espera a resposta
+        botaoCadastro.disabled = true;
+
+        try {
+            // Os nomes dos campos são os que a API espera
+            await chamarApi('/auth/register', 'POST', {
+                nome_completo: nome,
+                email_usu: email,
+                senha_usu: senha
+            });
+
+            alert("Usuário cadastrado com sucesso!");
+
+            formulario.reset();
+            // Limpa os campos após o envio
+
+        } catch (erro) {
+            // E-mail repetido (409), servidor desligado etc.
+            alertaGeral.textContent = erro.message;
+        }
+
+        botaoCadastro.disabled = false;
     }
 });
 

@@ -204,7 +204,7 @@ main {
   color: var(--cor-texto-direita);
 }
 
-#alertaEmail, #alertaSenha, #alertaNome, #alertaFuncao {
+#alertaEmail, #alertaSenha, #alertaNome, #alertaFuncao, #alertaGeral {
   color: red;
   margin-top: 3px;
   font-weight: 600;

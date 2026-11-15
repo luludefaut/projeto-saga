@@ -177,7 +177,8 @@
   margin: 20px 0;
 }
 
-#btnNovoRelatorio {
+.accordion-button button,
+.modal-excluir-botoes button {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -292,7 +293,8 @@
     width: 18px;
   }
 
-  #btnNovoRelatorio {
+  .accordion-button button,
+  .modal-excluir-botoes button {
     font-size: 12px;
     padding: 10px 20px;
   }
@@ -327,4 +329,79 @@
   .accordion-status {
     width: 100%;
   }
+}
+
+/* =====================================================
+   MODAL DE EXCLUSÃO
+===================================================== */
+#modalExcluir {
+  width: 95vw;
+  max-width: 420px;
+}
+
+.modal-excluir-texto {
+  padding: 25px 28px 5px;
+
+  color: var(--cor-azul-escuro);
+  font-size: 17px;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.modal-excluir-botoes {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+
+  padding: 20px 28px 28px;
+}
+
+/* =====================================================
+   BARRA "RELATÓRIO EXCLUÍDO | DESFAZER" (estilo WhatsApp)
+===================================================== */
+.snackbar {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+
+  width: 90%;
+  max-width: 380px;
+  padding: 14px 20px;
+
+  background: #222222;
+  color: #ffffff;
+  border-radius: 12px;
+
+  font-size: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+
+  animation: snackbar-subir 0.25s ease;
+}
+
+.snackbar button {
+  background: none;
+  border: none;
+
+  color: #6fb7ff;
+  font-size: 15px;
+  font-weight: 700;
+  text-transform: uppercase;
+
+  cursor: pointer;
+}
+
+.snackbar button:hover {
+  text-decoration: underline;
+}
+
+@keyframes snackbar-subir {
+  from { opacity: 0; transform: translate(-50%, 20px); }
+  to   { opacity: 1; transform: translate(-50%, 0); }
 }
