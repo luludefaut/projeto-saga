@@ -304,3 +304,55 @@ input::placeholder {
   }
 
 }
+
+/* =====================================================
+   SUGESTÕES DO FILTRO DE CURSO
+===================================================== */
+.filtro-curso {
+    position: relative; /* a lista de sugestões se posiciona em relação a ele */
+}
+
+.sugestoes {
+    display: none; /* o dashboard.js mostra quando tem o que sugerir */
+
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 20;
+
+    margin-top: 6px;
+    padding: 6px 0;
+
+    max-height: 220px;
+    overflow-y: auto;
+
+    list-style: none;
+
+    background: #ffffff;
+    border: 1px solid #040446;
+    border-radius: 14px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.sugestoes li {
+    padding: 10px 15px;
+
+    color: #040446;
+    font-size: 14px;
+
+    cursor: pointer;
+}
+
+.sugestoes li:hover {
+    background: #e3ecf8;
+}
+
+.sugestoes li.vazio {
+    color: #5f6f85;
+    cursor: default;
+}
+
+.sugestoes li.vazio:hover {
+    background: transparent;
+}

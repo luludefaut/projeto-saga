@@ -8,6 +8,9 @@
   <link rel="icon" type="image/png" href="assets/icons/logo-saga-blue.svg" />
   <link rel="stylesheet" href="../assets/css/global.css" />
   <link rel="stylesheet" href="../assets/css/relatorio.css" />
+  <!-- Guarda de login: manda para o login quem não estiver logado -->
+  <script src="../assets/javascript/api.js"></script>
+  <script src="../assets/javascript/guarda.js"></script>
 </head>
 
 <body>
@@ -86,108 +89,17 @@
       </button>
     </div>
 
-    <!-- Está seção será controlada através da lógica: -->
-    <!-- Sem relatório: display block -->
-    <!-- Com 1 relatório: display none -->
-    <!-- <div class="empty-state-container">
-        <div class="alert-box">
-          <img src="../assets/icons/alert-icon.svg" alt="Aviso" />
-          <p>Sem relatórios por enquanto</p>
-        </div>
-      </div> -->
-
-    <!-- Cards fixos representativos -->
-    <section class="cards-grid">
-      <div class="card-relatorio">
-        <div class="card-header">
-          <h3>Atendimento Geral</h3>
-          <span class="status-tag andamento">Em Andamento</span>
-        </div>
-        <div class="card-body">
-          <p><strong>Turma:</strong> Não informada</p>
-          <p><strong>Curso:</strong> Não informada</p>
-          <p><strong>Data:</strong> N/A</p>
-          <p><strong>Descrição:</strong> Sem descrição...</p>
-        </div>
-        <div class="card-footer">
-          <button class="btn-editar-card">
-            <img src="../assets/icons/editar-icon.svg" alt="Editar" />Editar
-          </button>
-        </div>
+    <!-- Esta seção é controlada pelo relatorio.js: -->
+    <!-- Sem relatório: aparece | Com relatório: some -->
+    <div class="empty-state-container" id="estadoVazio" style="display: none;">
+      <div class="alert-box">
+        <img src="../assets/icons/alert-icon.svg" alt="Aviso" />
+        <p>Sem relatórios por enquanto</p>
       </div>
+    </div>
 
-      <div class="card-relatorio">
-        <div class="card-header">
-          <h3>Atendimento Geral</h3>
-          <span class="status-tag andamento">Em Andamento</span>
-        </div>
-        <div class="card-body">
-          <p><strong>Turma:</strong> Não informada</p>
-          <p><strong>Curso:</strong> Não informada</p>
-          <p><strong>Data:</strong> N/A</p>
-          <p><strong>Descrição:</strong> Sem descrição...</p>
-        </div>
-        <div class="card-footer">
-          <button class="btn-editar-card">
-            <img src="../assets/icons/editar-icon.svg" alt="Editar" />Editar
-          </button>
-        </div>
-      </div>
-
-      <div class="card-relatorio">
-        <div class="card-header">
-          <h3>Acompanhamento Pedagógico</h3>
-          <span class="status-tag pendente">Pendente</span>
-        </div>
-        <div class="card-body">
-          <p><strong>Turma:</strong> Não informada</p>
-          <p><strong>Curso:</strong> Não informada</p>
-          <p><strong>Data:</strong> N/A</p>
-          <p><strong>Descrição:</strong> Sem descrição...</p>
-        </div>
-        <div class="card-footer">
-          <button class="btn-editar-card">
-            <img src="../assets/icons/editar-icon.svg" alt="Editar" />Editar
-          </button>
-        </div>
-      </div>
-
-      <div class="card-relatorio">
-        <div class="card-header">
-          <h3>Atendimento Geral</h3>
-          <span class="status-tag pendente">Pendente</span>
-        </div>
-        <div class="card-body">
-          <p><strong>Turma:</strong> Não informada</p>
-          <p><strong>Curso:</strong> Não informada</p>
-          <p><strong>Data:</strong> N/A</p>
-          <p><strong>Descrição:</strong> Sem descrição...</p>
-        </div>
-        <div class="card-footer">
-          <button class="btn-editar-card">
-            <img src="../assets/icons/editar-icon.svg" alt="Editar" />Editar
-          </button>
-        </div>
-      </div>
-
-      <div class="card-relatorio">
-        <div class="card-header">
-          <h3>Acompanhamento Pedagógico</h3>
-          <span class="status-tag andamento">Em Andamento</span>
-        </div>
-        <div class="card-body">
-          <p><strong>Turma:</strong> Não informada</p>
-          <p><strong>Curso:</strong> Não informada</p>
-          <p><strong>Data:</strong> N/A</p>
-          <p><strong>Descrição:</strong> Sem descrição...</p>
-        </div>
-        <div class="card-footer">
-          <button class="btn-editar-card">
-            <img src="../assets/icons/editar-icon.svg" alt="Editar" />Editar
-          </button>
-        </div>
-      </div>
-    </section>
+    <!-- Os cards são criados pelo relatorio.js -->
+    <section class="cards-grid" id="listaRelatorios"></section>
 
     <!--------------------------------1° MODAL: OPÇÕES ------------------------------------->
     <dialog id="modalTipoRelatorio" class="modal-form">
@@ -238,12 +150,12 @@
           <!---------------------------------------------------------------------------------------------------------->
           <div class="data-rotulo">
             <p>DATA</p>
-            <input type="date" name="data" />
+            <input type="date" name="data_inicial" />
           </div>
 
           <input type="text" name="turma" placeholder="TURMA" />
 
-          <select name="tipoCurso" class="tipoCurso">
+          <select name="tipo_curso" class="tipoCurso">
             <option value="">TIPO DE CURSO</option>
             <option value="tecnico">CURSOS TÉCNICOS</option>
             <option value="curso_de_qualificacao_aperfeicoamento_extensao">
@@ -252,7 +164,7 @@
             <option value="programas">PROGRAMAS</option>
           </select>
 
-          <select name="curso" class="curso">
+          <select name="id_curso_fk" class="curso">
             <option value="">CURSO</option>
           </select>
 
@@ -283,9 +195,9 @@
 
             <option value="ambientacao_docente">AMBIENTAÇÃO DOCENTE</option>
 
-            <option value="aplicacao_pesquisa">APLICAÇÃO DE PESQUISA</option>
+            <option value="aplicacao_de_pesquisa">APLICAÇÃO DE PESQUISA</option>
 
-            <option value="apoio_coordenacao">APOIO A COORDENAÇÃO</option>
+            <option value="apoio_a_coordenacao">APOIO A COORDENAÇÃO</option>
 
             <option value="atendimento_emergencial">
               ATENDIMENTO EMERGENCIAL
@@ -322,7 +234,7 @@
             <option value="visita_pedagogica">VISITA PEDAGOGICA</option>
           </select>
 
-          <select name="status">
+          <select name="status_registro">
             <option value="">STATUS</option>
             <option value="andamento" class="andamento">EM ANDAMENTO</option>
             <option value="pendente" class="pendente">PENDENTE</option>
@@ -344,7 +256,7 @@
 
           <div class="input-container">
             <label>TRATATIVA NEP</label>
-            <textarea name="tratativaNep"></textarea>
+            <textarea name="tratativa_nep"></textarea>
           </div>
 
           <div class="input-container">
@@ -355,6 +267,7 @@
         <!--- fim da div form-textareas --->
 
         <!------------------------------------------   BOTÃO DE SALVAR     -------------------------------------------------------------------->
+        <p class="msg-erro"></p>
         <button type="button" class="btn-salvarAtendimento">
           Salvar atendimento
         </button>
@@ -397,12 +310,12 @@
 
           <div class="data-rotulo">
             <p>DATA</p>
-            <input type="date" name="data" placeholder="DATA" />
+            <input type="date" name="data_inicial" placeholder="DATA" />
           </div>
 
           <input type="text" name="turma" placeholder="TURMA" />
 
-          <select name="tipoCurso" class="tipoCurso">
+          <select name="tipo_curso" class="tipoCurso">
             <option value="">TIPO DE CURSO</option>
             <option value="tecnico">CURSOS TÉCNICOS</option>
             <option value="curso_de_qualificacao_aperfeicoamento_extensao">
@@ -411,11 +324,11 @@
             <option value="programas">PROGRAMAS</option>
           </select>
 
-          <select name="curso" class="curso">
+          <select name="id_curso_fk" class="curso">
             <option value="">CURSO</option>
           </select>
 
-          <select name="tipoAcao">
+          <select name="tipo_acao">
             <option value="">TIPO DE AÇÃO</option>
             <option value="acompanhamento_docente_turma">
               ACOMPANHAMENTO DOCENTE | TURMA
@@ -435,7 +348,7 @@
         <!----------- ↑ linha divisora ----------------------------------------------------->
 
         <div class="fieldgroup-below">
-          <select name="tipoAtendimento">
+          <select name="tipo_atendimento">
             <option value="">TIPO DE ATENDIMENTO</option>
             <option value="acolhimento">ACOLHIMENTO</option>
 
@@ -449,9 +362,9 @@
 
             <option value="ambientacao_docente">AMBIENTAÇÃO DOCENTE</option>
 
-            <option value="aplicacao_pesquisa">APLICAÇÃO DE PESQUISA</option>
+            <option value="aplicacao_de_pesquisa">APLICAÇÃO DE PESQUISA</option>
 
-            <option value="apoio_coordenacao">APOIO A COORDENAÇÃO</option>
+            <option value="apoio_a_coordenacao">APOIO A COORDENAÇÃO</option>
 
             <option value="atendimento_emergencial">
               ATENDIMENTO EMERGENCIAL
@@ -488,14 +401,14 @@
             <option value="visita_pedagogica">VISITA PEDAGOGICA</option>
           </select>
 
-          <select name="tipoContratacao">
+          <select name="tipo_contratacao">
             <option value="">TIPO DE CONTRATAÇÃO</option>
             <option value="horista">Horista</option>
             <option value="mensalista">Mensalista</option>
             <option value="rsa">RSA</option>
           </select>
 
-          <select name="status">
+          <select name="status_registro">
             <option value="">STATUS</option>
             <option value="andamento" class="andamento">EM ANDAMENTO</option>
             <option value="pendente" class="pendente">PENDENTE</option>
@@ -526,7 +439,7 @@
 
           <div class="input-container">
             <label>TRATATIVA NEP</label>
-            <textarea name="tratativaNep"></textarea>
+            <textarea name="tratativa_nep"></textarea>
           </div>
 
           <div class="input-container">
@@ -538,6 +451,7 @@
 
         <!--------  Botão de salvar   ---------->
 
+        <p class="msg-erro"></p>
         <button type="button" class="btn-salvarAtendimento">
           Salvar Atendimento
         </button>
@@ -546,6 +460,8 @@
   </main>
 
   <!------- Referenciando o JS ---------->
+  <script src="../assets/javascript/dados.js"></script>
+  <script src="../assets/javascript/formulario.js"></script>
   <script src="../assets/javascript/relatorio.js"></script>
   <script src="../assets/javascript/global.js"></script>
 </body>

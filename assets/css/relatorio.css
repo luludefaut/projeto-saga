@@ -116,15 +116,22 @@ body.alto-contraste {
 
   gap: 10px;
 
-  opacity: 0.5;
+  /* Cartão claro para o texto ficar legível em qualquer tema */
+  padding: 30px 45px;
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: 18px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
 }
 
 .alert-box img {
   width: 70px;
+  opacity: 0.7; /* só o ícone fica mais suave */
 }
 
 .alert-box p {
-  font-size: 14px;
+  color: #040446;
+  font-size: 18px;
+  font-weight: 700;
 }
 
 /*=================== ESTRUTURA DOS CARDS ================*/
@@ -551,7 +558,16 @@ margin: 1px 0 0 10px;
   padding: 15px 10px !important;
 }
 
-
+/* =====================================================
+   DESCRIÇÃO DO CARD (corta em 3 linhas com "...")
+===================================================== */
+.descricao-card {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
 
 /*==================== RESPONSIVIDADE RELATÓRIO ====================*/
 
@@ -891,9 +907,13 @@ margin: 1px 0 0 10px;
     text-align: center;
   }
 
+  .alert-box {
+    padding: 24px 28px;
+  }
+
   .alert-box p {
     text-align: center;
-    font-size: 13px;
+    font-size: 16px;
   }
 }
 
@@ -929,4 +949,22 @@ margin: 1px 0 0 10px;
     width: 100%;
     
   }
+}
+
+
+/* =====================================================
+   ERROS NO FORMULÁRIO
+===================================================== */
+.msg-erro {
+  min-height: 20px;
+  margin: -10px 0 0;
+
+  color: #b3261e;
+  font-size: 14px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.campo-erro {
+  border: 2px solid #b3261e !important;
 }
