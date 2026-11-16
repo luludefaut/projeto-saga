@@ -84,7 +84,8 @@ Campos disponíveis:
 
 * Nome completo;
 * E-mail;
-* Senha.
+* Senha;
+* Função atual.
 
 ---
 
@@ -192,7 +193,8 @@ Integração com API Gemini para implementação de IA baseada em NLP (Processam
 Exibe:
 
 * Nome;
-* E-mail.
+* E-mail;
+* Função.
 
 ## 🚪 Encerrar Sessão
 
@@ -317,6 +319,10 @@ Estrutura:
 ## Main
 
 Versão principal do projeto.
+
+## darkmode-geral
+
+Branch de trabalho atual com implantação do darkmode e alto contraste, além de testes de fluxo de usuário.
 
 # 📈 Diferenciais do Projeto
 

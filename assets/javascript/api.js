@@ -26,6 +26,16 @@ function salvarSessao(token, usuario) {
   localStorage.setItem("saga_usuario", JSON.stringify(usuario));
 }
 
+// Pega os dados do usuário que fez login (nome_completo, email_usu...)
+// Devolve null se não tiver nada salvo
+function pegarUsuario() {
+  try {
+    return JSON.parse(localStorage.getItem("saga_usuario"));
+  } catch (erro) {
+    return null;
+  }
+}
+
 // Remove tudo que é da sessão (usado no "Encerrar sessão")
 function limparSessao() {
   localStorage.removeItem("saga_token");

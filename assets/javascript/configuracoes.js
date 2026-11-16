@@ -50,3 +50,25 @@ btnSair.addEventListener("click", async () => {
     window.location.href = "../index.html";
 
 });
+
+
+/* =====================================================
+   SEU PERFIL
+   -----------------------------------------------------
+   Mostra o nome e o e-mail de quem está logado. Esses dados
+   foram guardados no login, então cada usuário vê os seus.
+===================================================== */
+const usuarioLogado = pegarUsuario();
+
+if (usuarioLogado) {
+
+    document.getElementById("infoPerfil-nome").textContent = usuarioLogado.nome_completo || "Não informado";
+    document.getElementById("infoPerfil-email").textContent = usuarioLogado.email_usu || "Não informado";
+
+} else {
+
+    // Sem dados salvos (ex: sessão iniciada antes desta atualização)
+    document.getElementById("infoPerfil-nome").textContent = "Não disponível";
+    document.getElementById("infoPerfil-email").textContent = "Faça login novamente para ver seus dados";
+
+}

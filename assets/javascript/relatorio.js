@@ -140,7 +140,7 @@ document.addEventListener("DOMContentLoaded", () => {
     corpo.appendChild(criarLinha("Turma", registro.turma || "Não informada"));
     corpo.appendChild(criarLinha("Curso", nomeDoCurso(registro.id_curso_fk)));
     corpo.appendChild(criarLinha("Data", formatarData(registro.data_inicial)));
-    
+
     // Descrição: o CSS corta em 3 linhas com "..." (classe descricao-card)
     // O texto completo aparece ao passar o mouse e na hora de editar
     const linhaDescricao = criarLinha("Descrição", registro.descricao || "Sem descrição...");

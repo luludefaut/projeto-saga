@@ -558,16 +558,7 @@ margin: 1px 0 0 10px;
   padding: 15px 10px !important;
 }
 
-/* =====================================================
-   DESCRIÇÃO DO CARD (corta em 3 linhas com "...")
-===================================================== */
-.descricao-card {
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
+
 
 /*==================== RESPONSIVIDADE RELATÓRIO ====================*/
 
@@ -967,4 +958,15 @@ margin: 1px 0 0 10px;
 
 .campo-erro {
   border: 2px solid #b3261e !important;
+}
+
+/* =====================================================
+   DESCRIÇÃO DO CARD (corta em 3 linhas com "...")
+===================================================== */
+.descricao-card {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
