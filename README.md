@@ -312,6 +312,110 @@ Estrutura:
 
 ---
 
+# 🧪 Testes Automatizados (E2E com Cypress)
+
+O front-end é testado ponta a ponta com **Cypress**, que abre o site num navegador de verdade e simula o uso: digitar, clicar, navegar entre as telas.
+
+> ✅ **Não é preciso subir o back-end nem o banco de dados.** Nos testes, as chamadas à API (`http://localhost:3000`) são interceptadas com `cy.intercept` e respondidas com dados falsos.
+
+## Pré-requisitos
+
+- Node.js (versão LTS)
+- Dependências instaladas:
+
+```bash
+npm install
+```
+
+## Como rodar os testes
+
+O Cypress precisa que o site esteja no ar em `http://localhost:5500`. Por isso são necessários **dois terminais**:
+
+**Terminal 1 — subir o site**
+
+```bash
+npm start
+```
+
+Deixe esse terminal aberto. Ele inicia o `http-server` na porta **5500**.
+
+**Terminal 2 — rodar o Cypress**
+
+```bash
+# Modo interativo (abre a janela do Cypress, ideal para acompanhar os testes)
+npm run cy:open
+
+# Modo headless (roda tudo no terminal, sem abrir janela)
+npm run cy:run
+```
+
+No modo interativo, escolha **E2E Testing**, selecione um navegador e clique no arquivo de teste que deseja executar.
+
+### Outras formas de rodar
+
+```bash
+# Rodar apenas um fluxo
+npx cypress run --spec "cypress/e2e/fluxo1-autenticacao-cadastro.cy.js"
+npx cypress run --spec "cypress/e2e/fluxo2-relatorio-historico.cy.js"
+
+# Rodar em um navegador específico
+npx cypress run --browser chrome
+```
+
+## Scripts Disponíveis (`package.json`)
+
+| Comando | Descrição |
+| ------- | --------- |
+| `npm start` | Sobe o site em `http://localhost:5500` |
+| `npm run cy:open` | Abre o Cypress no modo interativo |
+| `npm run cy:run` | Roda todos os testes no modo headless |
+
+## O que é testado
+
+### Fluxo 1 — Autenticação e cadastro (`fluxo1-autenticacao-cadastro.cy.js`)
+
+| Caso | O que valida |
+| ---- | ------------ |
+| F1-01 | Login com sucesso, envio dos campos corretos à API, token salvo e redirecionamento para Relatório |
+| F1-02 | Avisos de campos obrigatórios quando o login é enviado vazio (sem chamar a API) |
+| F1-05 | Mensagem de erro e permanência no login com credenciais erradas (`401`) |
+| F1-06 | Bloqueio de acesso às páginas internas sem login |
+| F1-07 | Link "Cadastrar Novo Usuário" nas Configurações |
+| F1-08 | Cadastro de novo usuário com sucesso e limpeza do formulário |
+
+### Fluxo 2 — Relatório e Histórico (`fluxo2-relatorio-historico.cy.js`)
+
+| Caso | O que valida |
+| ---- | ------------ |
+| F2-01/02 | Tela vazia e abertura da escolha do tipo de relatório |
+| F2-03 | Bloqueio ao salvar com campos obrigatórios vazios |
+| F2-04 | Criação de relatório em andamento e exibição na lista |
+| F2-05/06 | Finalização do relatório (`POST` + `PATCH`) e envio ao Histórico |
+| F2-07 | Edição de relatório no Histórico |
+| F2-08 | Exclusão com **desfazer** (nada é apagado na API) |
+| F2-09 | Exclusão confirmada (o `DELETE` é enviado após 6 segundos) |
+| F2-10 | Erro `500` da API exibido dentro do modal |
+
+> ⏱️ O teste **F2-09** espera 6 segundos de propósito (tempo do "desfazer"), então ele é um pouco mais lento que os demais.
+
+## Como os testes funcionam
+
+- Os testes ficam em `cypress/e2e/` e terminam com `.cy.js`.
+- A configuração está em `cypress.config.js` (`baseUrl: http://localhost:5500`).
+- O arquivo `cypress/support/helpers.js` tem funções reaproveitadas pelos testes:
+  - `visitarLogado(caminho)`: abre uma página interna já "logada", com um token falso salvo no `localStorage`;
+  - `criarTokenFalso()` e `usuarioFalso`: dados de sessão usados no login simulado.
+
+## Problemas comuns
+
+| Problema | Solução |
+| -------- | ------- |
+| O Cypress não consegue abrir `localhost:5500` | Confirme se o `npm start` está rodando no Terminal 1 |
+| Porta `5500` já está em uso | Feche o processo que está usando a porta ou o outro servidor que esteja aberto |
+| Cypress pede para instalar o binário | Rode `npx cypress install` |
+
+---
+
 # 🌿 Estrutura de Branches
 
 ## Main
@@ -346,4 +450,4 @@ Mais do que armazenar informações, nossa plataforma busca oferecer uma soluç�
 # 📚 Referências
 
 1. **SENAI.** Projeto Integrador 2025/02 4.02 – Sistema de Registro e Monitoramento de Ocorrências Acadêmicas. Plataforma SAGA SENAI de Inovação, Demanda da Indústria n. 11642, 2025.  
-   Disponível em: <https://plataforma.gpinovacao.senai.br/plataforma/demandas-da-industria/interna/11642> 
+   Disponível em: <https://plataforma.gpinovacao.senai.br/plataforma/demandas-da-industria/interna/11642>
