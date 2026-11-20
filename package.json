@@ -1,0 +1,19 @@
+{
+  "name": "projeto-saga-main",
+  "version": "1.0.0",
+  "description": "- Daniel Richard\r - Eloah Veiga\r - João Pedro Fagundes \r - Luca Mendes\r - Mateus Chaves",
+  "main": "index.js",
+  "scripts": {
+    "start": "http-server . -p 5500",
+    "cy:open": "cypress open",
+    "cy:run": "cypress run"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "cypress": "^16.3.0",
+    "http-server": "^14.1.1"
+  }
+}
